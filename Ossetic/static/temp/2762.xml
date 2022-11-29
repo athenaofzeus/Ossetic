@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_cyrxyn" xml:lang="os"><form xml:id="form_d2378e66" xml:lang="os-x-iron" type="lemma"><orth>cyrxyn</orth><form xml:id="form_d2378e68" type="participle"><orth>cyrxt</orth></form></form><form xml:id="form_d2378e71" xml:lang="os-x-digor" type="dialectal"><orth>curxun</orth><form xml:id="form_d2378e73" type="participle"><orth>curxt</orth></form></form><sense xml:id="sense_d2378e76"><sense xml:id="sense_d2378e77"><abv:tr xml:lang="ru"><q>складывать в кучу</q></abv:tr></sense><sense xml:id="sense_d2378e86"><abv:tr xml:lang="ru"><q>наваливать друг на друга (дрова и пр.)</q></abv:tr></sense></sense><abv:exampleGrp xml:id="exampleGrp_d2378e96"><abv:example xml:id="example_d2378e98" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>Oræzmæg turǧæmæ racudæj æma… sogtæ æ ǧæbesi curxta</quote><abv:tr xml:lang="ru"><q>Оразмаг вышел во двор и накладывал в охапку дрова</q></abv:tr><bibl><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref><biblScope>II
+                            11</biblScope></bibl></abv:example><abv:example xml:id="example_d2378e120" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>sogi warǧ næ færazuj, otemæj ba ma ibæl curxgæ kænuj</quote><abv:tr xml:lang="ru"><q>вязанку с дровами не в силах (поднять), а еще на нее наваливает</q></abv:tr><bibl><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref><biblScope>II
+                            116</biblScope></bibl></abv:example><abv:example xml:id="example_d2378e142" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>æ kustfællad iwængtæ… listængondbæl ærcurxidæ</quote><abv:tr xml:lang="ru"><q>с уставшими от работы членами он валился на подстилку</q></abv:tr><bibl><ref type="bibl" target="#src_Bes._Ka_ke"><abbr><name full="yes" instant="false">Bes.</name> Ka ke</abbr></ref><biblScope>6</biblScope></bibl></abv:example><abv:example xml:id="example_d2378e164" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>rædud rædudbæl curxuj</quote><abv:tr xml:lang="ru"><q>он громоздит ошибку на ошибку</q></abv:tr><bibl><ref type="bibl" target="#src_Sam."><abbr><name full="yes" instant="false">Sam.</name></abbr></ref><biblScope>150</biblScope></bibl></abv:example></abv:exampleGrp><etym xml:lang="ru">По-видимому, отыменный глагол от какого-то *<hi rendition="#rend_italic">čurk</hi> со
+                    значением ‘куча’ и т. п.; ср. <mentioned corresp="#mentioned_d2378e202" xml:id="mentioned_d2378e189" xml:lang="kv"><lang>коми</lang>
+                        <w n="0">чурк</w>
+                        <gloss><q>бугор</q></gloss></mentioned>?</etym></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

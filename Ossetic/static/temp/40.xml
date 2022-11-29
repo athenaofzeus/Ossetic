@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_7rdyston" xml:lang="os-x-iron" abv:completeness="english-questions"><form xml:id="form_d36e66" type="lemma"><orth>ᵆrdyston</orth></form><usg><lang>и.</lang></usg><sense xml:id="sense_d36e72"><sense xml:id="sense_d36e73"><abv:tr xml:lang="ru"><q>футляр для лука</q></abv:tr></sense><sense xml:id="sense_d36e82"><abv:tr xml:lang="ru"><q>горит</q></abv:tr></sense></sense><note xml:lang="ru" type="comment">; служил также колчаном (см. ниже);<note xml:lang="ru" type="footnote">Колчан назывался также <ref type="xr" target="#entry_fat"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">fat</tei:w></ref><ref type="xr" target="#entry_-don_2"><w>don</w></ref>.</note> изготовлялся из кожи,
+          обшивался золотой и серебряной канителью (<bibl><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+            <biblScope>I 50, 80</biblScope></bibl>)</note><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d36e123"><example xml:id="example_d36e125"><quote xmlns="http://www.tei-c.org/ns/1.0">fexson, zæǧgæ, k˳yd zaǧta, aftæ jæ fat ja
+              kʼūxtæj ærxawdī, je <oRef>ʽrdyston</oRef> dær fæjnærdæm axawdta, jæ fættæ nyppyrx
+              sty</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">как только он сказал: дай, выстрелю, — как
+                стрела выпала у него из рук, и горит его развалился, его стрелы рассыпались</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_ИАС"><abbr xml:lang="ru">ИАС</abbr></ref>
+              <biblScope>I 145</biblScope></bibl></example><example xml:id="example_d36e150" xml:lang="ru"><quote xmlns="http://www.tei-c.org/ns/1.0"><q rendition="#rend_doublequotes">все мои
+                стрелы из <oRef>ærdyston</oRef>’a рассыпались</q></quote><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>I 41</biblScope></bibl></example><example xml:id="example_d36e172" xml:lang="ru"><quote xmlns="http://www.tei-c.org/ns/1.0"><q rendition="#rend_doublequotes">видишь ты
+                этот <oRef>ærdyston</oRef>, полный стрелами?</q></quote><tr xml:lang="ru"><?oxy_comment_start author="Irene" timestamp="20220610T125602+0300" comment="если это удалить, то англ не удалится?"?><q xmlns="http://www.tei-c.org/ns/1.0">видишь ты этот <oRef>ærdyston</oRef>, полный
+                стрелами?</q><?oxy_comment_end?></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>I 77</biblScope></bibl></example></exampleGrp><etym xml:lang="ru">Из <ref type="xr" target="#entry_7rdyn"><w>ᵆrdyn</w></ref><ref type="xr" target="#entry_-ston"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">-ston</tei:w></ref>
+          <gloss><q rendition="#rend_doublequotes">место для лука</q></gloss>, <mentioned corresp="#mentioned_d36e322" xml:id="mentioned_d36e216" xml:lang="x-oldirn"><lang>др.иран.</lang>
+            <w>ᵆdruna-stāna-</w></mentioned>; см. <ref type="xr" target="#entry_7rdyn"><w>ᵆrdyn</w>
+            <gloss><q>лук</q></gloss></ref> и <ref type="xr" target="#entry_-ston"><w>ston</w>
+            <note xml:lang="ru" type="comment">(в сложных словах)</note>
+            <gloss><q>вместилище</q></gloss>, <gloss><q>место</q></gloss></ref>. Ср. по образованию
+            <ref type="xr" target="#entry_cæxx"><w>cæxxyston</w>
+            <gloss><q>солонка</q></gloss></ref>, <ref type="xr" target="#entry_gæn"><w>gænyston</w>
+            <gloss><q>запустение</q></gloss></ref>, <ref type="xr" target="#entry_zæræston"><w>zæræston</w>
+            <gloss><q>заброшенное и заросшее травой поле</q></gloss></ref>, <ref type="xr" target="#entry_Iryston"><w>Iryston</w>
+            <gloss><q>Осетия</q></gloss></ref> и т. п. (<bibl><ref type="bibl" target="#ref_ГО"><abbr xml:lang="ru">ГО</abbr></ref>
+            <biblScope>§ 191</biblScope></bibl>). — <mentioned corresp="#mentioned_d36e375" xml:id="mentioned_d36e269" xml:lang="sog"><lang>Согд.</lang>
+            <w>δrwnštn</w>
+            <gloss><q>колчан</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Benveniste._TSP"><abbr><name full="yes" instant="false">Benveniste</name>. TSP</abbr></ref>
+                <biblScope>228</biblScope></bibl>)</note></mentioned>, которое
+          <bibl><author>Bailey</author></bibl> предположительно восстанавливает <mentioned corresp="#mentioned_d36e395" xml:id="mentioned_d36e289" xml:lang="ira"><?oxy_comment_start author="Irene" timestamp="20220416T114411+0300" comment="поставила иран пока, хз что ставить"?><w type="rec">druna-starana-</w><?oxy_comment_end?>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_BSOAS"><abbr>BSOAS</abbr></ref>
+                <biblScope>1961 XXIV 472</biblScope></bibl>)</note></mentioned>, напрашивается на
+          сближение с ос. <oRef>ᵆrdyston</oRef>.<lb/><bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref>
+            <biblScope>29</biblScope></bibl>.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

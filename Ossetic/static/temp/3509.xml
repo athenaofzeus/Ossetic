@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_k&#x16B;ryn" xml:lang="os"><form xml:id="form_d3051e66" xml:lang="os-x-iron" type="lemma"><orth>kūryn</orth><form xml:id="form_d3051e68" type="participle"><orth>k˳yrd</orth></form></form><form xml:id="form_d3051e71" xml:lang="os-x-digor" type="dialectal"><orth>korun</orth><form xml:id="form_d3051e73" type="participle"><orth>kurd</orth></form></form><sense xml:id="sense_d3051e76"><abv:tr xml:lang="ru"><q>просить</q></abv:tr></sense><re xml:id="re_d3051e86"><form xml:id="form_d3051e88" type="lemma"><orth>us kūryn</orth></form><sense xml:id="sense_d3051e91"><abv:tr xml:lang="ru"><q>сватать жену</q></abv:tr></sense></re><abv:exampleGrp xml:id="exampleGrp_d3051e102"><abv:example xml:id="example_d3051e104"><quote>Satana rak˳yrdta Æfsatījæ wadynʒ</quote><abv:tr xml:lang="ru"><q>Шатана выпросила у Афсати свирель</q></abv:tr><bibl><ref type="bibl" target="#src_Нарт._сказ."><abbr xml:lang="ru">Нарт. сказ.</abbr></ref><biblScope>135</biblScope></bibl></abv:example><abv:example xml:id="example_d3051e123"><quote>īw bon Azawmæ kūræg ærcydysty Bīganatæ</quote><abv:tr xml:lang="ru"><q>однажды пришли свататься к Азау Бигановы</q></abv:tr><bibl><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref><biblScope>44</biblScope></bibl></abv:example><abv:example xml:id="example_d3051e142"><quote>kūrǵytæ jæ bīræ īs ænæ symax dær, fælæ jæ nīkæmæn dæddyn</quote><abv:tr xml:lang="ru"><q>к ней и без вас многие сватаются, но я никому ее не отдаю</q></abv:tr><bibl><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref><biblScope>83</biblScope></bibl></abv:example></abv:exampleGrp><re xml:id="re_d3051e163"><note type="comment" xml:lang="ru">Во второй части сложных слов (<hi rendition="#rend_italic">-gūr</hi> |
+                        <hi rendition="#rend_italic">-gor</hi>) ‘просящий’: </note><re xml:id="re_d3051e171"><form xml:id="form_d3051e173" type="lemma"><orth>mæg˳yrgūr</orth></form><sense xml:id="sense_d3051e176"><sense xml:id="sense_d3051e177"><abv:tr xml:lang="ru"><q>просящий по бедности</q></abv:tr></sense><sense xml:id="sense_d3051e186"><abv:tr xml:lang="ru"><q>нищий</q></abv:tr></sense></sense></re><re xml:id="re_d3051e197"><form xml:id="form_d3051e199" type="lemma"><orth>usgūr</orth></form><sense xml:id="sense_d3051e202"><abv:tr xml:lang="ru"><q>жених</q></abv:tr><note type="comment" xml:lang="ru"> (сватающий
+                                жену)</note><note type="comment" xml:lang="ru"> (сватающий
+                                жену)</note></sense></re><re xml:id="re_d3051e221"><form xml:id="form_d3051e223" type="lemma"><orth>kæxcgūr</orth></form><sense xml:id="sense_d3051e226"><abv:tr xml:lang="ru"><q>собирающий подарки на праздник <hi rendition="#rend_smallcaps">kæxc</hi></q></abv:tr></sense></re><re xml:id="re_d3051e238"><form xml:id="form_d3051e240" type="lemma"><orth>lævargūr</orth></form><sense xml:id="sense_d3051e243"><abv:tr xml:lang="ru"><q>собирающий подарки</q></abv:tr></sense></re></re><re xml:id="re_d3051e255"><form xml:id="form_d3051e257" xml:lang="os-x-iron" type="lemma"><orth>kūrdiad</orth></form><form xml:id="form_d3051e260" xml:lang="os-x-digor" type="dialectal"><orth>iskurdiadæ</orth></form><sense xml:id="sense_d3051e263"><sense xml:id="sense_d3051e264"><abv:tr xml:lang="ru"><q>дар</q></abv:tr></sense><sense xml:id="sense_d3051e273"><abv:tr xml:lang="ru"><q>дарование</q></abv:tr></sense><sense xml:id="sense_d3051e282"><note type="comment" xml:lang="ru">буквально</note><abv:tr xml:lang="ru"><q>испрошенное (у богов)</q></abv:tr><note type="comment" xml:lang="ru">буквально</note></sense></sense><abv:exampleGrp xml:id="exampleGrp_d3051e300"><abv:example xml:id="example_d3051e302"><quote>dæ q˳yddag mænæn kūrdiad ū</quote><abv:tr xml:lang="ru"><q>твое дело мне даровано свыше</q></abv:tr><bibl><ref type="bibl" target="#src_ЮОПам."><abbr xml:lang="ru">ЮОПам.</abbr></ref><biblScope>II
+                                    77</biblScope></bibl></abv:example><abv:example xml:id="example_d3051e321" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>Soslanæn iskurdiadæ adtæj ma rakurdta Xucawæj, ali fædesi dær in
+                                racæwun baræ kud adtajdæ otæ</quote><abv:tr xml:lang="ru"><q>у Сослана был дар испрошения, и он выпросил у Бога, чтобы при
+                                    всякой тревоге он имел право выйти (на тревогу)</q></abv:tr><bibl><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref><biblScope>II
+                                    22</biblScope></bibl></abv:example></abv:exampleGrp></re><etym xml:lang="ru">В глаголах <hi rendition="#rend_italic">kūryn</hi> ‘просить’, <ref type="xr" target="#entry_agūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">agūryn</tei:w></ref> (← <hi rendition="#rend_italic">*a-kur-</hi>) ‘искать’, <ref type="xr" target="#entry_g0yryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">g˳yryn</tei:w></ref> | <ref type="xr" target="#entry_igurun"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">igurun</tei:w></ref> ←
+                    (<hi rendition="#rend_italic">*vi-kur-</hi>) ‘возникать’, ‘рождаться’ распознается один и тот же корень
+                    <hi rendition="#rend_italic">*kur-</hi>. Медиально он означал ‘возникать’, ‘появляться’ (ос. <ref type="xr" target="#entry_igurun"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">igurun</tei:w></ref>); активно — ‘стремиться к появлению чего-либо’, с
+                    помощью испрашивания (ос. <hi rendition="#rend_italic">kūryn</hi>) или поисков (ос. <ref type="xr" target="#entry_agūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">agūryn</tei:w></ref>). Для <ref type="xr" target="#entry_igurun"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">igurun</tei:w></ref>
+                    ‘рождаться’ ср. <mentioned corresp="#mentioned_d3051e462" xml:id="mentioned_d3051e360" xml:lang="sog"><lang>согд.</lang>
+                        <w>*wi-kor-(wk’wr)</w>
+                        <gloss><q>родня</q></gloss></mentioned>, а также <mentioned corresp="#mentioned_d3051e470" xml:id="mentioned_d3051e368" xml:lang="pal"><lang>пехл.</lang>
+                        <w>kurrak</w></mentioned>, <mentioned corresp="#mentioned_d3051e475" xml:id="mentioned_d3051e373" xml:lang="fa"><lang>перс.</lang>
+                        <w>kurrah</w></mentioned>, <mentioned corresp="#mentioned_d3051e480" xml:id="mentioned_d3051e378" xml:lang="ku"><lang>курд.</lang>
+                        <w>kur</w>
+                        <gloss><q>жеребенок</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3051e488" xml:id="mentioned_d3051e386" xml:lang="ku"><w/>
+                        <gloss><q>осленок</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3051e495" xml:id="mentioned_d3051e393" xml:lang="ku"><w/>
+                        <gloss><q>верблюжонок</q></gloss></mentioned> („рожденный“). В значении
+                    ‘действовать, чтобы вызвать к жизни’ (ос. <hi rendition="#rend_italic">kūryn</hi> и <ref type="xr" target="#entry_agūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">agūryn</tei:w></ref>) ср., может быть, <mentioned corresp="#mentioned_d3051e503" xml:id="mentioned_d3051e401" xml:lang="ae"><lang>ав.</lang>
+                        <w>hakurəna-</w>
+                        <gloss><q>содействие</q></gloss></mentioned>. Ос. <ref type="xr" target="#entry_g0yppyr"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">g˳yppyr</tei:w></ref> | <hi rendition="#rend_italic">guppur</hi> ‘выдающийся’, вопреки <hi rendition="#rend_smallcaps">Ваilеу</hi>, не
+                    имеет сюда отношения. Как видно из семантики слова <ref type="xr" target="#entry_kūrdiat"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">kūrdiat</tei:w></ref>(<hi rendition="#rend_bold">kūrdiad</hi>), глагол <hi rendition="#rend_italic">kūryn</hi> мог иметь значение
+                    ‘колдовства’, ‘чародейства’: „испрашивать с помощью заклинаний“. Возможна связь
+                    с <ref type="xr" target="#entry_ʒūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref> | <hi rendition="#rend_italic">ʒorun</hi> ‘говорить’. Дальнейшее не
+                    ясно. Сближение с др.инд. <hi rendition="#rend_italic">kir-</hi>, <hi rendition="#rend_italic">kar-</hi> ‘прославлять’, <hi rendition="#rend_italic">karu-</hi> ‘певец’,
+                    ‘славословящий’ (<bibl><ref type="bibl" target="#ref_Миллер_Вс._ОЭ"><abbr xml:lang="ru"><name full="yes" instant="false">Миллер</name> Вс. ОЭ</abbr></ref><biblScope>II 59</biblScope></bibl>; <bibl><ref type="bibl" target="#ref_Miller_IF_21"><abbr><name full="yes" instant="false">Miller</name> IF 21</abbr></ref><biblScope xml:lang="ru">стр.
+                            329</biblScope></bibl>)
+                    невозможно как по звуковым, так и семантическим соображениям. Ср. <ref type="xr" target="#entry_agūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">agūryn</tei:w></ref> ‘искать’ и <ref type="xr" target="#entry_g0yryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">g˳yryn</tei:w></ref>
+                    | <ref type="xr" target="#entry_igurun"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">igurun</tei:w></ref> ‘рождаться’, ‘возникать’.%n<bibl><ref type="bibl" target="#ref_Gershevitch"><abbr><name full="yes" instant="false">Gershevitch</name></abbr></ref></bibl>, <bibl><ref type="bibl" target="#ref_BSOAS"><abbr>BSOAS</abbr></ref><biblScope xml:lang="ru">XIV 493
+                            сл.</biblScope></bibl> —
+                            <bibl><author>Bailey</author><ref type="bibl" target="#ref_JRAS"><abbr>JRAS</abbr></ref><biblScope xml:lang="ru">1953, стр. 115 сл.</biblScope></bibl>.</etym><note type="internal">здесь странный курдиад</note></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

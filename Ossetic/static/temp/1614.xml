@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_fydg&#x16B;l" xml:lang="os"><form xml:id="form_d1396e66" xml:lang="os-x-iron" type="lemma"><orth>fydgūl</orth></form><form xml:id="form_d1396e69" xml:lang="os-x-digor" type="dialectal"><orth>fudgol</orth><form xml:id="form_d1396e71" type="variant"><orth>fidgol</orth></form></form><sense xml:id="sense_d1396e74"><sense xml:id="sense_d1396e75"><abv:tr xml:lang="ru"><q>недруг</q></abv:tr></sense><sense xml:id="sense_d1396e84"><abv:tr xml:lang="ru"><q>ненавистник</q></abv:tr></sense><sense xml:id="sense_d1396e93"><abv:tr xml:lang="ru"><q>враг</q></abv:tr></sense></sense><abv:exampleGrp xml:id="exampleGrp_d1396e103"><abv:example xml:id="example_d1396e105"><quote>dæ fydgūl aftæ!</quote><abv:tr xml:lang="ru"><q>твоему врагу (да будет) так!</q></abv:tr></abv:example><abv:example xml:id="example_d1396e120" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>i fudgolæj fættærsunmæ e ne ʽrxæsʒænæj æ sær</quote><abv:tr xml:lang="ru"><q>он не снизойдет до того, чтобы испугаться врага</q></abv:tr><bibl><ref type="bibl" target="#src_Iræf"><abbr>Iræf</abbr></ref><biblScope>59</biblScope></bibl></abv:example><abv:example xml:id="example_d1396e142" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>es ma nur næ cardi fudgoltæ, ka ixaluj xæʒaræn æ dast</quote><abv:tr xml:lang="ru"><q>есть еще в нашей жизни враги, которые мешают строительству дома</q></abv:tr><bibl><ref type="bibl" target="#src_Bes."><abbr><name full="yes" instant="false">Bes.</name></abbr></ref><biblScope>69</biblScope></bibl></abv:example><abv:example xml:id="example_d1396e164" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>he ordigi færsæncojnæj e fudgolmæ fælgæsuj</quote><abv:tr xml:lang="ru"><q>оттуда, опираясь на бок, он смотрит на врага</q></abv:tr><bibl><ref type="bibl" target="#src_Iræf"><abbr>Iræf</abbr></ref><biblScope>57</biblScope></bibl></abv:example></abv:exampleGrp><etym xml:lang="ru">Понятия ‘любви’ и ‘ненависти’ восходят часто к ‘колдовству’,
+                    ‘заклинанию’. Опираясь на это проверенное на ряде случаев положение исторической
+                    семасиологии, мы возводим <hi rendition="#rend_italic">fydgūl</hi> | <hi rendition="#rend_italic">fudgol</hi> к <ref type="xr" target="#entry_fyd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref>-<hi rendition="#rend_italic">kūr</hi> | <hi rendition="#rend_italic">fud-kor</hi>, где в первой части <ref type="xr" target="#entry_fyd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref> | <hi rendition="#rend_italic">fud</hi> ‘зло’, а во второй — основа
+                    глагола <ref type="xr" target="#entry_kūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">kūryn</tei:w></ref> | <hi rendition="#rend_italic">korun</hi> ‘просить’,
+                    первоначально — ‘просить с помощью заклинаний’, ‘ворожить’. Исходное значение
+                    слова <hi rendition="#rend_italic">fydgūl</hi>, таким образом: „навлекающий на кого-либо зло с помощью
+                    заклинаний“ → ‘зложелатель’, ‘враг’. Противоположное <ref type="xr" target="#entry_xæzgūl"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">xæzgūl</tei:w></ref> (из <ref type="xr" target="#entry_xærz-"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">xærz-</tei:w></ref><hi rendition="#rend_italic">kūr</hi>
+                    ‘доброжелатель’) получило значение ‘любовник’, ‘любовница’. Звуковое развитие
+                    слова: <hi rendition="#rend_italic">k</hi> → <hi rendition="#rend_italic">g</hi> в начале второй части сложного слова, как обычно (<ref type="xr" target="#entry_fyd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref>-<hi rendition="#rend_italic">kūr</hi> → <ref type="xr" target="#entry_fyd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref>-<hi rendition="#rend_italic">gūl</hi>); перебой конечного <hi rendition="#rend_italic">r</hi> → <hi rendition="#rend_italic">l</hi> мог произойти сперва в <ref type="xr" target="#entry_xærz-"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">xærz-</tei:w></ref><hi rendition="#rend_italic">kūr</hi> → <ref type="xr" target="#entry_xærz-"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">xærz-</tei:w></ref><hi rendition="#rend_italic">gūl</hi> по диссимиляции плавных, а затем был по
+                    аналогии перенесен на <hi rendition="#rend_italic">fydgūl</hi> из <ref type="xr" target="#entry_fyd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref>-<hi rendition="#rend_italic">gūr</hi>. См. %r3%r<ref type="xr" target="#entry_fyd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0"/></ref> и <ref type="xr" target="#entry_kūryn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">kūryn</tei:w></ref>. Ср. <ref type="xr" target="#entry_xæzgūl"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">xæzgūl</tei:w></ref>.%n<bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref><biblScope>584</biblScope></bibl>.</etym><note type="internal">возможно, слишком много хрефов</note></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_m&#xE6;j" xml:lang="os" abv:completeness="complete"><form xml:id="form_d2825e66" type="lemma" xml:lang="os-x-iron"><orth>mæj</orth></form><form xml:id="form_d2825e69" xml:lang="os-x-digor" type="dialectal"><orth>mæjæ</orth></form><sense xml:id="sense_d2825e72" n="1"><sense xml:id="sense_d2825e73"><abv:tr xml:lang="ru"><q>луна</q></abv:tr></sense><sense xml:id="sense_d2825e82"><abv:tr xml:lang="ru"><q>месяц</q></abv:tr></sense></sense><sense xml:id="sense_d2825e88" n="2"><abv:tr xml:lang="ru"><q>месяц</q><note xml:lang="ru" type="comment"> (единица времени)</note></abv:tr></sense><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d2825e104" n="1"><example xml:id="example_d2825e106"><quote xmlns="http://www.tei-c.org/ns/1.0">xūr batar wyʒæn æmæ <oRef>mæj</oRef> nal
+              radʒæn jæ rūxs</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">солнце померкнет, и луна не даст света
+                своего</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Матфей"><abbr xml:lang="ru">Матфей</abbr></ref>
+              <biblScope><hi rendition="#rend_italic">24</hi> 29</biblScope></bibl></example><example xml:id="example_d2825e134"><quote xmlns="http://www.tei-c.org/ns/1.0"><oRef>mæj</oRef> dæ avdænīmæ qazy</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">месяц играет с твоей колыбелью</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref>
+              <biblScope>27</biblScope></bibl></example><example xml:id="example_d2825e158"><quote xmlns="http://www.tei-c.org/ns/1.0"><oRef>mæj</oRef> jæ calxy ʒagæj
+              rakastīs</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">выглянула полная (<q>в полное колесо</q>)
+                луна</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref>
+              <biblScope>216</biblScope></bibl></example><example xml:id="example_d2825e186" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">stʼalutæ… cæfsuncæ minæj, <oRef>mæjæ</oRef>
+              šin fæjjaw</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">звезды горят тысячами, месяц им — пастух</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Wadž."><abbr><name full="yes" instant="false">Gurdž.</name> Wadž.</abbr></ref>
+              <biblScope>8</biblScope></bibl></example><example xml:id="example_d2825e214" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">mæ <oRef>mæjʒæskoni</oRef> imisun</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">вспоминаю мою луноликую</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Тайм._Ӕмдз."><abbr xml:lang="ru"><name full="yes" instant="false">Тайм.</name> Ӕмдз.</abbr></ref>
+              <biblScope>63</biblScope></bibl></example></exampleGrp><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d2825e244" n="2"><example xml:id="example_d2825e246"><quote xmlns="http://www.tei-c.org/ns/1.0">Satana rajdydta bontæ ‘mæ <oRef>mæjtæ</oRef>
+              nymajyn</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">Шатана стала считать дни и месяцы</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Нарт._сказ."><abbr xml:lang="ru">Нарт. сказ.</abbr></ref>
+              <biblScope>190</biblScope></bibl></example><example xml:id="example_d2825e271"><quote xmlns="http://www.tei-c.org/ns/1.0">radʒynæn dæs æmæ yssæʒ tūmany
+                <oRef>mæjy</oRef> æmǧ˳ydæj</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">дам тридцать туманов сроком на месяц</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>61</biblScope></bibl></example><example xml:id="example_d2825e300" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">cærun æ xæccæ <oRef>mæjæ</oRef> næ
+              bafærazʒænæn æz</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">жить с ним и (один) месяц я не смогу</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æduli"><abbr><name full="yes" instant="false">Gurdž.</name> Æduli</abbr></ref>
+              <biblScope>95</biblScope></bibl></example><example xml:id="example_d2825e328" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">cudæj <oRef>mæji</oRef> bærcæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">прошло около месяца</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Iræf"><abbr>Iræf</abbr></ref>
+              <biblScope>118</biblScope></bibl></example></exampleGrp><re xml:id="re_d2825e357"><note xml:lang="ru" type="comment">Названия месяцев: </note><re xml:id="re_d2825e365" xml:lang="os-x-iron"><form xml:id="form_d2825e367" type="lemma"><lang>и.</lang><orth>Tʼænǵy <oRef>mæj</oRef></orth></form></re><re xml:id="re_d2825e374" xml:lang="os-x-digor"><form xml:id="form_d2825e376" type="lemma"><lang>д.</lang><orth>Ænsuri <oRef>mæjæ</oRef></orth></form></re><re xml:id="re_d2825e383" xml:lang="os-x-digor"><form xml:id="form_d2825e385" type="lemma"><lang>д.</lang><orth>Basilti <oRef>mæjæ</oRef></orth></form></re><sense xml:id="sense_d2825e393"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">январь</q></tr></sense></re><re xml:id="re_d2825e406"><re xml:id="re_d2825e408" xml:lang="os-x-iron"><form xml:id="form_d2825e410" type="lemma"><lang>и.</lang><orth>Ærtqīræny <oRef>mæj</oRef></orth></form></re><re xml:id="re_d2825e417"><form xml:id="form_d2825e419" type="lemma"><orth>Komaxsæn</orth></form></re><sense xml:id="sense_d2825e423"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">февраль</q></tr></sense></re><re xml:id="re_d2825e436"><form xml:id="form_d2825e438" type="lemma"><orth>Komdaræn</orth></form><sense xml:id="sense_d2825e441"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">март</q></tr></sense></re><re xml:id="re_d2825e454"><re xml:id="re_d2825e456" xml:lang="os-x-iron"><form xml:id="form_d2825e458" type="lemma"><lang>и.</lang><orth>Syftæry <oRef>mæj</oRef></orth></form></re><re xml:id="re_d2825e465" xml:lang="os-x-digor"><form xml:id="form_d2825e467" type="lemma"><lang>д.</lang><orth>Nikkola</orth></form></re><sense xml:id="sense_d2825e472"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">апрель</q></tr></sense></re><re xml:id="re_d2825e485"><re xml:id="re_d2825e487" xml:lang="os-x-digor"><form xml:id="form_d2825e489" type="lemma"><lang>д.</lang><orth>Kærdæǵy <oRef>mæj</oRef></orth></form></re><re xml:id="re_d2825e496" xml:lang="os-x-digor"><form xml:id="form_d2825e498" type="lemma"><lang>д.</lang><orth>Kælværa</orth></form></re><sense xml:id="sense_d2825e503"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">май</q></tr></sense></re><re xml:id="re_d2825e517"><re xml:id="re_d2825e519" xml:lang="os-x-iron"><form xml:id="form_d2825e521" type="lemma"><lang>и.</lang><orth>Kæxcgænæn</orth></form></re><re xml:id="re_d2825e526" xml:lang="os-x-digor"><form xml:id="form_d2825e528" type="lemma"><lang>д.</lang><orth>Amistol</orth></form></re><sense xml:id="sense_d2825e533"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">июнь</q></tr></sense></re><re xml:id="re_d2825e546"><form xml:id="form_d2825e548" type="lemma" xml:lang="os-x-iron"><orth>Sūsæny <oRef>mæj</oRef></orth></form><form xml:id="form_d2825e553" xml:lang="os-x-digor" type="dialectal"><orth>Sosæni <oRef>mæjæ</oRef></orth></form><sense xml:id="sense_d2825e558"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">июль</q></tr></sense></re><re xml:id="re_d2825e571" xml:lang="os-x-iron"><form xml:id="form_d2825e573" type="lemma"><lang>и.</lang><orth>Majræmy kwaʒæny <oRef>mæj</oRef></orth></form><sense xml:id="sense_d2825e579"><abv:tr xml:lang="ru"><q>август</q></abv:tr></sense></re><re xml:id="re_d2825e590"><form xml:id="form_d2825e592" type="lemma"><orth>Rūxæn</orth></form><sense xml:id="sense_d2825e595"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">сентябрь</q></tr></sense></re><re xml:id="re_d2825e608"><form xml:id="form_d2825e610" type="lemma" xml:lang="os-x-iron"><orth>Kæfty <oRef>mæj</oRef></orth></form><form xml:id="form_d2825e615" xml:lang="os-x-digor" type="dialectal"><orth>Kæfti <oRef>mæjæ</oRef></orth></form><sense xml:id="sense_d2825e620"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">октябрь</q></tr></sense></re><re xml:id="re_d2825e633"><form xml:id="form_d2825e635" type="lemma" xml:lang="os-x-iron"><orth>Ǵiorguba</orth></form><form xml:id="form_d2825e638" xml:lang="os-x-digor" type="dialectal"><orth>Gewærgoba</orth></form><sense xml:id="sense_d2825e641"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">ноябрь</q></tr></sense></re><re xml:id="re_d2825e655"><form xml:id="form_d2825e657" type="lemma" xml:lang="os-x-iron"><orth>Cyppurs</orth></form><form xml:id="form_d2825e660" xml:lang="os-x-digor" type="dialectal"><orth>Cæpporse</orth></form><sense xml:id="sense_d2825e663"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">декабрь</q></tr></sense></re><etym xml:lang="ru">Восходит к <mentioned corresp="#mentioned_d2825e995" xml:id="mentioned_d2825e678" xml:lang="ira"><lang>иран.</lang>
+            <w type="rec">māh-</w></mentioned>, <mentioned corresp="#mentioned_d2825e1001" xml:id="mentioned_d2825e684" xml:lang="iir"><lang>ар.</lang>
+            <w type="rec">mās-</w></mentioned> (как <ref type="xr" target="#entry_wæj"><w>wæj</w>
+            <gloss><q>продажа</q></gloss></ref> к <mentioned corresp="#mentioned_d2825e1013" xml:id="mentioned_d2825e696" xml:lang="ira"><w>vah-</w></mentioned>,
+            <mentioned corresp="#mentioned_d2825e1016" xml:id="mentioned_d2825e699" xml:lang="iir"><w>vas-</w></mentioned>) с ослаблением гласного, как в <ref type="xr" target="#entry_wæjyg"><w>wæj(yg)</w></ref> при <mentioned corresp="#mentioned_d2825e1023" xml:id="mentioned_d2825e706" xml:lang="sa-vaidika"><lang>вед.</lang>
+            <w>Vāyu-</w></mentioned>. Распознается в некоторых <lang>скифских</lang> собств. именах,
+          например <mentioned corresp="#mentioned_d2825e1030" xml:id="mentioned_d2825e713" xml:lang="xsc"><w>Μαῖφαρνος</w></mentioned> = <mentioned corresp="#mentioned_d2825e1033" xml:id="mentioned_d2825e716" xml:lang="os"><lang>ос.</lang>
+            <w>Mæjfarn</w>
+            <gloss><q rendition="#rend_doublequotes">(носитель) лунного
+            фарна</q></gloss></mentioned>. Ср. <mentioned corresp="#mentioned_d2825e1044" xml:id="mentioned_d2825e725" xml:lang="fa"><lang>перс.</lang>
+            <w>māh</w></mentioned>, <mentioned corresp="#mentioned_d2825e1050" xml:id="mentioned_d2825e731" xml:lang="ku"><lang>курд.</lang>
+            <w>meh</w></mentioned>, <mentioned corresp="#mentioned_d2825e1055" xml:id="mentioned_d2825e736" xml:lang="x-balochi"><lang>бел.</lang>
+            <w>māh</w></mentioned>, <lang>русск.</lang>
+          <mentioned corresp="#mentioned_d2825e1062" xml:id="mentioned_d2825e743" xml:lang="x-balochi"><w>maha</w></mentioned>, <mentioned corresp="#mentioned_d2825e1065" xml:id="mentioned_d2825e746" xml:lang="ps"><lang>афг.</lang>
+            <note xml:lang="ru" type="comment">(в сложных словах)</note>
+            <w>-mai</w></mentioned>, <mentioned corresp="#mentioned_d2825e1073" xml:id="mentioned_d2825e754" xml:lang="ps"><w>myāst</w>
+            <note xml:lang="ru" type="comment">(← <mentioned corresp="#mentioned_d2825e1078" xml:id="mentioned_d2825e759" xml:lang="ira"><w type="rec">māsti</w><note type="bibl">: <bibl><ref type="bibl" target="#ref_Morgenstierne._EVP"><abbr><name full="yes" instant="false">Morgenstierne</name>. EVP</abbr></ref>
+                    <biblScope>49</biblScope></bibl></note></mentioned>)</note></mentioned>,
+            <mentioned corresp="#mentioned_d2825e1090" xml:id="mentioned_d2825e771" xml:lang="oru"><lang>орм.</lang>
+            <w>māī</w></mentioned>, <mentioned corresp="#mentioned_d2825e1095" xml:id="mentioned_d2825e776" xml:lang="prc"><lang>пар.</lang>
+            <w>mēhī</w></mentioned>
+          <note type="bibl">(<bibl><ref type="bibl" target="#ref_Morgenstierne._IIFL"><abbr><name full="yes" instant="false">Morgenstierne</name>. IIFL</abbr></ref>
+              <biblScope>I 271</biblScope></bibl>)</note>, <mentioned corresp="#mentioned_d2825e1108" xml:id="mentioned_d2825e789" xml:lang="sgh" extralang="x-rushani"><lang>пам. ш., пам. руш.</lang>
+            <w>mest</w></mentioned>, <mentioned corresp="#mentioned_d2825e1113" xml:id="mentioned_d2825e794" xml:lang="sgh-x-bartang"><lang>пам. барт.</lang>
+            <w>most</w></mentioned>, <mentioned corresp="#mentioned_d2825e1118" xml:id="mentioned_d2825e799" xml:lang="yah"><lang>пам. язг.</lang>
+            <w>mast</w></mentioned>, <mentioned corresp="#mentioned_d2825e1124" xml:id="mentioned_d2825e805" xml:lang="mnj"><lang>пам. м.</lang>
+            <w>yumagå</w></mentioned>, <mentioned corresp="#mentioned_d2825e1129" xml:id="mentioned_d2825e810" xml:lang="mnj"><w>yūmagika</w></mentioned>
+          <note xml:lang="ru" type="comment">(<bibl><author>Грюнберг</author>. <title>Мунджанский
+                язык</title>. <pubPlace>Л.</pubPlace>, <date>1972</date>, <biblScope>стр.
+                391</biblScope></bibl>.— <bibl><ref type="bibl" target="#ref_Зарубин._Мундж."><abbr xml:lang="ru"><name full="yes" instant="false">Зарубин</name>. Мундж.</abbr></ref>
+              <biblScope>182</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_Sköld._Pam."><abbr><name full="yes" instant="false">Sköld</name>. Pam.</abbr></ref>
+              <biblScope>134–135</biblScope></bibl>)</note>, <mentioned corresp="#mentioned_d2825e1156" xml:id="mentioned_d2825e837" xml:lang="wbl"><lang>пам. в.</lang>
+            <w>mūi</w>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Lorimer"><abbr><name full="yes" instant="false">Lorimer</name></abbr></ref>
+                <biblScope>II 134</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d2825e1169" xml:id="mentioned_d2825e850" xml:lang="yai"><lang>ягн.</lang>
+            <w>mah</w></mentioned>, <mentioned corresp="#mentioned_d2825e1174" xml:id="mentioned_d2825e855" xml:lang="yai"><w>māx</w></mentioned>, <mentioned corresp="#mentioned_d2825e1178" xml:id="mentioned_d2825e859" xml:lang="sog"><lang>согд.</lang>
+            <w type="rec">māx</w> (<w>mʼɣ</w>)</mentioned>, <mentioned corresp="#mentioned_d2825e1187" xml:id="mentioned_d2825e868" xml:lang="xpr"><lang>парф.</lang>
+            <w>māh</w></mentioned>, <mentioned corresp="#mentioned_d2825e1192" xml:id="mentioned_d2825e873" xml:lang="xbc"><lang>кушан.</lang>
+            <w>ΜΑΥΟ</w>, <w>ΜΑΟ</w>
+            <gloss>название божества</gloss>
+            <note type="bibl">(<bibl><title>Кара-тепе</title>, <pubPlace>М.</pubPlace>,
+                  <date>1969</date>, <biblScope>стр. 66, прим.
+            94</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d2825e1213" xml:id="mentioned_d2825e894" xml:lang="zkh"><lang>хорезм.</lang>
+            <w>māhi</w></mentioned>, <mentioned corresp="#mentioned_d2825e1218" xml:id="mentioned_d2825e899" xml:lang="kho"><lang>сак.</lang>
+            <w>māsti</w></mentioned>, <mentioned corresp="#mentioned_d2825e1223" xml:id="mentioned_d2825e904" xml:lang="ae"><lang>ав.</lang>
+            <w>māh-</w></mentioned>, <mentioned corresp="#mentioned_d2825e1229" xml:id="mentioned_d2825e910" xml:lang="peo"><lang>др.перс.</lang>
+            <w>māha-</w></mentioned>, <mentioned corresp="#mentioned_d2825e1234" xml:id="mentioned_d2825e915" xml:lang="inc-x-old"><lang>др.инд.</lang>
+            <w>mās-</w>, <w>māsa-</w></mentioned>, <mentioned corresp="#mentioned_d2825e1241" xml:id="mentioned_d2825e922" xml:lang="xcl"><lang>арм.</lang>
+            <w>amis</w></mentioned>, <mentioned corresp="#mentioned_d2825e1246" xml:id="mentioned_d2825e927" xml:lang="cu"><lang>ст.слав.</lang>
+            <w>měsęcь</w></mentioned>, <mentioned corresp="#mentioned_d2825e1251" xml:id="mentioned_d2825e932" xml:lang="ru"><lang>русск.</lang>
+            <w>месяц</w></mentioned>, <mentioned corresp="#mentioned_d2825e1256" xml:id="mentioned_d2825e937" xml:lang="grc-x-doric"><lang>гр. дор.</lang>
+            <w>μής</w></mentioned>, <mentioned corresp="#mentioned_d2825e1262" xml:id="mentioned_d2825e943" xml:lang="la"><lang>лат.</lang>
+            <w>mensis</w></mentioned> и пр. — Ср. <ref type="xr" target="#entry_mæjbūlkʼ"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">mæjbūlkʼ</tei:w></ref>, <ref type="xr" target="#entry_mæjdar"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">mæjdar (æxsæv)</tei:w></ref>, <ref type="xr" target="#entry_mæjrūxs"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">mæjrūxs</tei:w></ref>, <ref type="xr" target="#entry_mæjxor"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">mæjxor</tei:w></ref>.<lb/><bibl>Вс. <author>Миллер</author>. <ref type="bibl" target="#ref_Миллер_Вс._ОЭ">ОЭ</ref>
+            <biblScope>II 87</biblScope></bibl>; <bibl><ref type="bibl" target="#ref_Miller._Gr.">Gr.</ref>
+            <biblScope>21, 38</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_Hübschmann._Oss."><abbr><name full="yes" instant="false">Hübschmann</name>. Oss.</abbr></ref>
+            <biblScope>48</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref>
+            <biblScope>18, 171</biblScope></bibl>. — <bibl><title>Henning Memorial Volume</title>,
+              <pubPlace>London</pubPlace>, <date>1970</date>, <biblScope>стр.
+          1–7</biblScope></bibl>.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

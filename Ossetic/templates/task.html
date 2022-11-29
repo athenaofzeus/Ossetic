@@ -1,0 +1,268 @@
+{% extends 'base.html' %}
+{% block title %}
+    Задача № {{ task_id }}
+{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="row align-items-top justify-content-between">
+            <div class="col-12 col-lg-6 mb-2 row g-2 align-items-center">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center justify-content-between">
+                                <span class="col-auto h5 mb-0">Задача № {{ task_id }}</span>
+                                <div class="col-auto row align-items-center">
+                                    <div class="col-auto"><label for="status" style="font-weight: bold">Статус</label></div>
+                                    <div class="col-auto">
+                                        <form id="new_status_form" method="post">
+                                            <select class="form-select" onchange="$('#new_status_form').submit()" name="new_status">
+                                                <option value="1"{% if Tasks.query.get(task_id).status == 1 %}selected{% endif %}{% if Users.query.get(user_id).role_id not in [3] %} disabled{% endif %}>
+                                                    {{ Amend.md(Amend.task_status(1), html=True) }}</option>
+                                                <option value="2"{% if Tasks.query.get(task_id).status == 2 %}selected{% endif %}>
+                                                    {{ Amend.md(Amend.task_status(2), html=True) }}</option>
+                                                <option value="3"{% if Tasks.query.get(task_id).status == 3 %}selected{% endif %}>
+                                                    {{ Amend.md(Amend.task_status(3), html=True) }}</option>
+                                                <option value="4"{% if Tasks.query.get(task_id).status == 4 %}selected{% endif %}>
+                                                    {{ Amend.md(Amend.task_status(4), html=True) }}</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row mb-0">
+                                <dt class="col-12 col-sm-2">
+                                    Тип
+                                </dt>
+                                <dd class="col-12 col-sm-10">
+                                    {% if Tasks.query.get(task_id).type == 1 %}
+                                        <span>Сообщение об ошибке</span>
+                                    {% elif Tasks.query.get(task_id).type == 2 %}
+                                        <span>Редакторское задание</span>
+                                    {% endif %}
+                                </dd>
+                                <dt class="col-12 col-sm-2">
+                                    Суть
+                                </dt>
+                                <dd class="col-12 col-sm-10">
+                                    {{ Amend.md(Tasks.query.get(task_id).comments, html=True, delete_br=False) }}
+                                </dd>
+                                <dt class="col-12 col-sm-4">
+                                    Исполнители
+                                </dt>
+                                <dd class="col-12 col-sm-8" id="new_assignees_card">
+                                    <div class="row align-items-center justify-content-evenly">
+                                        {% for i in Check.split(Tasks.query.get(task_id).assignees, ',') %}
+                                            <div class="col-auto">{{ Amend.username(i) }}</div>
+                                        {% endfor %}
+                                        {% if not Check.split(Tasks.query.get(task_id).assignees, ',') %}
+                                            Все редакторы
+                                        {% endif %}
+                                    </div>
+                                </dd>
+                                <dt class="col-12 col-sm-4">
+                                    Целевые статьи
+                                </dt>
+                                <dd class="col-12 col-sm-8" id="new_unit_ids_card">
+                                    <div class="row align-items-center justify-content-evenly">
+                                        {% for i in Check.split(Tasks.query.get(task_id).unit_ids, ',') %}
+                                            <div class="col-auto">{{ Amend.entry(i, link=True, new_window=True) }}</div>
+                                        {% endfor %}
+                                        {% if not Check.split(Tasks.query.get(task_id).unit_ids, ',') %}
+                                            Отсутствуют
+                                        {% endif %}
+                                    </div>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="container border rounded">
+                        <div class="row align-items-center justify-content-around">
+                            <span class="col-auto h6 m-2">Временная шкала</span>
+                        </div>
+                        <div class="table-responsive overflow-auto" style="height: 30vh">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Когда</th>
+                                        <th scope="col">Кто</th>
+                                        <th scope="col">Что</th>
+                                        <th scope="col">Кого</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="timescale">
+                                    {%- for l in Task_logs.query.filter_by(task_id=task_id).order_by(Task_logs.datetime.asc()).all() -%}
+                                        <tr class="align-items-center">
+                                            <th scope="row">
+                                                <span>{{ Amend.datetime(l.datetime) }}</span>
+                                            </th>
+                                            <td>
+                                                {% if l.user_id %}
+                                                    <span>{{ Amend.username(l.user_id) }}</span>
+                                                {% else %}
+                                                    <span>—</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if l.event == 1 %}
+                                                    <span>Задача назначена</span>
+                                                {% elif l.event == 2 %}
+                                                    <span>Задача выполнена</span>
+                                                {% elif l.event == 3 %}
+                                                    <span>Задача принята в исполнение</span>
+                                                {% elif l.event == 4 %}
+                                                    <span>Задача отклонена</span>
+                                                {% elif l.event == 5 %}
+                                                    <span>Изменены исполнители</span>
+                                                {% elif l.event == 6 %}
+                                                    <span>Изменены целевые статьи</span>
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                {% if l.target_id %}
+                                                    <div class="row">
+                                                        {% for i in Check.split(l.target_id, ',') %}
+                                                            {% if l.event == 5 %}
+                                                                <div class="col-auto">{{ Amend.username(i) }}</div>
+                                                            {% elif l.event == 6 %}
+                                                                <div class="col-auto">{{ Amend.entry(i, link=True, new_window=True) }}</div>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    <span>—</span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    {%- endfor -%}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 mb-2 row g-2 align-items-center justify-content-around">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center justify-content-between">
+                                <span class="col-auto h5 mb-0">Дискуссия</span>
+                            </div>
+                        </div>
+                        <div class="card-body overflow-auto" style="max-height: 50vh;">
+                            <div class="row align-items-center justify-content-around g-2">
+                                {% if Messages.query.filter_by(task_id=task_id).first() %}
+                                    {% for m in Messages.query.filter_by(task_id=task_id).order_by(Messages.datetime.desc()).all() %}
+                                        <div class="col-12 row align-items-center justify-content-start {% if Check.index(m, Messages.query.filter_by(task_id=task_id).order_by(Messages.datetime.desc()).all()) != 0%}border-top{% endif %} mb-2">
+                                            <div class="col-12 align-items-center justify-content-between">
+                                                <span>{{ Amend.md(m.message, html=True, delete_br=False) }}</span>
+                                            </div>
+                                            <div class="col-12 align-items-center justify-content-between">
+                                                <span class="text-secondary">{{ Amend.datetime(m.datetime) }}, {{ Amend.username(m.user_id) }}</span>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                        <em>Nulli tacuisse nocet, nocet esse locutum.</em>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center justify-content-around g-2">
+                                <div class="col-12">
+                                    <form id="new_message_form" name="new_message_form" method="post">
+                                        <div class="col-12 row align-items-center justify-content-around mb-2">
+                                            <div class="col-12">
+                                                Чтобы уведомить кого-либо из редакторов, связанных с задачей, впишите
+                                                отображаемое имя с <code>@</code> в начале.
+                                            </div>
+                                            <div class="col-auto">
+                                                {% if Task_logs.query.filter_by(task_id=task_id, event=1).first().user_id %}
+                                                    <div class="col-auto">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="notify_creator" name="notify_creator"{% if user_id in Check.split(Tasks.query.get(task_id).assignees, ',', to_int=True) %} checked{% elif user_id == Task_logs.query.filter_by(task_id=task_id, event=1).first().user_id %} disabled{% endif %}>
+                                                            <label class="form-check-label" for="notify_creator">Уведомить создателя задачи</label>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" id="notify_assignees" name="notify_assignees"{% if user_id == Task_logs.query.filter_by(task_id=task_id, event=1).first().user_id %} checked{% elif not Tasks.query.get(task_id).assignees %} disabled{% endif %}>
+                                                        <label class="form-check-label" for="notify_assignees">Уведомить всех исполнителей</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button class="btn btn-sm btn-success"
+                                                        type="submit"
+                                                        form="new_message_form"
+                                                >Отправить</button>
+                                            </div>
+                                        </div>
+                                        <textarea id="new_message" class="form-control"
+                                                  name="new_message"
+                                                  maxlength="1000"
+                                                  placeholder="Новое сообщение"
+                                                  required
+                                        ></textarea>
+                                    </form>
+                                </div><hr class="mb-0">
+                                <form method="post" id="new_assignees_form">
+                                    <div class="col-12 row align-items-center justify-content-around g-2">
+                                        <div class="col-12">
+                                            <label for="new_assignees" class="text-black">Исполнители</label>
+                                        </div>
+                                        <div class="col-12 col-xl-10">
+                                            <select class="form-select" aria-label="Выбор исполнителя" name="new_assignees" id="new_assignees" form="new_assignees_form" multiple>
+                                                <option value=""{% if not Tasks.query.get(task_id).assignees %} selected{% endif %}>все редакторы</option>
+                                                {% for u in Users.query.filter(Users.role_id.in_((2,3))).all() %}
+                                                    <option value="{{ u.user_id }}"{% if Check.str(u.user_id) in Check.split(Tasks.query.get(task_id).assignees, ',') %} selected{% endif %}>
+                                                        {{ u.username }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="col-12 col-xl-2">
+                                            <button type="submit"
+                                                    form="new_assignees_form"
+                                                    class="btn btn-sm btn-outline-success">Изменить</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <form method="post" id="new_unit_ids_form">
+                                    <div class="col-12 row align-items-center justify-content-around g-2">
+                                        <div class="col-12 mb-1">
+                                            Чтобы изменить список целевых статей, введите их ID через запятую.
+                                            Текущие включать также нужно.
+                                        </div>
+                                        <div class="col-12 col-xl-10">
+                                            <input id="new_unit_ids" name="new_unit_ids" class="form-control"
+                                                   value="{{ Tasks.query.get(task_id).unit_ids }}"
+                                                   placeholder="Новые целевые статьи">
+                                        </div>
+                                        <div class="col-12 col-xl-2">
+                                            <button type="submit"
+                                                    form="new_unit_ids_form"
+                                                    class="btn btn-sm btn-outline-success">Изменить</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        for (var i = 0; i < document.getElementsByTagName('textarea').length; ++i) {
+                autosize(document.getElementsByTagName('textarea')[i]);
+            };
+    </script>
+{% endblock %}

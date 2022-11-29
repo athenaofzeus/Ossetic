@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_&#xE6;rdxord" xml:lang="os"><form xml:id="form_d3081e66" xml:lang="os-x-iron" type="lemma"><orth>ærdxord</orth></form><form xml:id="form_d3081e69" xml:lang="os-x-digor" type="dialectal"><orth>ærdxward</orth></form><sense xml:id="sense_d3081e72"><sense xml:id="sense_d3081e73"><abv:tr xml:lang="ru"><q>связанный клятвой</q></abv:tr></sense><sense xml:id="sense_d3081e82"><abv:tr xml:lang="ru"><q>названный брат</q></abv:tr></sense></sense><abv:exampleGrp xml:id="exampleGrp_d3081e92"><abv:example xml:id="example_d3081e94"><quote>dæ madīmæ ærdxord stæm</quote><abv:tr xml:lang="ru"><q>с твоей матерью я связан клятвой</q></abv:tr><bibl><ref type="bibl" target="#src_ОТ"><abbr xml:lang="ru">ОТ</abbr></ref><biblScope>83</biblScope></bibl></abv:example><abv:example xml:id="example_d3081e113"><quote>læppū acydī æmæ jæ fydy ærdxord ældary qæwmæ bacydī</quote><abv:tr xml:lang="ru"><q>юноша отправился и пришел в селение алдара — побратима его отца</q></abv:tr><bibl><ref type="bibl" target="#src_ОТ"><abbr xml:lang="ru">ОТ</abbr></ref><biblScope>101</biblScope></bibl></abv:example><abv:example xml:id="example_d3081e132"><quote>dæwæn, ma warzon ærdxord, k˳yd na baxx˳ys ḱænʒyriæn!</quote><abv:tr xml:lang="ru"><q>тебе, мой любимый названный брат, как я не помогу!</q></abv:tr><bibl><ref type="bibl" target="#src_Брит."><abbr xml:lang="ru"><name full="yes" instant="false">Брит.</name></abbr></ref><biblScope>147</biblScope></bibl></abv:example><abv:example xml:id="example_d3081e151"><quote>ærymys ne ʽrdxordʒinad</quote><abv:tr xml:lang="ru"><q>вспомни наше побратимство</q></abv:tr><bibl><biblScope>там же</biblScope></bibl></abv:example></abv:exampleGrp><etym xml:lang="ru">Собственно „поклявшийся“, от <hi rendition="#rend_italic">ard xæryn</hi> ‘клясться’ (см. под
+                        <ref type="xr" target="#entry_ard"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">ard</tei:w></ref>). Так назывались люди, торжественно
+                    поклявшиеся друг другу в вечной дружбе с соблюдением определенного обряда. Обряд
+                    побратимства заключался в новое время в том, что побратимы выпивали из одного
+                    бокала, предварительно опустив в него золотую или серебряную вещь. Предания и
+                    эпос сохраняют память о более сложных церемониях при побратимстве: смешение в
+                    бокале крови обоих участников, торжественная клятва над огнем и пр.%n<bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref><biblScope>571</biblScope></bibl>.</etym></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

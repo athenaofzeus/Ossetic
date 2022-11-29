@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+    История: {{ Check.main_form(unit_id) }}
+{% endblock %}
+{% block content %}
+    <div class="row justify-content-between">
+        <div class="container text-center mb-2 col">
+            <a class="btn btn-sm btn-outline-primary" href="{{ url_for('entry', unit_id=original_unit_id, ortho='po') }}" >
+                Статья
+            </a>
+        </div>
+        <div class="container text-center mb-2 col">
+            <a class="btn btn-sm btn-outline-purple"
+               href="{{ url_for('edit_entry', unit_id=original_unit_id) }}">
+                Формы и значения
+            </a>
+        </div>
+        <div class="container text-center mb-2 col">
+            <a href="{{ url_for('examples', unit_id=original_unit_id) }}" target="_parent" class="btn btn-sm btn-outline-purple">
+                Примеры
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        {% if not Entry_logs.query.filter_by(unit_id=unit_id).all() %}
+            <span>Истории правок нет.</span>
+        {% endif %}
+        <form name="history" id="history" method="post">
+            {% for l in Entry_logs.query.filter_by(unit_id=unit_id).all() %}
+                <p class="h5 text-center">
+                    Версия добавлена {{ Amend.datetime(l.datetime) }} пользователем {{ Amend.username(l.user_id) }}
+                </p>
+                <p class="text-center">
+                    {% if l.event != 4 %}
+                        Изменение претерпели <b>{% if l.event == 1 %}формы и значения{% elif l.event == 2 %}примеры{% endif %}</b>.
+                    {% else %}
+                        Статья добавлена.
+                    {% endif  %}
+                </p>
+                {% if Check.index(l, Entry_logs.query.filter_by(unit_id=unit_id).all()) != Check.len(Entry_logs.query.filter_by(unit_id=unit_id).all()) - 1 %}
+                    <hr>
+                {% endif %}
+            {% endfor %}
+        </form>
+    </div>
+{% endblock %}

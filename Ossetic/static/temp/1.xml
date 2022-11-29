@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_c&#x2BC;&#x16B;txal" xml:lang="os"><form xml:id="form_d1e66" xml:lang="os-x-iron" type="lemma"><orth>cʼūtxal</orth></form><form xml:id="form_d1e69" xml:lang="os-x-digor" type="dialectal"><orth>cʼotxali</orth></form><sense xml:id="sense_d1e72"><abv:tr xml:lang="ru"><q>прыщик</q></abv:tr></sense><etym xml:lang="ru">Ср. <mentioned corresp="#mentioned_d1e120" xml:id="mentioned_d1e84" xml:lang="ka"><lang>груз.</lang>
+                        <w>cʼutxi</w>
+                        <gloss><q>струп</q></gloss></mentioned>, <mentioned corresp="#mentioned_d1e128" xml:id="mentioned_d1e92" xml:lang="ka"><w/>
+                        <gloss><q>гной из раны</q></gloss></mentioned>. Конечное -<hi rendition="#rend_italic">al</hi> — может
+                    быть, результат контаминации с <mentioned corresp="#mentioned_d1e134" xml:id="mentioned_d1e98" xml:lang="ka"><lang>груз.</lang>
+                        <w>xali</w></mentioned>, <mentioned corresp="#mentioned_d1e139" xml:id="mentioned_d1e103" xml:lang="fa"><lang>перс.</lang>
+                        <w>xāl</w>
+                        <gloss><q>пятно на коже</q></gloss></mentioned>, <mentioned corresp="#mentioned_d1e147" xml:id="mentioned_d1e111" xml:lang="fa"><w/>
+                        <gloss><q>родинка</q></gloss></mentioned>.</etym></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

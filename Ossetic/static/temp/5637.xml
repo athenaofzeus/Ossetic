@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_nax&#xE6;tbos" xml:lang="os" abv:completeness="english-questions"><form xml:id="form_d4981e66" type="lemma"><orth>naxætbos</orth><form xml:id="form_d4981e68" type="variant"><orth>næxætbos</orth></form></form><sense xml:id="sense_d4981e71"><sense xml:id="sense_d4981e72"><abv:tr xml:lang="ru"><q>торока́</q></abv:tr></sense><sense xml:id="sense_d4981e81"><def xml:lang="ru">ремешки позади седла для привязывания бурки, хурджина и
+            пр</def></sense></sense><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d4981e84"><example xml:id="example_d4981e85"><quote xmlns="http://www.tei-c.org/ns/1.0">ærbatyxta wæjlag nymæt, ærbasta jæ
+                <oRef>naxætbosæj</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">он свернул бурку, привязал ее тороками</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Хар._Кадӕг"><abbr xml:lang="ru"><name full="yes" instant="false">Хар.</name> Кадӕг</abbr></ref>
+              <biblScope>27</biblScope></bibl></example><example xml:id="example_d4981e109"><quote xmlns="http://www.tei-c.org/ns/1.0">barævʒ kodta jæxī balcmæ; jæ fændaggag jæ
+              fæsarc <oRef>naxætbostæj</oRef> ærbasta</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">он снарядился в путь; свою дорожную провизию
+                привязал за седлом тороками</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>IV 36</biblScope></bibl></example><example xml:id="example_d4981e134" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">omæn æ ali <oRef>naxætbos</oRef> fonsæj ʒag
+              æj</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">каждые его торока полны добычи</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Диг._сказ."><abbr xml:lang="ru">Диг. сказ.</abbr></ref>
+              <biblScope>50</biblScope></bibl></example><example xml:id="example_d4981e162" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">Avari ræsuǧd qumæctæj nin æ
+                <oRef>naxætbæstæ</oRef> iʒagæj xæsʒænæj</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">свои торока он привезет полными красивых
+                аварских тканей</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>II 8</biblScope></bibl></example><example xml:id="example_d4981e190" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">suǧzærīnæ sawædonæj gæbæt bajʒag kodta æma ʽj
+              æ fæsabærcæ <oRef>næxætbosæj</oRef> sarǧi kʼoxmæ babasta</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">водой из золотого родника он наполнил бурдюк и
+                привязал его тороками позади к седельной луке</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>II 96</biblScope></bibl></example><example xml:id="example_d4981e219" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">sarǧi <oRef>næxætbosbæl</oRef> sæ
+              babasta</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">он привязал их к седельным торокам</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>II 112
+                <?oxy_comment_start author="irina" timestamp="20220719T132614+0300" comment="NB rus"?>ff<?oxy_comment_end?>.</biblScope></bibl></example><example xml:id="example_d4981e252" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">ǧæwajgæstæn særǧtæ æd bæztæ…
+                <oRef>næxætbæstæ</oRef> xizini xæccæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">для сторожей седла с подушками… торока с
+                сумой</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_SD"><abbr>SD</abbr></ref>
+              <biblScope>245<hi rendition="#rend_subscript">2</hi></biblScope></bibl></example></exampleGrp><etym xml:lang="ru">Сложение из <w>naxæt</w> и <ref type="xr" target="#entry_bos"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">bos</tei:w></ref>. Ср.
+            <mentioned corresp="#mentioned_d4981e350" xml:id="mentioned_d4981e290" xml:lang="trk"><lang>тюрк.</lang>
+            <w>noqta</w>, <w>noxta</w>
+            <gloss><q>недоуздок</q></gloss></mentioned>
+          <?oxy_comment_start author="Vados" timestamp="20220530T131204+0300" comment="Здесь везде нормально оформлено?"?>[по
+            <hi rendition="#rend_smallcaps">Будагову</hi> (<bibl><ref type="bibl" target="#ref_Будагов"><abbr xml:lang="ru"><name full="yes" instant="false">Будагов</name></abbr></ref>
+            <biblScope>II 295</biblScope>)</bibl>, из <mentioned corresp="#mentioned_d4981e372" xml:id="mentioned_d4981e312" xml:lang="mn"><lang>монг.</lang>
+            <w>noxto</w></mentioned>]<?oxy_comment_end?>. Отсюда и <mentioned corresp="#mentioned_d4981e379" xml:id="mentioned_d4981e319" xml:lang="kbd"><lang>каб.</lang>
+            <w>nax̱wәtä</w></mentioned>, <mentioned corresp="#mentioned_d4981e384" xml:id="mentioned_d4981e324" xml:lang="ady"><lang>адыг.</lang>
+            <w>naxwәt</w>
+            <gloss><q>недоуздок</q></gloss></mentioned>. Во второй части — <ref type="xr" target="#entry_bos"><w>bos</w>
+            <gloss><q>перевязь</q></gloss></ref>, q. v. Существенное смещение значения:
+            <q>недоуздок</q> → <q>торока</q>.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

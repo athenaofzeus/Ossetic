@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_7rvad" xml:lang="os" abv:completeness="english-questions"><form xml:id="form_d4183e66" type="lemma" xml:lang="os-x-iron"><orth>ᵆrvad</orth></form><form xml:id="form_d4183e69" xml:lang="os-x-digor" type="dialectal"><orth>ærvadæ</orth></form><sense xml:id="sense_d4183e72" n="1"><abv:tr xml:lang="ru"><q>брат</q></abv:tr><note xml:lang="ru" type="comment">; в иронском в этом значении весьма
+            редко</note></sense><sense xml:id="sense_d4183e86" n="2"><abv:tr xml:lang="ru"><q>родич</q></abv:tr></sense><note xml:lang="ru" type="comment">; мн. ч. <w xml:lang="os-x-iron">ᵆrvadæltæ</w><w xml:lang="os-x-digor">ærvad(d)æltæ</w>; все члены родового объединения, имеющие общего
+          предка (реального или предполагаемого) и считающие себя <q rendition="#rend_doublequotes">разделившимися от одного очага</q> (<phr>īw artæj bajwargæ</phr>), считаются друг другу
+            <oRef>ᵆrvad</oRef>
+          <q>братьями</q>; все члены рода матери называются <ref type="xr" target="#entry_mad"><w>mady</w></ref>-<oRef>rvad</oRef>
+          <q>брат матери</q>; ср. <ref type="xr" target="#entry_ævsymær"><w xml:lang="os-x-iron">ævsymær</w><w xml:lang="os-x-digor">ænsuvær</w>
+            <gloss><q>брат (единоутробный)</q></gloss></ref></note><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d4183e177" n="1"><example xml:id="example_d4183e179" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">duwwæ xestær ærvadi oj ku bazudtoncæ…</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">когда два старших брата узнали об этом…</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Диг._сказ."><abbr xml:lang="ru">Диг. сказ.</abbr></ref>
+              <biblScope>13</biblScope></bibl></example><example xml:id="example_d4183e205" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">æz me <oRef>ʽrvaddæltæj</oRef> xwæzdær adtæn,
+              æma mæmæ soʒæg kodtoncæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">я был лучше моих братьев, и они мне
+                завидовали</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Диг._сказ."><abbr xml:lang="ru">Диг. сказ.</abbr></ref>
+              <biblScope>25</biblScope></bibl></example><example xml:id="example_d4183e233" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">æz dæn Tætærati avd <oRef>ærvadej</oRef>
+              kæstær</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">я младший из семи братьев Татараевых</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>II 24</biblScope></bibl></example><example xml:id="example_d4183e261" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">me <oRef>ʽrvadistæn</oRef>, næ ʒæǧun
+              mængæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">клянусь братом, я не говорю неправду</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æduli"><abbr><name full="yes" instant="false">Gurdž.</name> Æduli</abbr></ref>
+              <biblScope>89</biblScope></bibl></example><example xml:id="example_d4183e289" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">ægas ku adtajdæ me
+              <oRef>ʽrvadæ</oRef>…</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">если бы был жив мой брат…</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æduli"><abbr><name full="yes" instant="false">Gurdž.</name> Æduli</abbr></ref>
+              <biblScope>92</biblScope></bibl></example><example xml:id="example_d4183e318" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">wæ, Naluq, wæ, me <oRef>ʽrvadæ</oRef>, ku
+              niwwaǧtaj mæ ilivdæj</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">о Налук, о мой брат, ты оставил меня
+                несчастной</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æduli"><abbr><name full="yes" instant="false">Gurdž.</name> Æduli</abbr></ref>
+              <biblScope>102</biblScope></bibl></example><example xml:id="example_d4183e346" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">ra-næxstær æncæ… duwwadæs xwascawi
+                <oRef>ærvaddæltæ</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">отправились двенадцать братьев косарей</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_ОЭ"><abbr xml:lang="ru">ОЭ</abbr></ref>
+              <biblScope>I 98</biblScope></bibl></example><example xml:id="example_d4183e377" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">adtæj avd <oRef>ærvadi</oRef>, avd
+                <oRef>ærvademæn</oRef> ba madæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">было семь братьев, а у семи братьев — мать</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_MSt."><abbr>MSt.</abbr></ref>
+              <biblScope>15<hi rendition="#rend_subscript">7</hi></biblScope></bibl></example><example xml:id="example_d4183e410"><quote xmlns="http://www.tei-c.org/ns/1.0">sīxor kænæ ʽxsævær ku kænaj, wæd ma ʽrbaxon
+              ma dær dæ lymænty, ma dær de <oRef>ʽrvadælty</oRef>, ma dær dæ xæstæǵyty, ma dær
+              qæzdyg syxægty</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">когда делаешь обед или ужин, не зови друзей
+                твоих, ни братьев твоих, ни родственников твоих, ни соседей богатых</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Лука"><abbr xml:lang="ru">Лука</abbr></ref>
+              <biblScope><hi rendition="#rend_italic">14</hi> 12</biblScope></bibl></example></exampleGrp><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d4183e439" n="2"><example xml:id="example_d4183e441"><quote xmlns="http://www.tei-c.org/ns/1.0">Tamar… je <oRef>ʽrvadæltæj</oRef> ærtæ
+              lægīmæ… Daǧystanmæ fæcyd</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">Тамара с тремя мужчинами из своих родичей
+                отправилась в Дагестан</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>40</biblScope></bibl></example><example xml:id="example_d4183e466"><quote xmlns="http://www.tei-c.org/ns/1.0">Sadullæ sīʒær bazzad…, je
+                <oRef>ʽrvadæltæ</oRef> jæ radgaj xastoj</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">Садулла остался сиротой, его родичи кормили его
+                по очереди</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>77</biblScope></bibl></example><example xml:id="example_d4183e491"><quote xmlns="http://www.tei-c.org/ns/1.0">ærx˳ydta je <oRef>ʽrvadælty</oRef>, xorz sæ
+              fedta</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">пригласил своих родичей, хорошо их угостил</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>83</biblScope></bibl></example><example xml:id="example_d4183e516"><quote xmlns="http://www.tei-c.org/ns/1.0">Maniʒæ īw bon jæ mady <oRef>ʽrvadæltæm</oRef>
+              acyd</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">Манидза однажды отправилась к родичам своей
+                матери</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>85</biblScope></bibl></example><example xml:id="example_d4183e541"><quote xmlns="http://www.tei-c.org/ns/1.0">ḱī dyn rajsʒæn dæ tūg? <oRef>ærvad</oRef> dyn
+              k˳y næ īs</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">кто отомстит за твою кровь? ведь у тебя нет
+                родичей</q></tr></example></exampleGrp><etym xml:lang="ru">Общеиндоевропейский термин родства. Осетинская форма <oRef>rvad-</oRef>
+          представляет закономерную метатезу из
+            <?oxy_comment_start author="Irene" timestamp="20220406T093730+0300" comment="поставила здесь в трех словах иран. но хз"?><mentioned corresp="#mentioned_d4183e1027" xml:id="mentioned_d4183e567" xml:lang="ira"><w type="rec">vrad-</w></mentioned><?oxy_comment_end?> ← <mentioned corresp="#mentioned_d4183e1033" xml:id="mentioned_d4183e572" xml:lang="ira"><w type="rec">brat-</w></mentioned> (ср. <ref type="xr" target="#entry_arv"><w>arv</w>
+            <gloss><q>небо</q></gloss></ref> из <mentioned corresp="#mentioned_d4183e1043" xml:id="mentioned_d4183e583" xml:lang="ira"><w>abra-</w></mentioned> и
+          т. п.). В надписи римского времени из Пантикапея засвидетельствовано сарматское имя
+            <mentioned corresp="#mentioned_d4183e1046" xml:id="mentioned_d4183e586" xml:lang="xsc"><?oxy_comment_start author="Irene" timestamp="20220406T094544+0300" comment="написала скиф. но хз"?><w>Βραδακος</w><?oxy_comment_end?>
+            <note xml:lang="ru" type="comment">(<bibl><ref type="bibl" target="#ref_Латышев"><abbr xml:lang="ru"><name full="yes" instant="false">Латышев</name></abbr></ref>
+                <biblScope>II 266</biblScope></bibl>) ← <mentioned corresp="#mentioned_d4183e1058" xml:id="mentioned_d4183e598" xml:lang="ira"><w type="rec">brātaka-</w></mentioned></note></mentioned>; здесь еще нет метатезы <c>br-</c> →
+            <c>rv</c>. Основа ед. ч. <oRef>rvad</oRef> восходит, очевидно, к старому имен. падежу
+            <mentioned corresp="#mentioned_d4183e1069" xml:id="mentioned_d4183e608" xml:lang="ira"><w type="rec">brātā</w></mentioned>, тогда как основа мн. ч.
+            <oRef>rvadæl</oRef> — к <mentioned corresp="#mentioned_d4183e1075" xml:id="mentioned_d4183e615" xml:lang="ira"><w type="rec">brātar</w></mentioned>.
+          Ср. <mentioned corresp="#mentioned_d4183e1079" xml:id="mentioned_d4183e619" xml:lang="fa"><lang>перс.</lang>
+            <w>barādar</w>, <w>birādar</w>
+            <gloss><q>брат</q></gloss></mentioned>, <mentioned xml:id="mentioned_d4183e629"><mentioned corresp="#mentioned_d4183e1090" xml:id="mentioned_d4183e630" xml:lang="pal"><lang>пехл.</lang>
+              <w>brāt</w>, <w>brātar</w>
+              <note xml:lang="ru" type="comment">(<w>brāδar</w>)</note></mentioned>, <mentioned corresp="#mentioned_d4183e1102" xml:id="mentioned_d4183e642" xml:lang="pal-x-pazend"><lang>паз.</lang>
+              <w>brād</w></mentioned>, <mentioned corresp="#mentioned_d4183e1107" xml:id="mentioned_d4183e647" xml:lang="x-balochi"><lang>бел.</lang>
+              <w>brāt</w>, <w>brās</w></mentioned>, <mentioned corresp="#mentioned_d4183e1114" xml:id="mentioned_d4183e654" xml:lang="ku"><lang>курд.</lang>
+              <w>bəra</w></mentioned>, <mentioned corresp="#mentioned_d4183e1119" xml:id="mentioned_d4183e659" xml:lang="ps"><lang>афг.</lang>
+              <w>wror</w></mentioned>, <mentioned corresp="#mentioned_d4183e1124" xml:id="mentioned_d4183e664" xml:lang="mnj"><lang>пам. м.</lang>
+              <w>vᵊrōy</w></mentioned>, <mentioned corresp="#mentioned_d4183e1130" xml:id="mentioned_d4183e670" xml:lang="sgh" extralang="x-rushani"><lang>пам. ш., пам. руш.</lang>
+              <w>virōd</w></mentioned>, <mentioned corresp="#mentioned_d4183e1135" xml:id="mentioned_d4183e675" xml:lang="srh"><lang>пам. с.</lang>
+              <w>vrōd</w></mentioned>
+            <gloss><q>брат</q></gloss></mentioned>, <mentioned corresp="#mentioned_d4183e1144" xml:id="mentioned_d4183e683" xml:lang="srh"><w>vrador</w>
+            <gloss><q>related as brothers</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Shaw"><abbr><name full="yes" instant="false">Shaw</name></abbr></ref>
+                <biblScope>200</biblScope></bibl>)</note></mentioned>, <mentioned xml:id="mentioned_d4183e697"><mentioned corresp="#mentioned_d4183e1159" xml:id="mentioned_d4183e698" xml:lang="yah"><lang>пам. язг.</lang>
+              <w>vred</w></mentioned>, <mentioned corresp="#mentioned_d4183e1164" xml:id="mentioned_d4183e703" xml:lang="sgy"><lang>пам. сгл.</lang>
+              <w>vurd</w></mentioned>, <mentioned corresp="#mentioned_d4183e1169" xml:id="mentioned_d4183e708" xml:lang="isk"><lang>пам. ишк.</lang>
+              <w>vrud</w></mentioned>, <mentioned corresp="#mentioned_d4183e1174" xml:id="mentioned_d4183e713" xml:lang="wbl"><lang>пам. в.</lang>
+              <w>vrüt</w></mentioned>, <mentioned corresp="#mentioned_d4183e1179" xml:id="mentioned_d4183e718" xml:lang="yai"><lang>ягн.</lang>
+              <w>virāt</w></mentioned>, <mentioned corresp="#mentioned_d4183e1184" xml:id="mentioned_d4183e723" xml:lang="sog"><lang>согд.</lang>
+              <w type="rec ">βrāt</w>
+              <note xml:lang="ru" type="comment">(<w>βrʼt</w>)</note></mentioned>, <mentioned corresp="#mentioned_d4183e1196" xml:id="mentioned_d4183e735" xml:lang="zkh"><lang>хорезм.</lang>
+              <w>βrād</w></mentioned>, <mentioned corresp="#mentioned_d4183e1201" xml:id="mentioned_d4183e740" xml:lang="kho"><lang>сак.</lang>
+              <w>brātar-</w></mentioned>, <mentioned corresp="#mentioned_d4183e1206" xml:id="mentioned_d4183e745" xml:lang="ae"><lang>ав.</lang>
+              <w>brātar-</w></mentioned>, <mentioned corresp="#mentioned_d4183e1211" xml:id="mentioned_d4183e750" xml:lang="peo"><lang>др.перс.</lang>
+              <w>brātar-</w>
+              <note xml:lang="ru" type="comment">(имен. падеж <w>brātā</w>)</note></mentioned>,
+              <mentioned corresp="#mentioned_d4183e1221" xml:id="mentioned_d4183e760" xml:lang="inc-x-old"><lang>др.инд.</lang>
+              <w>bhrātar-</w></mentioned> , <mentioned corresp="#mentioned_d4183e1226" xml:id="mentioned_d4183e765" xml:lang="cu"><lang>ст.слав.</lang>
+              <w>bratъ</w></mentioned>, <mentioned corresp="#mentioned_d4183e1232" xml:id="mentioned_d4183e771" xml:lang="ru"><lang>русск.</lang>
+              <w>брат</w></mentioned>, <mentioned corresp="#mentioned_d4183e1237" xml:id="mentioned_d4183e776" xml:lang="prg"><lang>др.прусс.</lang>
+              <w>brāti</w>, <w>brote</w></mentioned>, <mentioned corresp="#mentioned_d4183e1244" xml:id="mentioned_d4183e783" xml:lang="lt"><lang>лит.</lang>
+              <w>brolis</w>
+              <note xml:lang="ru" type="comment">из ласкательного <mentioned corresp="#mentioned_d4183e1251" xml:id="mentioned_d4183e790" xml:lang="lt"><w>broterēlis</w>
+                  <gloss><q>братец</q></gloss></mentioned></note></mentioned>, <mentioned corresp="#mentioned_d4183e1257" xml:id="mentioned_d4183e796" xml:lang="lt-x-dial"><lang>лит. (диал.)</lang>
+              <w>brotis</w>
+              <note type="bibl">(<bibl><ref type="bibl" target="#ref_Fraenkel"><abbr><name full="yes" instant="false">Fraenkel</name></abbr></ref>
+                  <biblScope>59</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d4183e1270" xml:id="mentioned_d4183e809" xml:lang="xto"><lang>тохар. A</lang>
+              <w>pracar</w></mentioned>, <mentioned corresp="#mentioned_d4183e1275" xml:id="mentioned_d4183e814" xml:lang="txb"><lang>тохар. B</lang>
+              <w>pracer</w></mentioned>, <mentioned corresp="#mentioned_d4183e1281" xml:id="mentioned_d4183e820" xml:lang="got"><lang>гот.</lang>
+              <w>broꝥar</w></mentioned>, <mentioned corresp="#mentioned_d4183e1286" xml:id="mentioned_d4183e825" xml:lang="de"><lang>нем.</lang>
+              <w>Bruder</w></mentioned>, <mentioned corresp="#mentioned_d4183e1291" xml:id="mentioned_d4183e830" xml:lang="sga"><lang>др.ирл.</lang>
+              <w>brāthir</w></mentioned>, <mentioned corresp="#mentioned_d4183e1296" xml:id="mentioned_d4183e835" xml:lang="la"><lang>лат.</lang>
+              <w>frāter</w></mentioned>
+            <gloss><q>брат</q></gloss></mentioned>, <mentioned corresp="#mentioned_d4183e1304" xml:id="mentioned_d4183e844" xml:lang="grc"><lang>гр.</lang>
+            <w>φράτηρ</w>
+            <gloss><q>член фратрии, родового союза (<q rendition="#rend_doublequotes">братства</q>)</q></gloss>
+            <note xml:lang="ru" type="comment">(в Афинах 30 родов, <w>γένή</w>, составляли одну
+              фратрию, три фратрии — одну филу, <w>φυλή</w>)</note></mentioned>, <mentioned corresp="#mentioned_d4183e1323" xml:id="mentioned_d4183e863" xml:lang="xcl"><lang>арм.</lang>
+            <w>ełbayr</w>
+            <gloss><q>брат</q></gloss></mentioned>. Обращает на себя внимание, что ос.
+            <oRef>rvad</oRef>, — совершенно так же, как <mentioned corresp="#mentioned_d4183e1333" xml:id="mentioned_d4183e873" xml:lang="grc"><lang>гр.</lang>
+            <w>φράτηρ</w></mentioned>, — функционирует как термин не семейной, а родовой
+          организации. <oRef>Арвады</oRef> составляют <q rendition="#rend_doublequotes">широкий
+            родственный коллектив, объединяющий иногда четыре-пять фамилий, ведущих свое
+            происхождение от одного общего отдаленного предка. До настоящего времени внутри этой
+            родственной группы во многих случаях господствует экзогамия. Если это родственное
+            объединение живет более или менее компактно, то его члены оказывают друг другу помощь в
+            таких важнейших событиях, как рождение, свадьба, похороны… В прошлом на арвадов нередко
+            возлагалась даже обязанность кровной мести</q> (<bibl><author>Калоев</author>.
+              <title>Осетины</title>. <pubPlace>М.</pubPlace>, <date>1967</date>, <biblScope>стр.
+              166–167</biblScope></bibl>). Об этом же — доклад <bibl><author>Гаглоевой</author>
+            <title><?oxy_comment_start author="Irene" timestamp="20220406T095327+0300" comment="сделала два title, не помню как надо…"?><q rendition="#rend_doublequotes">Рвадалта</q><?oxy_comment_end?></title> (<title>Труды
+              VII Междунар. конгресса антропол. и этногр. наук, т. 10</title>,
+              <pubPlace>М.</pubPlace>, <date>1970</date>, <biblScope>стр. 21—27</biblScope>)</bibl>.
+          Аналогичным социальным образованием была в своем генезисе древнегреческая фратрия (cp.:
+              <bibl><ref type="bibl" target="#ref_Schrader"><abbr><name full="yes" instant="false">Schrader</name></abbr></ref>
+            <biblScope>II 401–402</biblScope></bibl>. — <bibl><author>Hermann</author>.
+              <title>Sachliches und Sprachliches zur indogermanischen Grossfamilie</title>.
+              <pubPlace>Gottingen</pubPlace>, <date>1918</date></bibl>). По своему содержанию
+          термины <oRef>ᵆrvad</oRef> и <mentioned corresp="#mentioned_d4183e1406" xml:id="mentioned_d4183e929" xml:lang="grc"><w>φράτηρ</w></mentioned> восходят
+          к так называемой <q rendition="#rend_doublequotes">большой семье</q>, куда входили не
+          только родные, но и двоюродные братья, троюродные и т. д. Появление специальных терминов
+          для <emph>родного</emph> брата (<ref type="xr" target="#entry_ævsymær" xml:lang="os"><lang>ос.</lang>
+            <w xml:lang="os-x-iron">ævsymær</w><w xml:lang="os-x-digor">ænsuvær</w></ref>,
+            <mentioned corresp="#mentioned_d4183e1425" xml:id="mentioned_d4183e946" xml:lang="grc"><lang>гр.</lang>
+            <w>ἀδελφός</w></mentioned>) — результат <q rendition="#rend_doublequotes">процесса
+            медленного и самопроизвольного зарождения индивидуальной семьи</q> (<bibl><author>М.
+              Ковалевский</author>. <title>Современный обычай и древний закон, II</title>.
+              <pubPlace>М.</pubPlace>, <date>1886</date>, <biblScope>стр. 307</biblScope></bibl>).
+          Ос. <ref type="xr" target="#entry_ævsymær" xml:lang="os"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">ævsymær</tei:w></ref> (из <ref type="xr" target="#entry_æm-"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">æm-</tei:w></ref><ref type="xr" target="#entry_syvær"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">syvær</tei:w></ref>) означает буквально <q rendition="#rend_doublequotes">единоутробный</q>, как <mentioned corresp="#mentioned_d4183e1455" xml:id="mentioned_d4183e974" xml:lang="grc"><lang>гр.</lang>
+            <w>ἀδελφός</w></mentioned>; аналогичные образования в других языках см.:
+              <bibl><author>Mayrhofer</author>, <title>Bibliotheca Orientalis</title>
+              (<pubPlace>Leiden</pubPlace>) <date>1961</date>
+            <biblScope>XVIII 274, прим. 15</biblScope></bibl>.<lb/><bibl><ref type="bibl" target="#ref_Миллер_Вс._ОЭ"><abbr xml:lang="ru"><name full="yes" instant="false">Миллер</name> Вс. ОЭ</abbr></ref>
+            <biblScope>II 35, 49, III 81, 138</biblScope></bibl>; <bibl><ref type="bibl" target="#ref_Miller._Gr."><abbr><name full="yes" instant="false">Miller</name>. Gr.</abbr></ref>
+            <biblScope>34, 41</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_Hübschmann._Oss."><abbr><name full="yes" instant="false">Hübschmann</name>. Oss.</abbr></ref>
+            <biblScope>23</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref>
+            <biblScope>62–63</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_ИЭС_I"><abbr xml:lang="ru">ИЭС I</abbr></ref>
+            <biblScope>206</biblScope></bibl>.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

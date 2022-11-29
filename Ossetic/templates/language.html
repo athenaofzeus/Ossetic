@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}Указатель слов: {{ Languages.query.get(lang_id).lang_ru }}{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <caption class="caption caption-top">Указатель слов для языка {{ Languages.query.get(lang_id).lang_ru }} / {{ Languages.query.get(lang_id).lang_en }}</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Слово</th>
+                        <th scope="col">Где упомянуто</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for unit in units %}
+                            <tr>
+                                <th scope="row">{{ unit.unit_id }}</th>
+                                <td>
+                                    {{ Amend.entry(unit.unit_id, new_window=True) }}
+                                </td>
+                                <td>
+                                    {% for u in Unit_links.query.filter_by(target_id=unit.unit_id).all() %}
+                                        {{ Amend.entry(u.unit_id, new_window=True) }}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if items.has_prev or items.has_next %}
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    {% if items.has_prev %}
+                        <div class="col-4">
+                            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('language', lang_id=lang_id, page=items.prev_num) }}">Назад</a>
+                        </div>
+                    {% endif %}
+                    {% if items.has_next %}
+                        <div class="col-4">
+                            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('language', lang_id=lang_id, page=items.next_num) }}">Вперёд</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

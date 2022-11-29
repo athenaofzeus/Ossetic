@@ -1,0 +1,73 @@
+@charset "UTF-8";
+@import "en_langs.css";
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+
+@namespace tei "http://www.tei-c.org/ns/1.0";
+@namespace abv "http://ossetic-studies.org/ns/abaevdict";
+
+tei|etym:lang(ru) {display: none}
+abv|tr:lang(ru) {display: none}
+tei|def:lang(ru) {display: none}
+tei|note:lang(ru) {display: none}
+tei|biblScope[xml|lang="ru"] {display: none}
+tei|bibl[xml|lang="ru"] {display: none}
+
+tei|listBibl > tei|bibl > tei|abbr[xml|lang='ru'] {display: none;}
+tei|listBibl > tei|bibl > tei|bibl[xml|lang='ru'] {display: none;}
+
+tei|sense > tei|sense {display: none}
+tei|sense > tei|sense:has(abv|tr:lang(en)) {display: inline !important;}
+tei|sense > tei|sense:has(tei|def:lang(en)) {display: inline !important;}
+
+tei|q[rendition~="#rend_doublequotes"]::before {content: "“";}
+tei|q[rendition~="#rend_doublequotes"]::after {content: "”";}
+/* Feature passing down the tree :) -- for verse */
+tei|q[rendition~="#rend_doublequotes"]:has(tei|lg):before {content: "";}
+tei|q[rendition~="#rend_doublequotes"]:has(tei|lg):after {content: "";}
+tei|q[rendition~="#rend_doublequotes"] > tei|lg > tei|l:first-child:before {content: "\A\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0“"}
+tei|q[rendition~="#rend_doublequotes"] > tei|lg:after {content: "”"}
+
+/*q > q[rendition~="#rend_doublequotes"]::before {content: "‘";}*/
+/*q > q[rendition~="#rend_doublequotes"]::after {content: "’";}*/
+/*q > q[rendition~="#rend_doublequotes"]:last-child::before {content: "«";}*/
+/*q > q[rendition~="#rend_doublequotes"]:last-child::after {content: "";}*/
+
+*[rendition~="#rend_smallcaps"] {letter-spacing: 3px}
+tei|name {letter-spacing: 3px}
+tei|emph {font-style:italic;}
+
+abv|example > tei|quote:lang(ru) {display:none}
+tei|quote:lang(ru) + abv|tr::before {content: ""}
+
+abv|example > abv|tr tei|q::before {content: "‘";}
+abv|example > abv|tr tei|q::after {content: "’";}
+/*example > tr q[rendition~="#rend_singlequotes"]::before {content: "‘";}
+example > tr q[rendition~="#rend_singlequotes"]::after {content: "’";}*/
+abv|example > abv|tr > tei|q + tei|q::before {content: ", ‘"}
+
+/*:lang(os) > lang:empty {content: "Ossetic"}*/
+:lang(os) > tei|usg > tei|lang:empty {content: "Ossetic"}
+/*:lang(os-x-iron) > lang:empty {content: "Iron"}*/
+:lang(os-x-iron) > tei|usg > tei|lang:empty {content: "Iron"}
+/*:lang(os-x-digor) > lang:empty {content: "Digor"}*/
+:lang(os-x-digor) > tei|usg > tei|lang:empty {content: "Digor"}
+/*:lang(os-x-south) > lang:empty {content: "South Ossetic"}*/
+:lang(os-x-south) > tei|usg > tei|lang:empty {content: "South Ossetic"}
+/*:lang(os-x-ksan) > lang:empty {content: "Ksan Ossetic"}*/
+:lang(os-x-ksan) > tei|usg > tei|lang:empty {content: "Ksan Ossetic"}
+
+/**[extralang~="os"] > lang:empty {-oxy-append-content: ", Ossetic"}
+*[extralang~="os-x-iron"] > lang:empty {-oxy-append-content: ", Iron"}
+*[extralang~="os-x-digor"] > lang:empty {-oxy-append-content: ", Digor"}
+*[extralang~="os-x-south"] > lang:empty {-oxy-append-content: ", South Ossetic"}
+*[extralang~="os-x-ksan"] > lang:empty {-oxy-append-content: ", Ksan Ossetic"}*/
+
+tei|entry > tei|ref:before {content: " see ";}
+/*entry > usg + ref::before {content: " see ";}*/
+
+tei|sense > tei|sense:has(abv|tr:lang(en)) + tei|sense:has(abv|tr:lang(en)):before {content: ", "}
+tei|sense > tei|sense:has(tei|def:lang(en)) + tei|sense:has(tei|def:lang(en)):before {content: ", "}
+tei|sense > tei|sense:has(tei|def:lang(en)) + tei|sense:has(abv|tr:lang(en)):before {content: ", "}
+tei|sense > tei|sense:has(abv|tr:lang(en)) + tei|sense:has(tei|def:lang(en)):before {content: ", "}
+
+tei|form[type='plural'] > tei|gram {content: "pl."}

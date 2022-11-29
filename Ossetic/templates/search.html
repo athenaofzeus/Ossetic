@@ -1,0 +1,291 @@
+{% extends 'base.html' %}
+{% block title %}Поиск по словарю{% endblock %}
+{% block content %}
+    <div class="container"><!--
+        <div class="container mb-2" id="keyboard">
+            <div class="row align-items-center justify-content-center justify-content-lg-between align-items-center">
+                <div class="col-12 col-md-3 text-center">
+                    <abbr class="h6" data-bs-toggle="tooltip" title="По нажатии символ вставится в поле запроса и скопируется в буфер обмена">Специальные символы</abbr>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="row row-cols-1 justify-content-start justify-content-lg-center">
+                        <div class="col-auto pb-1 text-center">
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ā" onclick="print('ā');">ā</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="δ" onclick="print('δ');">δ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="θ" onclick="print('θ');">θ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ê" onclick="print('ê');">ê</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ę" onclick="print('ę');">ę</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ӣ" onclick="print('ӣ');">ӣ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ǫ" onclick="print('ǫ');">ǫ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ӯ" onclick="print('ӯ');">ӯ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="у̊" onclick="print('у̊');">у̊</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="х̌" onclick="print('х̌');">х̌</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ȥ" onclick="print('ȥ');">ȥ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ғ" onclick="print('ғ');">ғ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ɣ̌" onclick="print('ɣ̌');">ɣ̌</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="қ" onclick="print('қ');">қ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ӽ" onclick="print('ӽ');">ӽ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ҷ" onclick="print('ҷ');">ҷ</button>
+                        </div>
+                        <div class="col-auto pb-2 text-center">
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ā" onclick="print('ā');">ā</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="č" onclick="print('č');">č</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="δ" onclick="print('δ');">δ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="θ" onclick="print('θ');">θ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ê" onclick="print('ê');">ê</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ī" onclick="print('ī');">ī</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ū" onclick="print('ū');">ū</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ů" onclick="print('ů');">ů</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="x̌" onclick="print('x̌');">x̌</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ӡ" onclick="print('ӡ');">ӡ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="š" onclick="print('š');">š</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ž" onclick="print('ž');">ž</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ɣ" onclick="print('ɣ');">ɣ</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ɣ̌" onclick="print('ɣ̌');">ɣ̌</button>
+                            <button type="button" class="btn btn-outline-dark my-1 my-lg-0" data-clipboard-text="ǰ" onclick="print('ǰ');">ǰ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <div class="container mb-3 alert alert-secondary col-12 col-xl-9">
+            <form action="" method="post" id="query">
+                <div class="row justify-content-center align-items-center mb-2 g-2">
+                    <div class="col-12 row justify-content-center align-items-center mb-2">
+                        <div class="col-auto text-center row align-items-center">
+                            <div class="col-auto">
+                                <label for="languages"><abbr data-bs-toggle="tooltip" title="Несколько языков можно выбрать, зажав клавишу Ctrl/Command">Языки</abbr></label>
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-select form-select-sm" id="languages" name="languages" multiple required>
+                                    {% for l in Languages.query.all() %}
+                                        {% if l.lang_id in [198,199] %}
+                                            <option value="{{ l.lang_id }}" {%  if l.lang_id == 199 %}selected{% endif %}>
+                                                {{ l.lang_ru }} / {{ l.lang_en }}
+                                            </option>
+                                        {% endif %}
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-auto row justify-content-center align-items-center gx-2 gy-1">
+                            <div class="col-auto">
+                                <a href="{{ url_for('entries') }}" class="btn btn-sm btn-primary">Все статьи</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="{{ url_for('language', lang_id=199) }}" class="btn btn-sm btn-primary">Иронские статьи</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="{{ url_for('language', lang_id=198) }}" class="btn btn-sm btn-primary">Дигорские статьи</a>
+                            </div>
+                            <div class="col-auto">
+                                <a href="{{ url_for('languages') }}" class="btn btn-sm btn-primary">Указатель языков</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 col-md-auto">
+                        <label for="query_text" class="form-label">Найти</label>
+                    </div>
+                    <div class="col-10 col-md-auto mt-md-0">
+                        <input autofocus required type="text" list="autocomplete" id="query_text" name="query_text" value="{{ query }}" class="form-control" minlength="1" maxlength="30" placeholder="до 30 символов" tabindex="1" oninput="suggestions();">
+                    </div>
+                    <div class="col-2 col-md-auto">
+                        <label for="query_area" class="form-label col-2 col-md-auto">среди</label>
+                    </div>
+                    <div class="col-10 col-md-auto mt-md-0">
+                        <select class="form-select" id="query_area" name="query_area" onchange="disable_checkboxes()">
+                            <option selected value="forms">форм</option>
+                            <option value="meaning">значений</option>
+                            <option value="example">примеров</option>
+                            <option value="idioms">идиом и устойчивых сочетаний</option>
+                            <option value="cvs">сложных глаголов</option>
+                            <option value="full_entry">оригинальных текстов статей</option>
+                        </select>
+                    </div>
+                    <div class="col-2 col-md-auto mt-md-0">
+                        <button form="query" type="submit" class="btn btn-primary" formtarget="_parent">Искать</button>
+                    </div>
+                    <div class="col-12 col-md-auto mt-xxl-0">
+                        <div class="form-check mb-0">
+                            <input checked class="form-check-input" type="checkbox" name="full/sub" id="full/sub">
+                            <label class="form-check-label" for="full/sub">
+                                Указано слово <b>целиком</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><!--
+        <div class="container mb-2">
+            <div class="h5 text-center">
+                Вопросы и ответы
+            </div>
+            <div class="accordion" id="guide">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingNotation">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Notation" aria-expanded="false" aria-controls="Notation">
+                            Что это за словарь? Как он устроен?
+                        </button>
+                    </h2>
+                    <div id="Notation" class="accordion-collapse collapse" aria-labelledby="headingNotation" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <p>
+                                На данный момент, помимо авторских статей, на сайт выгружен «Шугнанско-русский словарь» Д. Карамшоева
+                                и «Рушанские и хуфские тексты и словарь» В. С. Соколовой.
+                                Информация об устройстве словаря Д.&nbsp;Карамшоева и список условных сокращений доступны в разделе
+                                <a href="{{ url_for('static', filename='Карамшоев.pdf') }}" target="_blank" class="link-primary">здесь</a>,
+                                для словаря В. С. Соколовой — <a href="{{ url_for('static', filename='Соколова.pdf') }}" target="_blank" class="link-primary">здесь</a>.
+                            </p>
+                            <span>
+                                Обратите внимание, что редакция проекта может вносить правки в словарные статьи.
+                                В таких случаях статья помечается с помощью значка
+                                <span class="col-auto badge bg-warning text-dark mx-1"
+                                      data-bs-toggle="tooltip"
+                                      title="Редакция проекта внесла правки в эту статью.
+                                      Оригинальная версия доступна в разделе «Оригинальный текст статьи»">
+                                    Изменено редакцией
+                                </span>, а текст статьи, соответстсвующий источнику, остаётся доступным в разделе
+                                «Оригинальный текст статьи».
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingRegister">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#register" aria-expanded="false" aria-controls="register">
+                            Можно ли игнорировать диакритики и регистр в запросах?
+                        </button>
+                    </h2>
+                    <div id="register" class="accordion-collapse collapse" aria-labelledby="headingRegister" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <p>Поисковый запрос нечувствителен к регистру. Символы <mark>-</mark> и <mark>=</mark> не различаются.</p>
+                            <span>В запросах можно игнорировать диакритики для всех специальных символов (см. выше).
+                                По умолчанию будут найдены все словарные статьи, где в запросе <mark>х̌ӯвд</mark> на месте <mark>ӯ</mark> есть, например,
+                                и <mark>ӯ</mark>, и <mark>у̊</mark>, и <mark>у</mark>, а на месте <mark>х̌</mark>&nbsp;— и <mark>ӽ</mark>, и <mark>х̌</mark>, и <mark>х</mark>.
+                                Чтобы отключить это, выберите опцию <mark>Указаны все диакритики</mark>.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOrpho">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Orpho" aria-expanded="false" aria-controls="Orpho">
+                            В какой орфографии можно делать запросы?
+                        </button>
+                    </h2>
+                    <div id="Orpho" class="accordion-collapse collapse" aria-labelledby="headingOrpho" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <span>
+                                Вы можете использовать в запросе орфографию проекта, а также орфографию словаря
+                                Карамшоева. Алгоритм определит орфографию автоматически (вы можете отследить его
+                                выбор в верху страницы с результатами).
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFullWord">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#FullWord" aria-expanded="false" aria-controls="FullWord">
+                            Что такое «Указано слово целиком»?
+                        </button>
+                    </h2>
+                    <div id="FullWord" class="accordion-collapse collapse" aria-labelledby="headingFullWord" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <p>
+                                Если вы ищете с этим параметром, то алгоритм подберёт лишь те статьи, в которых
+                                указанный запрос — отдельное слово. Без этого параметра на странице результатов будут
+                                и частичные совпадения запроса и слов из зон поиска.
+                            </p>
+                            <span>
+                                Без этого параметра минимальная длина запроса — три символа.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingZones">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Reference" aria-expanded="false" aria-controls="Reference">
+                            Как ссылаться на словарь?
+                        </button>
+                    </h2>
+                    <div id="Reference" class="accordion-collapse collapse" aria-labelledby="headingZones" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <span>Пожалуйста, для ссылки на словарь используйте <a class="link-primary" href="{{ url_for('about', _anchor='reference') }}">данные</a>, указанные на странице «О проекте».</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <datalist id="autocomplete"></datalist>
+    <script src="/static/js/clipboard.js-master/dist/clipboard.min.js"></script>
+    <script>
+        function print(what) {
+            if ($('#query_text').val().length < 30) {
+                var $txt = jQuery('#query_text');
+                var caretPos = $txt[0].selectionStart;
+                var textAreaTxt = $txt.val();
+                $txt.val(textAreaTxt.substring(0, caretPos) + what + textAreaTxt.substring(caretPos));
+            }
+            window.setTimeout(function () {
+                    $('#query_text').focus();
+                    query_text.setSelectionRange(caretPos + 1, caretPos + 1);
+                }, 0);
+        }
+        var btns = document.querySelectorAll('button');
+        var clipboard = new ClipboardJS(btns);
+
+        function amend_area() {
+            var text = $('#query_text').val();
+            if (text.match(/^[  А-Яа-яЁё,\-–]+$/)) {
+                $('#query_area').val('meaning');
+            } else {
+                $('#query_area').val('forms');
+            }
+        }
+
+        function disable_checkboxes() {
+            if (query_area.value == 'meaning' || query_area.value == 'full_entry') {
+                diacritics.disabled = true;
+                diacritics.checked = false;
+            } else {
+                diacritics.disabled = false;
+            }
+        }
+        $('#query_text').on('input',amend_area);
+        $('#query_text').on('keyup',disable_checkboxes);
+        $('#keyboard').on('click',disable_checkboxes);
+
+        function suggestions() {
+            $(`#autocomplete`).empty();
+            if ($('#query_text').val().length > 2) {
+                var packet = {
+                    type: 'search_input',
+                    area: $('#query_area').val(),
+                    input: $('#query_text').val(),
+                    langs: $('#languages').val()
+                };
+                fetch('{{ url_for('autocomplete') }}', {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: JSON.stringify(packet),
+                    cache: 'no-cache',
+                    headers: new Headers({
+                        'content-type': 'application/json'
+                    })
+                })
+                .then(function (response) {
+                    if (response.status == 200) {
+                        response.json().then(function (items) {
+                            for (var item of items) {
+                                $(`#autocomplete`).append(
+                                    `<option value="${item}">`
+                                )
+                            }
+                        })
+                    }
+                });
+            }
+        };
+    </script>
+{% endblock %}

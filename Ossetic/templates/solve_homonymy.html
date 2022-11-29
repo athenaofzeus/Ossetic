@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Разрешение омонимии{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="container d-flex flex-column mb-3">
+        <span class="h5 text-center align-self-center">Разрешение омонимии</span>
+        <div class="card">
+            <div class="card-body overflow-auto" style="max-height: 700px;">
+                <p><pre><b>{{ name_spec_file }}</b></pre></p>
+                <ul class="list-group list-group-flush">
+                    <form name="solve_homonymy" action="download_solved" method="POST" enctype="multipart/form-data">
+                        {% for s in analysis %}
+                            <li class="list-group-item">
+                                <div class="mb-2">
+                                    <span class="h6">{{ s.text }}</span>
+                                </div>
+                                {% for t in s.words %}
+                                    {% if t.wtype != 'punct' %}
+                                        <div class="col">
+                                            <div class="card">
+                                                <div class="card-header py-1 px-2">
+                                                    <span>{{ t.wf }}</span>
+                                                </div>
+                                                <div class="card-body py-1 px-2">
+                                                    {% if t.ana %}
+                                                        {% for a in t.ana %}
+                                                            <div class="card-body py-1 px-2">
+                                                                <div class='form-check'>
+                                                                    <input type='radio' class='form-check-input' id={{ a.id }} name={{ a.name }} value={{ a.value }}>
+                                                                    <label class='form-check-label' for={{ a.id }}>{{ a.gloss_index }}</label>
+                                                                </div>
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% else %}
+                                                        <div class="card-body py-1 px-2">
+                                                            <span><i>Не удалось распознать.</i></span>
+                                                        </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endfor %}
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="Сохранить">
+                        <textarea hidden id="analysis" class="form-control" name="analysis">{{ analysis }}</textarea>
+                        <input type='hidden' name='name_spec_file' value={{ name_spec_file }}>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

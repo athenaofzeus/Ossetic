@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Панель выпускающего редактора{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 row align-items-center justify-content-center mb-2">
+                <div class="col-auto">
+                    <div>
+                        <div class="alert{% if maintenance %} alert-warning{% else %} alert-success{% endif %}">
+                            <span>
+                                Сайт {% if maintenance %}{% else %}<b>не </b>{% endif %}находится на техобслуживании.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 row align-items-center justify-content-center">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <span style="font-weight: bold">
+                                        Всего статей: {{ Check.len(Units.query.filter_by(parent_id=None).all()) }}.
+                                    </span>
+                                </div>
+                                <div class="col-12 col-md-8 overflow-auto" style="max-height: 70vh;">
+                                    <table class="table table-hover caption-top">
+                                        <caption>Недавняя редакторская активность</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Дата и время</th>
+                                                <th scope="col">Редактор</th>
+                                                <th scope="col">Статья</th>
+                                                <th scope="col">Тип правки</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for el in recent_logs %}
+                                                <tr>
+                                                    <td>{{ Amend.datetime(el.datetime) }}</td>
+                                                    <td>{{ Amend.username(el.user_id) }}</td>
+                                                    <td>{{ Amend.entry(el.unit_id) }}</td>
+                                                    <td>
+                                                        {% if el.event == 1 %}
+                                                            <span>Формы и значения</span>
+                                                        {% elif el.event == 2 %}
+                                                            <span>Примеры</span>
+                                                        {% elif el.event == 4 %}
+                                                            <span>Статья добавлена</span>
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-12 col-md-4 overflow-auto" style="max-height: 70vh;">
+                                    <table class="table table-hover caption-top">
+                                    <caption class="">Топ редакторов</caption>
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Редактор</th>
+                                                <th scope="col">Последняя авторизация</th>
+                                                <th scope="col">Количество правок</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for e in top_editors %}
+                                                <tr>
+                                                    <td>{{ Amend.username(e) }}</td>
+                                                    {% if Users.query.get(e).last_seen %}
+                                                        <td>{{ Amend.datetime(Users.query.get(e).last_seen) }}</td>
+                                                    {% else %}
+                                                        <td>—</td>
+                                                    {% endif  %}
+                                                    <td>{{ top_editors.get(e) }}</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

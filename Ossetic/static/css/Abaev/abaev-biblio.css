@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+@namespace xml "http://www.w3.org/XML/1998/namespace";
+@namespace oxy url('http://www.oxygenxml.com/extensions/author');
+
+@namespace tei "http://www.tei-c.org/ns/1.0";
+@namespace abv "http://ossetic-studies.org/ns/abaevdict";
+
+tei|listBibl {display: table; font-size: 10pt; table-layout: fixed;}
+tei|listBibl > tei|bibl {display: table-row;}
+tei|listBibl > tei|head {display: table-row;}
+tei|listBibl > tei|head > tei|label {display: table-cell;}
+tei|listBibl > tei|bibl > tei|abbr {display: table-cell; hyphens:none; text-align:left; width: 30%;}
+/*listBibl > bibl > abbr:lang(en) {display: none;}*/
+tei|listBibl > tei|bibl > tei|bibl {display: table-cell; width: 70%; margin-left: 1em; text-indent: -1em;}
+
+tei|listBibl > tei|bibl > tei|bibl:before {content: '—\00a0'}
+/*listBibl > bibl {margin-left: 1em; text-indent: -1em;}*/
+tei|listBibl tei|bibl tei|author > tei|name {letter-spacing: 3px;}
+tei|listBibl tei|bibl tei|editor > tei|name {letter-spacing: 3px;}
+tei|listBibl tei|bibl tei|author {letter-spacing: normal;}
+
+tei|bibl:lang(en) tei|title {font-style: italic;}
+tei|bibl:has(tei|bibl:has(tei|title)) > tei|title {font-style: normal;}
+tei|bibl:has(tei|ref[type="bibl"]) > tei|title {font-style: normal;}
+
+tei|div[type="bibl-1"] > tei|head {display:block; font-size: 14pt; font-weight: bold; text-align: center; padding-bottom: 1ex; text-transform: uppercase;}
+tei|div[type="bibl-2"] > tei|head {display:block; font-size: 12pt; font-weight: bold; text-align: center; padding-bottom: 1ex; padding-top: 1ex; text-transform: uppercase;}
+
+/* Front matter stuff */
+
+tei|div {display: block}
+
+tei|head {font-family: "Libertinus Sans"}
+
+tei|div[xml|id='foreword'] {text-align: justify; break-before: right;}
+tei|div[type='foreword'] > tei|p {display: block; text-indent: 1.5em;}
+tei|div[type='foreword']:lang(en) > tei|p:first-of-type {display: block; text-indent: 0em;}
+tei|div[type="foreword"] > tei|head {display:block; font-size: 14pt; font-weight: bold; text-align: center; padding-bottom: 2ex; text-transform: uppercase;}
+
+tei|titlePage {display: block; text-align: center; font-family: "Libertinus Sans"; page: letter; -prince-page-group: start; position: relative;}
+
+/*titlePage > byline {display: block; text-align: center; font-size: 16pt; padding-top: 0.11cm; padding-bottom:0.5cm;}*/
+tei|titlePage > tei|byline[n = '1'] {display: block; text-align: center; font-size: 16pt; position: absolute; width:100%; top:40ex;}
+tei|titlePage > tei|byline[n = '2'] {display: block; text-align: center; font-size: 16pt; position: absolute; width:100%; top:47ex;}
+tei|titlePage > tei|byline[n = '3'] {display: block; text-align: center; font-size: 16pt; position: absolute; width:100%; top:72ex;}
+/*titlePage > byline:first-of-type {font-size: 24pt; font-weight: bold; padding-top: 0.5cm; padding-bottom:0.5cm;}*/
+tei|titlePage > tei|byline:first-of-type {font-size: 24pt; font-weight: bold; top: 0px;}
+
+tei|titlePage > tei|byline > tei|docAuthor + tei|docAuthor:before {content: "\A"; white-space: pre;}
+
+tei|titlePage > tei|docTitle {display: block; text-align: center; padding-top: 0.11cm; position: absolute; width:100%; top: 10ex;}
+tei|titlePage > tei|docTitle > tei|titlePart {display: block; text-align: center;}
+tei|titlePage > tei|docTitle > tei|titlePart[type="main"] {font-size: 26pt; text-transform: uppercase; padding-bottom: 0.5cm}
+tei|titlePage > tei|docTitle > tei|titlePart[type="vol"] {font-size: 24pt; font-variant: small-caps; padding-top: 0cm; padding-bottom: 0.11cm; position:absolute; width:100%; top: 13ex;}
+tei|titlePage > tei|docTitle > tei|titlePart[type="letter"] {font-size: 26pt; padding-top: 0cm; /*padding-bottom: 1.5cm*/ position:absolute; width:100%; top: 17ex;}
+/*titlePage > docTitle > titlePart[type="letter"]:lang(ru) {padding-bottom: 0.5cm}*/
+
+tei|titlePage > tei|docEdition {display: block; text-align: center; font-size: 16pt;}
+tei|titlePage > tei|docImprint[n="1"] {display:block; text-align: center; font-size: 14pt; position: absolute; width: 100%; top:67ex;}
+tei|titlePage > tei|docImprint[n="2"] {page-break-after:always; position: absolute; width: 100%; top:107ex;}
+/*titlePage > docImprint:last-of-type:lang(ru) {padding-top: 2cm;}*/
+
+tei|titlePage tei|hi[rend="small"] {font-size: smaller; display:inline;}
+/*titlePage note:lang(ru) {display: inline;}*/
+
+tei|signed {display:block; font-style:italic; text-align:right;padding-top:0.5cm;}
+
+tei|div[type="note"] {display: block; page: letter; page-break-after: always; -prince-page-group: start;}
+tei|div[type="note"] > tei|p {font-size: 10pt; text-indent: 1.5em; padding-top:1cm;}
+tei|div[type="note"] > tei|p:first-of-type {text-indent: 0em; padding-top:0cm;}
+tei|div[type="note"] > tei|bibl {display: block; font-size: 10pt; text-indent: -1.5em; margin-left:1.5em;}
+
+tei|div[type="frontispiece"] {display: block; page: letter; page-break-after: always; -prince-page-group: start;}
+tei|div[type="frontispiece"] > tei|p {display: block; text-align: center; font-size: 16pt;}
+
+tei|div[type="board"] {display: block; page: letter; page-break-after: always; -prince-page-group: start; line-height: 1.5}
+tei|div[type="board"] > tei|p {display: block; text-align: center; font-size: 14pt;}
+tei|div[type="board"] > tei|p > tei|note {font-size: 12pt;}
+tei|div[type="board"] > tei|head {display: block; text-align: center; font-size: 14pt; font-weight:bold; padding-bottom: 1cm;}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Назначить задачу{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <form name="send_task" id="send_task" method="post">
+                    <div class="form-floating mb-2">
+                        <textarea required class="form-control" placeholder="Что нужно сделать?" id="task" name="task" maxlength="5000"></textarea>
+                        <label for="task">Суть задачи</label>
+                    </div>
+                    <div class="mb-2">
+                        <label for="who" class="form-label">Исполнители</label>
+                        <select class="form-select" aria-label="Выбор исполнителя" name="who" id="who" form="send_task" multiple required>
+                            <option value="" selected>все редакторы</option>
+                            {% for u in Users.query.filter(Users.role_id.in_((2,3))).all() %}
+                                <option value="{{ u.user_id }}">
+                                    {{ u.username }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input id="unit_ids" name="unit_ids" class="form-control"
+                                                   placeholder="Целевые статьи через запятую">
+                        <label for="unit_ids">Целевые статьи (ID через запятую)</label>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-end">
+                <button type="submit" class="btn btn-primary" form="send_task">Назначить задачу</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        for (var i = 0; i < document.getElementsByTagName('textarea').length; ++i) {
+                autosize(document.getElementsByTagName('textarea')[i]);
+            };
+    </script>
+{% endblock %}

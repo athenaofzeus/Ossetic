@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% block title %}Профиль {{ user.username }}{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="row d-flex justify-content-between">
+            <div class="col-12 col-lg-4 row pe-0">
+                <div class="col-12 mb-2">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row align-items-center justify-content-between">
+                                <span class="col-auto h5 mb-2 mb-lg-0">{{ user.role.role }} {{ Amend.username(user.user_id, link=False) }}</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <dl class="row mb-0">
+                                <dt class="col-12 col-sm-5">
+                                    Имя и фамилия
+                                </dt>
+                                <dd class="col-12 col-sm-7">
+                                    {{ user.firstname }} {{ user.surname }}
+                                </dd>
+                                <dt class="col-12 col-sm-5">
+                                    Имейл
+                                </dt>
+                                <dd class="col-12 col-sm-7">
+                                    {{ user.email }}
+                                </dd>
+                                <dt class="col-12 col-sm-5">
+                                    Дата регистрации
+                                </dt>
+                                <dd class="col-12 col-sm-7">
+                                    {{ Amend.datetime(user.joined) }}
+                                </dd>
+                                {% if user.last_seen %}
+                                    <dt class="col-12 col-sm-5">
+                                        Последняя авторизация
+                                    </dt>
+                                    <dd class="col-12 col-sm-7">
+                                        {{ Amend.datetime(user.last_seen) }}
+                                    </dd>
+                                {% endif %}
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-center mb-2">
+                    {% if status(session.get('user')) == 3 %}
+                        <div class="col-auto">
+                            <a class="btn btn-danger" href="{{ url_for('edit_profile', user_id=user.user_id) }}">Редактировать</a>
+                        </div>
+                    {% elif status(session.get('user')) == 2 and user_id == decypher_user_id(session.get('user')) %}
+                        <div class="col-auto mb-2 mb-md-0">
+                            <button class="btn btn-outline-danger"
+                                    type="button"
+                                    form="new_credentials"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#password_change"
+                            >
+                                Сменить пароль
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-lg-8">
+                <div>
+                    <div class="row row-cols-1 row-cols-xl-2 align-items-center justify-content-between g-2">
+                        <div class="col">
+                            <div class="text-center">
+                                <div class="h5">
+                                   Уникальные правки ({{ Check.len(unique_edits) }})
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card card-body overflow-auto" style="max-height: 70vh">
+                                        <ul class="list-group list-group-flush" id="unique">
+                                            {% for l in unique_edits[:30] %}
+                                                <li class="list-group-item" log_id="{{ l.log_id }}">
+                                                   <span style="font-size: smaller;"> {{- Amend.datetime(l.datetime) -}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="{{ url_for('entry', unit_id=Amend.cypher_unit(l.unit_id), ortho='po') }}"
+                                                           class="link-primary" style="font-weight: bold;">
+                                                        {{- l.unit_id -}}
+                                                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <em>{{ Check.main_form(l.unit_id) }}</em>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span class="text-primary">
+                                                        {%- if l.event == 1 -%}
+                                                            (Ф)
+                                                        {%- elif l.event == 2 -%}
+                                                            (П)
+                                                        {%- elif l.event == 4 -%}
+                                                            (НС)
+                                                        {%- endif -%}
+                                                    </span>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% if Check.len(unique_edits) > 30 %}
+                                    <div class="col-12">
+                                        <a type="button" class="h6 link-primary" onclick="moreEdits('unique')">Смотреть больше</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="text-center">
+                                <div class="h5">
+                                   Недавние правки ({{ Check.len(Entry_logs.query.filter(Entry_logs.user_id==user.user_id, Entry_logs.event != 3).all()) }})
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="col-12 card card-body overflow-auto" style="max-height: 70vh">
+                                        <ul class="list-group list-group-flush" id="recent">
+                                            {% for l in Entry_logs.query.filter(Entry_logs.user_id==user.user_id, Entry_logs.event != 3).order_by(Entry_logs.datetime.desc()).limit(30).all() %}
+                                                <li class="list-group-item" log_id="{{ l.log_id }}">
+                                                   <span style="font-size: smaller;"> {{- Amend.datetime(l.datetime) -}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="{{ url_for('entry', unit_id=Amend.cypher_unit(l.unit_id), ortho='po') }}"
+                                                           class="link-primary" style="font-weight: bold;">
+                                                        {{- l.unit_id -}}
+                                                    </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <em>{{ Check.main_form(l.unit_id) }}</em>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <span class="text-primary">
+                                                        {%- if l.event == 1 -%}
+                                                            (Ф)
+                                                        {%- elif l.event == 2 -%}
+                                                            (П)
+                                                        {%- elif l.event == 4 -%}
+                                                            (НС)
+                                                        {%- endif -%}
+                                                    </span>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                                {% if Check.len(Entry_logs.query.filter(Entry_logs.user_id==user.user_id, Entry_logs.event != 3).order_by(Entry_logs.datetime.desc()).limit(32).all()) > 30 %}
+                                    <div class="col-12">
+                                        <a type="button" class="h6 link-primary" onclick="moreEdits('recent')">Смотреть больше</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="password_change" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Смена пароля</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <span>
+                            Если вы забыли текущий пароль,
+                            <a href="{{ url_for('login') }}" class="link-primary">выйдите</a> из профиля и воспользуйтесь
+                            функцией восстановления пароля.
+                        </span>
+                    </div>
+                    <form action="" method="post" id="new_credentials" class="row row-cols-1">
+                        <div class="col mb-2">
+                            <input required
+                                   type="password"
+                                   name="current_password"
+                                   id="current_password"
+                                   maxlength="100"
+                                   class="form-control"
+                                   placeholder="Текущий пароль"
+                            >
+                        </div>
+                        <div class="col">
+                            <input required
+                                   type="password"
+                                   name="new_password"
+                                   id="new_password"
+                                   maxlength="100"
+                                   minlength="6"
+                                   class="form-control"
+                                   placeholder="Новый пароль (от 6 до 100 символов)"
+                            >
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" form="new_credentials">Сменить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function moreEdits(type) {
+            var packet = {
+                    type: type,
+                    last: $(`#${type} > li`).last().attr('log_id'),
+                    user_id: {{ user_id }}
+                };
+            fetch('{{ url_for('profile_info') }}', {
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify(packet),
+                cache: 'no-cache',
+                headers: new Headers({
+                    'content-type': 'application/json'
+                })
+            })
+            .then(function (response) {
+                if (response.status == 200) {
+                    response.json().then(function (items) {
+                        $(`#${type} > li`).last().attr("tabindex",-1).focus();
+                        for (let l of items) {
+                            $(`#${type}`).append(
+                            `<li class="list-group-item" log_id="${l[5]}">
+                                <span style="font-size: smaller;">${l[0]}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href="/dict/po/${l[1]}"
+                                       class="link-primary" style="font-weight: bold;">${l[2]}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <em>${l[3]}</em>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span class="text-primary">
+                                    ${l[4]}
+                                </span>
+                            </li>`
+                            )
+                        };
+                    })
+                }
+            });
+        };
+    </script>
+{% endblock %}

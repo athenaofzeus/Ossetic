@@ -1,0 +1,78 @@
+{%- extends 'base.html' -%}
+{%- block title -%}Запрос «{{ query }}»{%- endblock -%}
+{%- block content -%}
+    <div class="container">
+        <div class="container mb-2">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 alert alert-secondary mb-2 mb-md-0" role="alert">
+                    {{ Markup(message) }}
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container mb-2 col-auto overflow-auto" style="max-height: 60vh">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col" style="font-variant: small-caps">word</th>
+                        {% if params['minimal_pairs'] %}
+                            <th scope="col">Минимальные пары</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {%- for unit_id in unit_ids -%}
+                        <tr>
+                            <td>
+                                {{ Amend.entry(unit_id, new_window=True)}}
+                            </td>
+                            {% if params['minimal_pairs'] %}
+                                <td>
+                                    <div class="row row-cols-auto">
+                                        {% for mp in Check.minimal_pair(unit_id) %}
+                                            <div class="col">
+                                                <a class="link-primary"
+                                                   href="{{ url_for('entry', unit_id=URLSafeSerializer(app.config["SECRET_KEY"], salt='entry').dumps(mp.unit_id), ortho='po') }}"
+                                                   target="_blank">{{ mp.latin }}</a>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        function change_ortho() {
+            $('span[name="orthographable"]').each(function() {
+                var prev = $(this).html();
+                $(this).html($(this).attr('alternant'));
+                $(this).attr('alternant', prev);
+            });
+        }
+    </script>
+    <!--
+        document.onmouseup = document.onkeyup = function () {
+            if (window.getSelection().toString() &&
+                window.getSelection().anchorNode.parentElement.getAttributeNames().includes('selectable') &&
+                window.getSelection().anchorNode.parentElement.className.includes('visually-hidden') == false) {
+                var range = window.getSelection().getRangeAt(0);
+                var text = window.getSelection().getRangeAt(0).toString();
+                range.deleteContents();
+                var replacement = range.createContextualFragment(`<a id="selection" href="{{ url_for('search') }}/${text}" class="text-primary"
+                                   title="Нажмите, чтобы искать «${text}»">${text}</a>`);
+                range.insertNode(replacement);
+                if (window.getSelection().toString()) {
+                    document.getElementById('selection').onmouseout = function () {
+                        range.deleteContents();
+                        range.insertNode(document.createTextNode(text));
+                    }
+                window.getSelection().removeAllRanges()
+                }
+            }
+        }
+    <!-->
+{%- endblock -%}

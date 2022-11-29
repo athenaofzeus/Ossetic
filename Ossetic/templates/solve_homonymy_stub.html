@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Разрешение омонимии{% endblock %}
+{% block content %}
+<br>
+<div class="card">
+    <div class="card-header">
+        <h3>
+            Разрешение омонимии
+        </h3>
+    </div>
+    <div class="card-body">
+        <form name="solve_homonymy" action="{{ url_for('write_solved', name_spec_file=name_spec_file) }}" method="POST" enctype="multipart/form-data">
+INSERT CODE HERE
+            <br>
+            <p>
+                <input type="checkbox" class="form-check-input" name="test" id="test" value="yes"><label class="form-check-label" for="test">Тестовый режим (не будет записано)</label>
+            </p>
+            <input type="submit" class="btn btn-primary" value="Сохранить">
+            <p><pre>{{ name_spec_file }}</pre></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

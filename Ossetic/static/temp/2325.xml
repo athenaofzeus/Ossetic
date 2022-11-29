@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_mydybyn&#x292;" xml:lang="os" abv:completeness="complete"><form xml:id="form_d2022e66" type="lemma" xml:lang="os-x-iron"><orth>mydybynʒ</orth></form><form xml:id="form_d2022e69" xml:lang="os-x-digor" type="dialectal"><orth>mudbinʒæ</orth></form><sense xml:id="sense_d2022e72"><abv:tr xml:lang="ru"><q>пчела</q></abv:tr></sense><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d2022e82"><example xml:id="example_d2022e84"><quote xmlns="http://www.tei-c.org/ns/1.0">balæwwyd æm (didinægmæ) dardæj
+                <oRef>mydybynʒ</oRef>
+              <?oxy_comment_start author="oleg" timestamp="20220709T135015+0300" comment="NB: интересная деривация"?>mydgūr<?oxy_comment_end?></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">явилась к нему (цветку) издалека пчела за
+                медом</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Илас"><abbr xml:lang="ru"><name full="yes" instant="false">Илас</name></abbr></ref>
+              <biblScope>13</biblScope></bibl></example><example xml:id="example_d2022e112" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">stong <oRef>mudbinʒitæ</oRef> duv-duv gængæ
+              ratæxæbatæxæ kænuncæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">голодные пчелы с жужжанием летают туда-сюда</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_ОЭп."><abbr xml:lang="ru">ОЭп.</abbr></ref>
+              <biblScope> 56<hi rendition="#rend_subscript">85—87</hi></biblScope></bibl></example><example xml:id="example_d2022e143" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">wædæj ardæmæ digoron læg citgin kænuj
+                <oRef>mudbinʒitæ</oRef> ma kovuj sæ fælværa Anigolæn</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">с тех пор дигорец почитает пчел и молится их
+                покровителю Аниголу</q></tr></example></exampleGrp><note xml:lang="ru" type="footnote">Имя покровителя мелкого скота <ref type="xr" target="#entry_Fælværa"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">Fælværa</tei:w></ref> (см. это слово) употреблено здесь в нарицательном значении <q rendition="#rend_doublequotes">покровитель</q>.</note><etym xml:lang="ru">Буквально <q rendition="#rend_doublequotes">медовая (<ref type="xr" target="#entry_myd"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">myd</tei:w></ref>) муха (<ref type="xr" target="#entry_bynʒ"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">bynʒ</tei:w></ref>)</q>. Этот тип
+          наименования пчелы отмечен во многих языках; еще в <?oxy_comment_start author="Vados" timestamp="20220422T191542+0300" comment="языка нет в списке" id="js3_zyg_d5b" flag="done"?><?oxy_comment_start author="oleg" timestamp="20220709T140516+0300" parentID="js3_zyg_d5b" comment="добавил" flag="done" mid="2"?>древнеегипетском<?oxy_comment_end mid="2"?><?oxy_comment_end?>
+          <mentioned corresp="#mentioned_d2022e286" xml:id="mentioned_d2022e199" xml:lang="egy"><w>āb en ebio</w>
+            <gloss><q>муха меда</q></gloss></mentioned>; ср. также <mentioned corresp="#mentioned_d2022e292" xml:id="mentioned_d2022e206" xml:lang="x-balochi"><lang>бел.</lang>
+            <w>bēnag-makašk</w></mentioned>, <mentioned corresp="#mentioned_d2022e297" xml:id="mentioned_d2022e211" xml:lang="fa"><lang>перс.</lang>
+            <w>magas-i angubin</w></mentioned>, <mentioned corresp="#mentioned_d2022e302" xml:id="mentioned_d2022e216" xml:lang="inc-x-old"><lang>др.инд.</lang>
+            <w>madhu-makṣika-</w></mentioned>, <mentioned corresp="#mentioned_d2022e308" xml:id="mentioned_d2022e221" xml:lang="sqj"><lang>алб.</lang>
+            <w>mialʼtse</w></mentioned>, <mentioned xml:id="mentioned_d2022e226" xml:lang="udi"><lang>удин.</lang>
+            <w>uč̣e tat</w></mentioned>, <mentioned corresp="#mentioned_d2022e318" xml:id="mentioned_d2022e231" xml:lang="xcl"><lang>арм.</lang>
+            <w>meɣr-čʼančʼ</w></mentioned>, <mentioned corresp="#mentioned_d2022e323" xml:id="mentioned_d2022e237" xml:lang="krc-x-balkar"><lang>балк.</lang>
+            <w>bal-čibin</w>
+            <gloss><q>медовая муха</q></gloss></mentioned>. Есть основания думать, что прежде пчела
+          называлась
+            <?oxy_comment_start author="Vados" timestamp="20220422T195838+0300" comment="Не очень ясно, есть ли такое слово в словаре?" id="p4b_dzg_d5b" flag="done"?><?oxy_comment_start author="oleg" timestamp="20220709T140621+0300" parentID="p4b_dzg_d5b" comment="есть, как префикс" flag="done" mid="4"?><ref type="xr" target="#entry_ævz-"><w>ævz</w>
+            <note type="comment">(← <mentioned corresp="#mentioned_d2022e338" xml:id="mentioned_d2022e252" xml:lang="ira"><w type="rec">vabza-</w></mentioned>)</note></ref><?oxy_comment_end?><?oxy_comment_end mid="4"?>,
+          но это название попало под запрет; см.
+            <?oxy_comment_start author="Vados" timestamp="20220422T195838+0300" comment="Не очень ясно, есть ли такое слово в словаре?" id="o1d_jzg_d5b" flag="done"?><?oxy_comment_start author="oleg" timestamp="20220709T140808+0300" parentID="o1d_jzg_d5b" comment="да" flag="done" mid="6"?><ref type="xr" target="#entry_ævz-"><w>ævz</w></ref><?oxy_comment_end?><?oxy_comment_end mid="6"?>. — Разведение пчел имеет в
+          Осетии давние традиции и окружено легендами (см. <bibl><ref type="bibl" target="#ref_Миллер_Вс._ОЭ">ОЭ</ref>
+            <biblScope> I 94—97</biblScope></bibl>: <q rendition="#rend_doublequotes">Предание о
+            том, как пчелы появились в Дигории</q>). Пчелы находились под покровительством особого
+          божества Анигол.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

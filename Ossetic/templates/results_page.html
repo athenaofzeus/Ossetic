@@ -1,0 +1,258 @@
+{%- extends 'base.html' -%}
+{%- block title -%}Запрос «{{ original_query }}»{%- endblock -%}
+{%- block content -%}
+    <div class="container">
+        <div class="container mb-2">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-12 col-md-9 alert alert-secondary mb-2 mb-md-0" role="alert">
+                    {{ Markup(message) }}
+                </div>
+                <div class="col-12 col-md-3 text-center row justify-content-center">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="change_ortho()" type="button">
+                            Изменить орфографию
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="container mb-2">
+            <ul class="list-group">
+                {%- for unit_id in unit_ids -%}
+                    <li class="list-group-item">
+                        <div class="container row align-items-start justify-content-center m-0 p-0">
+                            <div class="col-12 col-xl-3 gy-2 gx-0 gx-md-2 gy-md-0 row">
+                                <div class="col-12">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            {%- for g in Glosses.query.order_by(Glosses.rank.asc()).with_entities(Glosses.gloss_id) -%}
+                                                {% if Glosses.query.get(g[0]).rank %}
+                                                    {% if Forms.query.filter_by(gloss_id=g[0], unit_id=unit_id).first() %}
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <abbr style="font-variant-caps: small-caps"
+                                                                      data-bs-toggle="tooltip"
+                                                                      title="{{ Glosses.query.get(g[0]).russian }}">
+                                                                    {{ Glosses.query.get(g[0]).russian }}
+                                                                </abbr>
+                                                            </th>
+                                                            <td class="col-12 col-md-10">
+                                                                <div class="row align-items-center justify-content-start">
+                                                                    {%- for f in Forms.query.filter_by(gloss_id=g[0], unit_id=unit_id).all() -%}
+                                                                        <div class="col-12 text-end">
+                                                                            <span>{{ Markup(Check.labels(f.form_id, 'f')) }}</span>
+                                                                            <span>
+                                                                                {{ f.latin }}
+                                                                            </span>
+                                                                        </div>
+                                                                    {%- endfor -%}
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-12 col-xl-9">
+                                <dl class="row justify-content-between align-items-center mb-0">
+                                    <div class="col-12 justify-content-center align-items-center mb-1">
+                                        <div class="row align-items-center justify-content-around g-2">
+                                            <div class="col-auto">
+                                                <div class="row justify-content-center align-items-center g-2">
+                                                    {% if Units.query.get(unit_id).source == 2 %}
+                                                        <abbr class="col-auto badge bg-info text-dark mx-1"
+                                                              data-bs-toggle="tooltip"
+                                                              title="Статья взята из словаря Абаева">Абаев</abbr>
+                                                    {% elif Units.query.get(unit_id).source == 1 %}
+                                                        <abbr class="col-auto badge bg-info text-dark mx-1"
+                                                              data-bs-toggle="tooltip"
+                                                              title="Статья составлена редакцией проекта">Авторская</abbr>
+                                                    {% endif %}
+                                                    {% for l in Language_assignment.query.filter_by(unit_id=unit_id).all() %}
+                                                        <abbr class="col-auto badge rounded-pill bg-secondary mx-1">{{ Languages.query.get(l.lang_id).lang_ru }} / {{ Languages.query.get(l.lang_id).lang_en }}</abbr>
+                                                    {% endfor %}
+                                                    {% if Units.query.get(unit_id).source != 1 %}
+                                                        {% for i in Entry_logs.query.filter_by(unit_id=unit_id, source=1).all()[:1] %}
+                                                            <abbr class="col-auto badge bg-warning text-dark mx-1"
+                                                                  data-bs-toggle="tooltip"
+                                                                  title="Редакция проекта внесла правки в эту статью.
+                                                                  Оригинальная версия доступна в разделе «Оригинальный текст статьи»">
+                                                                Изменено редакцией
+                                                            </abbr>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="{{ url_for('entry', unit_id=URLSafeSerializer(app.config["SECRET_KEY"], salt='entry').dumps(unit_id), ortho=ortho) }}"
+                                                   class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip"
+                                                   title="Нажмите для перехода к статье" style="text-decoration: none">Полная статья</a><br>
+                                            </div>
+                                            {% if Check.labels(unit_id, 'u') %}
+                                                <div class="col-auto">
+                                                    <span class="h6">{{ Check.labels(unit_id, 'u') }}</span>
+                                                </div>
+                                            {% endif %}
+                                            {% if session.get('user') and status(session.get('user')) >= 1 %}
+                                                <div class="col-auto">
+                                                    <span>ID: <b>{{ unit_id }}</b></span>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    {%- if Units.query.get(unit_id).meanings -%}
+                                        <dt class="col-12 col-md-2 align-self-start">Значение</dt>
+                                        <dd class="col-12 col-md-10">
+                                            <ol class="list-group {% if Check.len(Meanings.query.filter_by(unit_id=unit_id).order_by(Meanings.rank.asc()).all()) > 1 %}list-group-numbered{% endif %}">
+                                                {%- for m in Meanings.query.filter_by(unit_id=unit_id).order_by(Meanings.rank.asc()).all() -%}
+                                                    <li class="list-group-item border-0 p-0">
+                                                        <span class="me-1">
+                                                            <abbr class="h6"
+                                                                  style="font-variant: small-caps;"
+                                                                  data-bs-toggle="tooltip"
+                                                                  title="{{ Parts_of_speech.query.get(m.pos_id).pos }}"
+                                                            >{{ Parts_of_speech.query.get(m.pos_id).pos_short }}</abbr>
+                                                        </span>
+                                                        <span class="me-1">
+                                                            {% for l in Grammar_labels.query.filter_by(meaning_id=m.meaning_id).all() %}
+                                                                <abbr class="h6"
+                                                                      style="font-variant: small-caps;"
+                                                                      data-bs-toggle="tooltip"
+                                                                      title="{{ Label_names.query.get(l.label_id).decode }}"
+                                                                >{{ Label_names.query.get(l.label_id).label }}</abbr>
+                                                            {% endfor %}
+                                                        </span>
+                                                        <span>{{ Markup(Check.labels(m.meaning_id, 'm')) }}</span>
+                                                        <span>{{ Amend.md(Amend.mark(query, m.meaning), html=True) }}</span>
+                                                        <!--<ul>
+                                                            {% for e in Examples.query.filter_by(meaning_id=m.meaning_id).all() %}
+                                                                <li>
+                                                                    <span>{{ Markup(Check.labels(e.example_id, 'e')) }}</span>
+                                                                    {% if ortho == 'po' %}
+                                                                        <span><em>{{ Amend.mark(alternant, e.example) }}</em></span><br>
+                                                                    {% elif ortho == 'ko' %}
+                                                                        <span><em>{{ Amend.mark(query, e.example) }}</em></span><br>
+                                                                    {% endif %}
+                                                                    <span>‛{{ Amend.mark(query, e.translation) }}’</span>
+                                                                </li>
+                                                            {% endfor %}
+                                                        </ul>-->
+                                                    </li>
+                                                {%- endfor -%}
+                                            </ol>
+                                        </dd>
+                                    {%- endif -%}
+                                    {%- if Units.query.filter_by(parent_id=unit_id).first() -%}
+                                        <dt class="col-12 col-md-2 align-self-start">Устойчивые сочетания и идиомы</dt>
+                                        <dd class="col-12 col-md-10">
+                                            <ul class="list-group">
+                                                {%- for u in Units.query.filter_by(parent_id=unit_id).all() -%}
+                                                    <div class="row row-cols-1 align-items-center justify-content-start">
+                                                        {%- for f in u.forms -%}
+                                                             <div class="col">
+                                                                <span>{{ Markup(Check.labels(f.form_id, 'f')) }}</span>
+                                                                <span>{{ Amend.mark(query, f.latin) }}</span>
+                                                             </div>
+                                                        {%- endfor -%}
+                                                    </div>
+                                                    <ol class="list-group {% if Check.len(Meanings.query.filter_by(unit_id=u.unit_id).order_by(Meanings.rank.asc()).all()) > 1 %}list-group-numbered{% endif %}">
+                                                        {%- for m in Meanings.query.filter_by(unit_id=u.unit_id).order_by(Meanings.rank.asc()).all() -%}
+                                                            <li class="list-group-item border-0 ps-4 py-0">
+                                                                <span class="me-1">
+                                                                    <abbr class="h6"
+                                                                          style="font-variant: small-caps;"
+                                                                          data-bs-toggle="tooltip"
+                                                                          title="{{ Parts_of_speech.query.get(m.pos_id).pos }}"
+                                                                    >{{ Parts_of_speech.query.get(m.pos_id).pos_short }}</abbr>
+                                                                </span>
+                                                                <span class="me-1">
+                                                                    {% for l in Grammar_labels.query.filter_by(meaning_id=m.meaning_id).all() %}
+                                                                        <abbr class="h6"
+                                                                              style="font-variant: small-caps;"
+                                                                              data-bs-toggle="tooltip"
+                                                                              title="{{ Label_names.query.get(l.label_id).decode }}"
+                                                                        >{{ Label_names.query.get(l.label_id).label }}</abbr>
+                                                                    {% endfor %}
+                                                                </span>
+                                                                <span>{{ Markup(Check.labels(m.meaning_id, 'm')) }}</span>
+                                                                <span>{{ Amend.md(Amend.mark(query, m.meaning), html=True) }}</span>
+                                                                <!--<ul>
+                                                                    {% for e in Examples.query.filter_by(meaning_id=m.meaning_id).all() %}
+                                                                        <li>
+                                                                            <span>{{ Markup(Check.labels(e.example_id, 'e')) }}</span>
+                                                                            {% if ortho == 'po' %}
+                                                                                <span><em>{{ Amend.mark(alternant, e.example) }}</em></span><br>
+                                                                            {% elif ortho == 'ko' %}
+                                                                                <span><em>{{ Amend.mark(query, e.example) }}</em></span><br>
+                                                                            {% endif %}
+                                                                            <span>‛{{ Amend.mark(query, e.translation) }}’</span>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>-->
+                                                            </li>
+                                                        {%- endfor -%}
+                                                    </ol>
+                                                {%- endfor -%}
+                                            </ul>
+                                        </dd>
+                                    {%- endif -%}
+
+                                </dl>
+                            </div>
+                        </div>
+                    </li>
+                {%- endfor -%}
+            </ul>
+        </div>
+        {% if page_of_units.has_prev or page_of_units.has_next %}
+            <div class="row justify-content-center col-12 align-items-center mb-2">
+                {% if page_of_units.has_prev %}
+                    <div class="col-auto">
+                        <a class="btn btn-sm btn-outline-secondary",
+                           href="{{ url_for('results', lengths=lengths, ortho=ortho, param=param, query=original_query, type=type, page=page-1, langs=langs) }}">Назад</a>
+                    </div>
+                {% endif %}
+                {% if page_of_units.has_next %}
+                    <div class="col-auto">
+                        <a class="btn btn-sm btn-outline-secondary mt-0 mt-md-2 mt-lg-0"
+                           href="{{ url_for('results', lengths=lengths, ortho=ortho, param=param, query=original_query, type=type, page=page+1, langs=langs) }}">Далее</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        function change_ortho() {
+            $('span[name="orthographable"]').each(function() {
+                var prev = $(this).html();
+                $(this).html($(this).attr('alternant'));
+                $(this).attr('alternant', prev);
+            });
+        }
+    </script>
+    <!--
+        document.onmouseup = document.onkeyup = function () {
+            if (window.getSelection().toString() &&
+                window.getSelection().anchorNode.parentElement.getAttributeNames().includes('selectable') &&
+                window.getSelection().anchorNode.parentElement.className.includes('visually-hidden') == false) {
+                var range = window.getSelection().getRangeAt(0);
+                var text = window.getSelection().getRangeAt(0).toString();
+                range.deleteContents();
+                var replacement = range.createContextualFragment(`<a id="selection" href="{{ url_for('search') }}/${text}" class="text-primary"
+                                   title="Нажмите, чтобы искать «${text}»">${text}</a>`);
+                range.insertNode(replacement);
+                if (window.getSelection().toString()) {
+                    document.getElementById('selection').onmouseout = function () {
+                        range.deleteContents();
+                        range.insertNode(document.createTextNode(text));
+                    }
+                window.getSelection().removeAllRanges()
+                }
+            }
+        }
+    <!-->
+{%- endblock -%}

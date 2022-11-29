@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_r&#xE6;mun" xml:lang="os-x-digor" abv:completeness="english-questions"><form xml:id="form_d565e66" type="lemma"><orth>ræmun</orth><form xml:id="form_d565e68" type="participle"><orth>ræd</orth></form></form><usg><lang>д.</lang></usg><sense xml:id="sense_d565e74"><sense xml:id="sense_d565e75"><abv:tr xml:lang="ru"><q>стоять</q></abv:tr></sense><sense xml:id="sense_d565e84"><abv:tr xml:lang="ru"><q>держаться на месте</q></abv:tr></sense></sense><re xml:id="re_d565e94"><note xml:lang="ru" type="comment">по значению близко к </note><form xml:id="form_d565e102" type="lemma"><orth><ref type="xr" target="#entry_læwwyn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">læwwyn</tei:w></ref>
+              ba-ræn!</orth></form><sense xml:id="sense_d565e107"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0" rendition="#rend_doublequotes">постой!</q></tr></sense><note xml:lang="ru" type="comment">=
+              <?oxy_comment_start author="Irene" timestamp="20220520T124832+0300" comment="сделала тоже реф на læwwyn, ок?"?><ref type="xr" target="#entry_læwwyn"><w>fæ-læw!</w></ref><?oxy_comment_end?></note></re><re xml:id="re_d565e135"><form xml:id="form_d565e137" type="lemma"><orth>nirrædæj</orth></form><sense xml:id="sense_d565e140"><sense xml:id="sense_d565e141"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">удержался</q></tr></sense><sense xml:id="sense_d565e152"><abv:tr xml:lang="ru"><q>устоял</q></abv:tr></sense></sense></re><re xml:id="re_d565e169"><form xml:id="form_d565e171" type="lemma"><orth>næ nirrædæj</orth></form><sense xml:id="sense_d565e174"><sense xml:id="sense_d565e175"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">не выдержал</q></tr></sense><sense xml:id="sense_d565e186"><abv:tr xml:lang="ru"><q>не устоял</q></abv:tr></sense></sense></re><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d565e197"><example xml:id="example_d565e199"><quote xmlns="http://www.tei-c.org/ns/1.0">niffinsunmæ kud
+              <oRef>nirræmon</oRef>!</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">как мне устоять, чтобы не написать!</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æmburdgond"><abbr><name full="yes" instant="false">Gurdž.</name> Æmburdgond</abbr></ref>
+              <biblScope>78</biblScope></bibl></example><example xml:id="example_d565e224"><quote xmlns="http://www.tei-c.org/ns/1.0">æ ʒurdmæ in <oRef>nirrænʒænæ</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">ты стерпишь его слова</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æmburdgond"><abbr><name full="yes" instant="false">Gurdž.</name> Æmburdgond</abbr></ref>
+              <biblScope>97</biblScope></bibl></example><example xml:id="example_d565e248"><quote xmlns="http://www.tei-c.org/ns/1.0"><oRef>baræn</oRef> wajtæ,
+              <oRef>baræn</oRef>!</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">постойте-ка, постойте!</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Диг._сказ."><abbr xml:lang="ru">Диг. сказ.</abbr></ref>
+              <biblScope>11</biblScope></bibl><note xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ru" type="footnote">В переводе
+                  <bibl><author>Вс. Миллера</author> (<ref type="bibl" target="#src_Диг._сказ."><abbr xml:lang="ru">Диг. сказ.</abbr></ref>
+                <biblScope>198</biblScope>)</bibl>
+              <w>baræn</w> ошибочно понято как <q rendition="#rend_doublequotes">мера</q>.</note></example><example xml:id="example_d565e307"><quote xmlns="http://www.tei-c.org/ns/1.0">nurtækkæ min ami <oRef>nirræmæn</oRef> næ es,
+              cæwun næxemæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">сейчас мне нельзя здесь остаться, еду к
+                себе</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_ИАС"><abbr xml:lang="ru">ИАС</abbr></ref>
+              <biblScope>I 34</biblScope></bibl></example><example xml:id="example_d565e332"><quote xmlns="http://www.tei-c.org/ns/1.0">sæ bæxtæ otæ istenteg æncæ æma sæ buni dær
+              næbal <oRef>rædæncæ</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">их кони так разгорячились, что уже не стояли на
+                месте под ними</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_MD"><abbr>MD</abbr></ref>
+              <biblScope>1940 III 58</biblScope></bibl></example><example xml:id="example_d565e357"><quote xmlns="http://www.tei-c.org/ns/1.0">suǧzærīnæ ǧoltæj ewnæg dær næ
+                <oRef>nirrædæj</oRef> dumæggagi</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">из золотых альчиков ни один не удержался в
+                полах</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_MD"><abbr>MD</abbr></ref>
+              <biblScope>1940 III 53</biblScope></bibl></example></exampleGrp><etym xml:lang="ru">Восходит к <mentioned xml:id="mentioned_d565e389"><mentioned corresp="#mentioned_d565e839" xml:id="mentioned_d565e390" xml:lang="ira"><lang>иран.</lang>
+              <w type="rec">ram-</w></mentioned>, <mentioned corresp="#mentioned_d565e845" xml:id="mentioned_d565e396" xml:lang="ine"><lang>и.е.</lang>
+              <w type="rec">rem-</w></mentioned>
+            <gloss><q>покоиться</q></gloss>, <gloss><q>стоять</q></gloss></mentioned>. Ср.
+            <mentioned corresp="#mentioned_d565e857" xml:id="mentioned_d565e408" xml:lang="fa"><lang>перс.</lang>
+            <w>rām</w>
+            <gloss><q>смирный</q></gloss>, <gloss><q>покорный</q></gloss>,
+              <gloss><q>кроткий</q></gloss>, <gloss><q>покой</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e874" xml:id="mentioned_d565e425" xml:lang="fa"><w>ārām</w>
+            <gloss><q>покой</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e880" xml:id="mentioned_d565e431" xml:lang="fa"><w>aramīdan</w>
+            <gloss><q>покоиться</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e886" xml:id="mentioned_d565e437" xml:lang="pal-x-turfan"><lang>пехл. турф.</lang>
+            <w>rām</w>
+            <gloss><q>мир</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Henning._BBB"><abbr><name full="yes" instant="false">Henning</name>. BBB</abbr></ref>
+                <biblScope>114</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d565e903" xml:id="mentioned_d565e454" xml:lang="pal-x-turfan"><w>ram-</w>
+            <gloss><q>блаженствовать</q></gloss>
+            <note type="bibl">(<bibl><author>Henning</author>, <ref type="bibl" target="#ref_BSOS"><abbr>BSOS</abbr></ref>
+                <biblScope>1941 IX 87</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d565e919" xml:id="mentioned_d565e470" xml:lang="pal"><lang>пехл.</lang>
+            <w>rāmišn</w>
+            <gloss><q>покой</q></gloss>, <gloss><q>блаженство</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e930" xml:id="mentioned_d565e481" xml:lang="xpr"><lang>парф.</lang>
+            <w>rāmišn</w>
+            <gloss><q>покой</q></gloss>, <gloss><q>блаженство</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e941" xml:id="mentioned_d565e492" xml:lang="xpr"><w>ārām</w>
+            <gloss><q>место покоя</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e947" xml:id="mentioned_d565e498" xml:lang="xpr"><w>ni-rām-</w>
+            <gloss><q>усмирять</q></gloss>, <gloss><q>подчинять</q></gloss></mentioned>,
+            <?oxy_comment_start author="Artyom" timestamp="20220808T185009+0300" comment="Снова преверб отделяется дефисом, хотя Зарубин так не делает (wirēmb:wirēmt). Буквально в следующей статье с шугнанским примером тот же преверб wi не отделяется дефисом (wirafs). Почему так? Стоит ли унифицировать запись?"?><mentioned corresp="#mentioned_d565e956" xml:id="mentioned_d565e507" xml:lang="sgh"><lang>пам. ш.</lang>
+            <w>wi-rēmb-</w> : <w>wi-rēmt</w>
+            <gloss><q>ставить на отдых (лошадь, осла, быка)</q></gloss>, <gloss><q>оставлять
+                стоять</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Зарубин._Шугн."><abbr xml:lang="ru"><name full="yes" instant="false">Зарубин</name>. Шугн.</abbr></ref>
+                <biblScope>258</biblScope></bibl>)</note></mentioned><?oxy_comment_end?> ,
+            <mentioned corresp="#mentioned_d565e982" xml:id="mentioned_d565e529" xml:lang="ydg"><lang>пам. и.</lang>
+            <w>rem</w> : <w>rīmd</w>
+            <gloss><q>нравиться</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e992" xml:id="mentioned_d565e539" xml:lang="sog"><lang>согд.</lang>
+            <w type="rec">ram</w>
+            <gloss><q>покой</q></gloss>, <gloss><q>блаженство</q></gloss></mentioned> в <mentioned corresp="#mentioned_d565e1004" xml:id="mentioned_d565e551" xml:lang="sog"><lang>согд.</lang>
+            <w>rʼmrʼtwxβɣyy</w>
+            <gloss><q rendition="#rend_doublequotes">дарующий блаженство бог</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Henning._BBB"><abbr><name full="yes" instant="false">Henning</name>. BBB</abbr></ref>
+                <biblScope>133</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d565e1021" xml:id="mentioned_d565e568" xml:lang="xtq"><lang>сак. (Тумшук)</lang>
+            <w>ram-</w>
+            <gloss><q>оставаться</q></gloss>, <gloss><q>наслаждаться</q></gloss>
+            <note xml:lang="ru" type="comment">(в последнем значении, может быть, под влиянием
+              буддийского санскрита, см.: <bibl><ref type="bibl" target="#ref_Bailey._KhT"><abbr><name full="yes" instant="false">Bailey</name>. KhT</abbr></ref>
+                <biblScope>VI 299 sq.</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d565e1040" xml:id="mentioned_d565e587" xml:lang="xtq"><w>ramye</w>
+            <gloss><q>я остаюсь</q></gloss></mentioned>; <mentioned corresp="#mentioned_d565e1046" xml:id="mentioned_d565e593" xml:lang="ae"><lang>ав.</lang>
+            <w>rā̌m-</w></mentioned> в <mentioned corresp="#mentioned_d565e1052" xml:id="mentioned_d565e599" xml:lang="ae"><w>raman-</w>
+            <gloss><q>покой</q></gloss>, <gloss><q>мир</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1061" xml:id="mentioned_d565e608" xml:lang="ae"><w>rama-</w>,
+              <w>rāmya-</w>
+            <gloss><q>быть в покое</q></gloss>, <gloss><q>пребывать</q></gloss></mentioned>,
+            <mentioned corresp="#mentioned_d565e1072" xml:id="mentioned_d565e619" xml:lang="ae"><w>rāmōiδwəm!</w>
+            <gloss><q rendition="#rend_doublequotes">стойте!</q></gloss>, <gloss><q rendition="#rend_doublequotes">остановитесь!</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1083" xml:id="mentioned_d565e630" xml:lang="ae"><w>rāmaya-</w>
+            <note xml:lang="ru" type="comment">(кауз.)</note>
+            <gloss><q>останавливать</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1092" xml:id="mentioned_d565e639" xml:lang="inc-x-old"><lang>др.инд.</lang>
+            <w>ram-</w>, <w>ramate</w>
+            <gloss><q>быть в покое</q></gloss>, <gloss><q>стоять</q></gloss>,
+                <gloss><q>пребывать</q></gloss>
+            <note xml:lang="ru" type="comment">(прош. причастие <mentioned corresp="#mentioned_d565e1111" xml:id="mentioned_d565e658" xml:lang="inc-x-old"><w>rata-</w></mentioned> = ос. <oRef>ræd</oRef>, <mentioned corresp="#mentioned_d565e1116" xml:id="mentioned_d565e663" xml:lang="ine"><lang>и.е.</lang>
+                <w type="rec">rṃto-</w></mentioned>)</note></mentioned>, <mentioned xml:id="mentioned_d565e670"><mentioned corresp="#mentioned_d565e1124" xml:id="mentioned_d565e671" xml:lang="lt"><lang>лит.</lang>
+              <w>rìmti</w>
+              <gloss><q>быть в покое</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1132" xml:id="mentioned_d565e679" xml:lang="lt"><w>rãmas</w>
+              <gloss><q>покой</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1138" xml:id="mentioned_d565e685" xml:lang="lt"><w>ramùs</w>, <w>romùs</w>
+              <gloss><q>спокойный</q></gloss></mentioned>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Fraenkel"><abbr><name full="yes" instant="false">Fraenkel</name></abbr></ref>
+                <biblScope>695</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d565e1155" xml:id="mentioned_d565e702" xml:lang="got"><lang>гот.</lang>
+            <w>rimis</w>
+            <gloss><q>покой</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1163" xml:id="mentioned_d565e710" xml:lang="grc"><lang>гр.</lang>
+            <w>ἠρέμα</w>
+            <gloss><q>тихо</q></gloss>, <gloss><q>спокойно</q></gloss>,
+              <gloss><q>медленно</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1177" xml:id="mentioned_d565e724" xml:lang="grc"><w>ἠρεμέω</w>
+            <gloss><q>оставаться в покое</q></gloss></mentioned>, <mentioned corresp="#mentioned_d565e1183" xml:id="mentioned_d565e730" xml:lang="grc"><w>ἠρεμία</w>
+            <gloss><q>покой</q></gloss>, <gloss><q>неподвижность</q></gloss></mentioned>. — Из
+          иранского идут <mentioned corresp="#mentioned_d565e1192" xml:id="mentioned_d565e739" xml:lang="kv"><lang>коми</lang>
+            <w>ram</w>
+            <gloss><q>тихий</q></gloss>, <gloss><q>спокойный</q></gloss>
+            <note xml:lang="ru" type="comment">(<mentioned corresp="#mentioned_d565e1205" xml:id="mentioned_d565e752" xml:lang="kv"><w>ram ru</w>
+                <gloss><q>тихий нрав</q></gloss></mentioned>: <bibl><author>Лыткин</author>.
+                  <title>Русско-зыр. сл.</title>
+                <pubPlace>Л.</pubPlace>, <date>1931</date>, <biblScope>стр.
+              317</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d565e1223" xml:id="mentioned_d565e770" xml:lang="kca"><lang>ханты</lang>
+            <w>ram</w>, <w>rom</w>
+            <note xml:lang="ru" type="comment">id. (<bibl><author>Jacobsohn</author>, <ref type="bibl" target="#ref_KZ"><abbr>KZ</abbr></ref>
+                <biblScope>LV 309</biblScope></bibl>)</note></mentioned>. — Каузативный вариант
+          глагола легко распознается в <ref type="xr" target="#entry_ūromyn" xml:lang="os"><lang>ос.</lang>
+            <w xml:lang="os-x-iron">ūromyn</w><w xml:lang="os-x-digor">oramun</w>
+            <note xml:lang="ru" type="comment">(<mentioned corresp="#mentioned_d565e1251" xml:id="mentioned_d565e798" xml:lang="ira"><w type="rec">ava-rāmaya-</w></mentioned>)</note>
+            <gloss><q>останавливать</q></gloss></ref>, q. v. См. также <ref type="xr" target="#entry_læwwyn"><w>læwwyn</w>
+            <gloss><q>стоять</q></gloss>
+            <note xml:lang="ru" type="comment">(из
+                <?oxy_comment_start author="Irene" timestamp="20220520T125527+0300" comment="так ок?"?><phr>ræm
+                wyn</phr><?oxy_comment_end?>)</note></ref>, <ref type="xr" target="#entry_romyl" xml:lang="os-x-iron"><w>romyl</w>
+            <lang>и.</lang>
+            <gloss><q>сдержанный</q></gloss></ref>, <ref type="xr" target="#entry_ræmon"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">ræmon</tei:w></ref> id., <ref type="xr" target="#entry_næræmon"><w>næræmon</w>
+            <gloss><q>несдержанный</q></gloss></ref>.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

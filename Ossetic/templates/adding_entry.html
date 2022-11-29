@@ -1,0 +1,819 @@
+{% extends 'base.html' %}
+{% block title %}
+    Добавление статьи
+{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="row gy-2 gy-lg-0 align-items-center justify-content-center">
+            <div class="col-12 col-lg-4 col-xl-3 col-xxl-2">
+                <div class="row g-1 g-lg-0 align-items-center justify-content-around">
+                    <div class="container col align-self-center">
+                        <div class="card card-body">
+                            <div class="col-12 form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="root" name="root" form="entry">
+                                <label class="form-check-label" for="root" style="font-weight: bold;">
+                                       <abbr style="text-decoration: none" data-bs-toggle="tooltip" title="Является ли этот элемент корнем?">Не корень</abbr>
+                                </label>
+                            </div>
+                            <div class="col-12 form-check form-switch mb-2">
+                                <input class="form-check-input" type="checkbox" id="hidden" name="hidden" form="entry">
+                                <label class="form-check-label" for="hidden" style="font-weight: bold;">
+                                       <abbr style="text-decoration: none" data-bs-toggle="tooltip" title="Доступна ли статья для поиска и парсера?">Скрыта</abbr>
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-2">
+                                    <div class="form-floating">
+                                        <select class="form-select" aria-label="Выбор источника" name="source" id="source" form="entry" required>
+                                            <option value="1">собственная</option>
+                                            <option value="2">Карамшоев</option>
+                                            <option value="3">Соколова</option>
+                                            <option value="4">Зарубин</option>
+                                        </select>
+                                        <label for="source">Источник</label>
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <select class="form-select" aria-label="Выбор языка" name="langs" form="entry" multiple required>
+                                        {% for l in Languages.query.all() %}
+                                            <option value="{{ l.lang_id }}">
+                                                {{ l.lang }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="mb-2">
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="глосса"
+                                           aria-label="Глосса"
+                                           aria-describedby="Глосса"
+                                           name="gloss"
+                                           form="entry"
+                                    >
+                                </div>
+                            </div>
+                            <div class="col-12 align-items-center text-center">
+                                <a class="text-primary h5"
+                                   href="javascript:;"
+                                   role="button"
+                                   id="ls_unit"
+                                   data-bs-toggle="dropdown"
+                                   data-bs-auto-close="outside"
+                                   aria-expanded="false"
+                                   style="text-decoration-line: none; font-variant: small-caps"
+                                >
+                                    <span>Пометы</span>
+                                </a>
+                                <ul class="dropdown-menu overflow-auto p-1" aria-labelledby="labels_for_unit" style="height: 35vh">
+                                    {% for l in Label_names.query.filter_by(type=1).order_by(Label_names.rank.asc(), Label_names.label.asc()).all() %}
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input"
+                                                       type="checkbox"
+                                                       value="{{ l.label_id }}"
+                                                       full_name="{{ l.label }}"
+                                                       id="l_u_{{ l.label_id }}"
+                                                       name="l_u_{{ l.label_id }}"
+                                                       form="entry"
+                                                       onclick="addLabels('ls_unit', 'l_u_{{ l.label_id }}')"
+                                                >
+                                                <label class="form-check-label"
+                                                       for="l_u_{{ l.label_id }}"
+                                                       data-bs-toggle="tooltip"
+                                                       title="{{ l.decode }}"
+                                                       style="font-variant: small-caps"
+                                                >
+                                                    {{ Markup(l.label) }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-12 align-items-center text-center">
+                                <a class="text-primary h5"
+                                   href="javascript:;"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   data-bs-auto-close="outside"
+                                   aria-expanded="false"
+                                   style="text-decoration-line: none; font-variant: small-caps"
+                                >
+                                    <span>Мереология</span>
+                                </a>
+                                <ul class="dropdown-menu overflow-auto p-1" aria-labelledby="mereological_labels_for_unit" style="height: 35vh">
+                                    {% for l in Label_names.query.filter_by(type=5).order_by(Label_names.rank.asc(), Label_names.label.asc()).all() %}
+                                        <li>
+                                            <div class="form-check">
+                                                <input {% if (l.label_id,) in Mereological_labels.query.filter_by(unit_id=unit_id).with_entities(Mereological_labels.label_id).all() %}checked {% endif %}
+                                                       class="form-check-input"
+                                                       type="checkbox"
+                                                       value="{{ l.label_id }}"
+                                                       full_name="{{ l.label }}"
+                                                       id="l_mer_u_{{ l.label_id }}"
+                                                       name="l_mer_u_{{ l.label_id }}"
+                                                       form="entry"
+                                                >
+                                                <label class="form-check-label"
+                                                       for="l_mer_u_{{ l.label_id }}"
+                                                       data-bs-toggle="tooltip"
+                                                       title="{{ l.decode }}"
+                                                       style="font-variant: small-caps"
+                                                >
+                                                    {{ Markup(l.label) }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-12 align-items-center text-center">
+                                <a class="text-primary h5"
+                                   href="javascript:;"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   data-bs-auto-close="outside"
+                                   aria-expanded="false"
+                                   style="text-decoration-line: none; font-variant: small-caps"
+                                >
+                                    <span>Таксономия</span>
+                                </a>
+                                <ul class="dropdown-menu overflow-auto p-1" aria-labelledby="taxonomic_labels_for_unit" style="height: 35vh">
+                                    {% for l in Label_names.query.filter_by(type=3).order_by(Label_names.rank.asc(), Label_names.label.asc()).all() %}
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input"
+                                                       type="checkbox"
+                                                       value="{{ l.label_id }}"
+                                                       full_name="{{ l.label }}"
+                                                       id="l_t_u_{{ l.label_id }}"
+                                                       name="l_t_u_{{ l.label_id }}"
+                                                       form="entry"
+                                                >
+                                                <label class="form-check-label"
+                                                       for="l_t_u_{{ l.label_id }}"
+                                                       data-bs-toggle="tooltip"
+                                                       title="{{ l.decode }}"
+                                                       style="font-variant: small-caps"
+                                                >
+                                                    {{ Markup(l.label) }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-12 align-items-center text-center">
+                                <a class="text-primary h5"
+                                   href="javascript:;"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   data-bs-auto-close="outside"
+                                   aria-expanded="false"
+                                   style="text-decoration-line: none; font-variant: small-caps"
+                                >
+                                    <span>Топология</span>
+                                </a>
+                                <ul class="dropdown-menu overflow-auto p-1" aria-labelledby="taxonomic_labels_for_unit" style="height: 35vh">
+                                    {% for l in Label_names.query.filter_by(type=4).order_by(Label_names.rank.asc(), Label_names.label.asc()).all() %}
+                                        <li>
+                                            <div class="form-check">
+                                                <input {% if (l.label_id,) in Topological_labels.query.filter_by(unit_id=unit_id).with_entities(Topological_labels.label_id).all() %}checked {% endif %}
+                                                       class="form-check-input"
+                                                       type="checkbox"
+                                                       value="{{ l.label_id }}"
+                                                       full_name="{{ l.label }}"
+                                                       id="l_top_u_{{ l.label_id }}"
+                                                       name="l_top_u_{{ l.label_id }}"
+                                                       form="entry"
+                                                >
+                                                <label class="form-check-label"
+                                                       for="l_top_u_{{ l.label_id }}"
+                                                       data-bs-toggle="tooltip"
+                                                       title="{{ l.decode }}"
+                                                       style="font-variant: small-caps"
+                                                >
+                                                    {{ Markup(l.label) }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label h6" for="pictures_{{ unit_id }}">Иллюстрации</label>
+                                <select class="form-select"
+                                        multiple
+                                        size="2"
+                                        aria-label="Иллюстрации к статье"
+                                        id="pictures_{{ unit_id }}"
+                                        form="entry"
+                                        name="pictures"
+                                >
+                                    {% for p in Pictures.query.all() %}
+                                        <option value="{{ p.picture_id }}">{{ p.route }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-8 col-xl-9 col-xxl-10">
+                <div class="container row">
+                    <div class="col-12">
+                        <label class="form-label h6" for="sem_{{ unit_id }}">Семантика</label>
+                        <textarea class="form-control overflow-auto"
+                                  id="sem_{{ unit_id }}"
+                                  name="sem_{{ unit_id }}"
+                                  form="entry"
+                                  placeholder="Введите текст"
+                                  style="max-height: 300px"
+                        ></textarea>
+                    </div>
+                    <div class="col-12">
+                        <div class="row align-items-center justify-content-between">
+                            <div class="col-auto">
+                                <label class="form-label h6" for="etym_{{ unit_id }}" style="cursor: pointer;">Этимология</label>
+                            </div>
+                            <div class="col-auto">
+                                <a class="link-secondary" onclick="print('язык. *слово* ‘перевод’', 'etym_{{ unit_id }}')">вставить шаблон</a>
+                            </div>
+                        </div>
+                        <textarea class="form-control overflow-auto"
+                                  id="etym_{{ unit_id }}"
+                                  name="etym_{{ unit_id }}"
+                                  form="entry"
+                                  placeholder="Введите текст"
+                                  style="max-height: 300px"
+                        ></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label h6" for="comments_{{ unit_id }}">Комментарии редакции</label>
+                        <textarea class="form-control overflow-auto"
+                                  id="comments_{{ unit_id }}"
+                                  name="comments_{{ unit_id }}"
+                                  form="entry"
+                                  placeholder="Пояснение внесённых нововведений, комментарии по употреблению, прочие примечания"
+                                  style="max-height: 300px"
+                        ></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label h6" for="notes_{{ unit_id }}">Примечания</label>
+                        <textarea class="form-control overflow-auto"
+                                  id="notes_{{ unit_id }}"
+                                  name="notes_{{ unit_id }}"
+                                  form="entry"
+                                  placeholder="Взятые из оригинального текста статьи"
+                                  style="max-height: 100px"
+                        ></textarea>
+                    </div>
+                    <div class="col-12 row g-2 align-items-center justify-content-between">
+                        <div class="col-9 row align-items-center justify-content-between">
+                            <div class="col-12 row g-1 align-items-center justify-content-between">
+                                <div class="col-auto">
+                                    <label class="form-label h6" for="links">Ссылки на статьи</label>
+                                </div>
+                                <div class="col-auto">
+                                    <a class="link-secondary" onclick="new_link();" style="cursor: pointer;">добавить ссылку</a>
+                                </div>
+                            </div>
+                            <div class="col-12 row align-items-center justify-content-between overflow-auto p-2" id="links" style="max-height: 35vh;">
+                            </div>
+                        </div>
+                        <div class="col-3 align-items-center justify-content-center">
+                            <div class="container align-self-center col">
+                                <div class="container text-center mb-2">
+                                    <button class="btn btn-sm btn-success" type="submit" form="entry">
+                                        Добавить
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form name="entry" id="entry" method="post">
+            <div class="container">
+                <label for="full_text" class="form-label text-secondary">Оригинальный текст статьи</label>
+                <textarea id="full_text"
+                          name="entry_text"
+                          class="form-control overflow-auto"
+                          style="max-height: 500px;"></textarea>
+            </div>
+            <div class="container row g-2 align-items-center justify-content-start my-2">
+                <div class="col-auto form-label text-secondary">Значения заглавной лексемы</div>
+                <div class="col-auto">
+                    <button class="btn btn-sm btn-outline-success mb-2" onclick="addMeaning(unit_meanings, 'lex/{{ unit_id }}', new_unit=false)" type="button">
+                        <span class="text-center">Добавить значение</span>
+                    </button>
+                </div>
+            </div>
+            <div class="container table-responsive mb-2 overflow-auto" style="max-height: 400px;">
+                <table class="table caption-top" id="unit_meanings">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 10%;">Ранг</th>
+                            <th scope="col" style="width: 20%;">Пометы</th>
+                            <th scope="col">Значение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container row g-2 align-items-center justify-content-start my-2">
+                <div class="col-auto form-label text-secondary">Устойчивые сочетания и идиомы</div>
+                <div class="col-auto">
+                    <button class="btn btn-sm btn-outline-success mb-2" onclick="addI_or_CV(unit_idioms, 'i')" type="button">
+                        <span class="text-center">Добавить идиому или устойчивое сочетание</span>
+                    </button>
+                </div>
+            </div>
+            <div class="container table-responsive mb-2 overflow-auto" style="max-height: 400px;">
+                <table class="table caption-top" id="unit_idioms">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5vw;">№</th>
+                            <th scope="col" style="width: 20vw;">Формы</th>
+                            <th scope="col" style="width: 40vw;">Значения</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container row g-2 align-items-center justify-content-start my-2">
+                <div class="col-auto form-label text-secondary">Сложные глаголы</div>
+                <div class="col-auto">
+                    <button class="btn btn-sm btn-outline-success mb-2" onclick="addI_or_CV(unit_cvs, 'cv')" type="button">
+                        <span class="text-center">Добавить сложный глагол</span>
+                    </button>
+                </div>
+            </div>
+            <div class="container table-responsive overflow-auto" style="max-height: 400px;">
+                <table class="table caption-top" id="unit_cvs">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5vw;">№</th>
+                            <th scope="col" style="width: 20vw;">Формы</th>
+                            <th scope="col" style="width: 40vw;">Значения</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container table-responsive">
+                <table class="table caption-top" id="unit_forms">
+                    <caption>Формы лексемы</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 10%;">Глосса</th>
+                            <th scope="col" style="width: 35%">Формы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="container mb-2 row align-items-center justify-content-end m-0 p-0">
+                    <div class="col-auto">
+                        <select class="form-select" aria-label="Выбор глоссы для новой формы" onchange="if (this.value != 'none') {addNewForm(this.value, this.options[this.options.selectedIndex].getAttribute('gloss'), this.options[this.options.selectedIndex].text)};" id="select_new">
+                            <option selected value="none">Выберите глоссу, чтобы добавить новую форму</option>
+                            {% for g in Glosses.query.filter(Glosses.decode != '').all() %}
+                                <option value="{{ g.gloss_id }}" gloss="{{ g.gloss }}">
+                                    {{ g.decode }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type='text/javascript'>
+        for (var i = 0; i < document.getElementsByTagName('textarea').length; ++i) {
+            autosize(document.getElementsByTagName('textarea')[i]);
+        }
+
+        $('#entry').submit(function(event) {
+            if ((!$('abbr:contains("word")').length) && ((!$('abbr:contains("npst")').length))) {
+                alert('Удостоверьтесь, что добавлена форма WORD или NPST.')
+                event.preventDefault();
+                $('#select_new').focus();
+            }
+        });
+
+        function addMeaning(table, unitID, new_unit) {
+            if (table.rows.length > 0) {
+                var current_num = table.rows.length;
+            }
+            else {
+                var current_num = 1
+            }
+            var type = unitID.split('/')[0]
+            var ID = unitID.split('/')[1]
+            if (new_unit) {
+                var prefix = 'new_'
+            } else {
+                var prefix = 'existent_'
+            }
+            $(table).find('tbody').append(
+            `<tr>
+                <th scope="row">
+                <div class="row row-cols-2 align-items-center justify-content-center g-2">
+                    <div class="col-auto">🆕</div>
+                    <div class="col-auto">${current_num}</div>
+                    <div class="col-auto">
+                        <input class="form-control"
+                               type="number"
+                               value="${current_num}"
+                               id="${prefix}${type}_m_rank_${current_num}_${ID}"
+                               name="${prefix}${type}_m_rank_${current_num}_${ID}"
+                        >
+                    </div>
+                </div>
+                </th>
+                <td>
+                    <div class="col-12 mb-2 row">
+                        <div class="col-12 mb-1">
+                            <a class="text-primary"
+                               href="javascript:;"
+                               role="button"
+                               id="${prefix}_${type}_m_ls_${current_num}_${ID}"
+                               data-bs-toggle="dropdown"
+                               data-bs-auto-close="outside"
+                               aria-expanded="false"
+                               style="text-decoration-line: none; font-variant: small-caps"
+                            >
+                                 <span>Пометы</span>
+                            </a>
+                            <ul class="dropdown-menu p-1 overflow-auto" style="height: 35vh" aria-labelledby="dropdownMenuButton">
+                                {% for l in Label_names.query.filter_by(type=1).order_by(Label_names.rank.asc(), Label_names.label.asc()).all() %}
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input"
+                                                   type="checkbox"
+                                                   value="{{ l.label_id }}"
+                                                   full_name="{{ l.label }}"
+                                                   id="${prefix}${type}_m_l_{{ l.label_id }}_${current_num}_${ID}"
+                                                   name="${prefix}${type}_m_l_{{ l.label_id }}_${current_num}_${ID}"
+                                                   onclick="addLabels('${prefix}_${type}_m_ls_${current_num}_${ID}', '${prefix}${type}_m_l_{{ l.label_id }}_${current_num}_${ID}')"
+                                            >
+                                            <label class="form-check-label"
+                                                   for="${prefix}${type}_m_l_{{ l.label_id }}_${current_num}_${ID}"
+                                                   data-bs-toggle="tooltip"
+                                                   title="{{ l.decode }}"
+                                                   style="font-variant: small-caps"
+                                            >
+                                                {{ Markup(l.label) }}
+                                            </label>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <select class="form-select" aria-label="Выбор части речи" name="${prefix}${type}_m_pos_${current_num}_${ID}" onchange="disableCheckBox(this.value, ${prefix}${type}_m_grammar_${current_num}_${ID})" form="entry" required>
+                                <option value="">не выбрана</option>
+                                {% for pos in Parts_of_speech.query.all() %}
+                                    <option value="{{ pos.pos_id }}">
+                                        {{pos.pos_short}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <select class="form-select" multiple aria-label="Грамматические характеристики" name="${prefix}${type}_m_grammar_${current_num}_${ID}" id="${prefix}${type}_m_grammar_${current_num}_${ID}" form="entry">
+                                <option value="">нет</option>
+                                    {% for l in Label_names.query.filter_by(type=2).order_by(Label_names.rank.asc()).all() %}
+                                        <option value="{{ l.label_id }}" pos_ids="{{ l.pos_id }}"
+                                        style="font-variant: small-caps">{{ l.label }}</option>
+                                    {% endfor %}
+                                </select>
+                            </select>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <textarea class="form-control" id="${prefix}${type}_m_value_${current_num}_${ID}"
+                              name="${prefix}${type}_m_value_${current_num}_${ID}" placeholder="Новое значение"></textarea>
+              </td>
+            </tr>`);
+            if (type == 'cv') {
+                $(`select[name="${prefix}${type}_m_pos_${current_num}_${ID}"] > option[value="1"]`).prop('selected', true);
+                $(`select[name="${prefix}${type}_m_pos_${current_num}_${ID}"]`).addClass('d-none');
+                disableCheckBox('1', $(`#${prefix}${type}_m_grammar_${current_num}_${ID}`));
+            } else if (type == 'i') {
+                $(`select[name="${prefix}${type}_m_pos_${current_num}_${ID}"] > option[value=""]`).text('не релевантно');
+                $(`select[name="${prefix}${type}_m_pos_${current_num}_${ID}"]`).prop('required', false);
+            };
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+            for (var i = 0; i < document.getElementsByTagName('textarea').length; ++i) {
+            autosize(document.getElementsByTagName('textarea')[i]);
+            };
+            $(table).find('tbody').children().last().attr("tabindex",-1).focus();
+        }
+
+        function addForm(table, unitID, new_unit, gloss='') {
+            if (table.rows.length && table.rows.length > 0) {
+                var current_num = table.rows.length;
+            }
+            else {
+                var current_num = 1
+            }
+            var type = unitID.split('/')[0]
+            var ID = gloss + unitID.split('/')[1]
+            if (new_unit) {
+                var prefix = 'new_'
+            } else {
+                var prefix = 'existent_'
+            }
+            $(table).find('tbody').append(
+                `<tr>
+                    <th scope="row">
+                        <div class="row row-cols-2 align-items-center justify-content-center g-2">
+                            <div class="col-auto">
+                                🆕
+                            </div>
+                            <div class="col text-center">${current_num}</div>
+                        </div>
+                    </th>
+                    <td>
+                        <div class="col-12 col-lg-1 mb-2 mb-lg-0">
+                            <div>
+                                <a class="text-primary" href="javascript:;" role="button"
+                                   id="${prefix}${type}_f_ls_${current_num}_${ID}" data-bs-toggle="dropdown" data-bs-auto-close="outside"
+                                   aria-expanded="false" style="text-decoration-line: none; font-variant: small-caps">Пометы</a>
+                                <ul class="dropdown-menu p-1 overflow-auto" style="height: 35vh" aria-labelledby="dropdownMenuButton">
+                                    {% for l in Label_names.query.filter_by(type=1).order_by(Label_names.rank.asc(), Label_names.label.asc()).all() %}
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ l.label_id }}" full_name="{{ l.label }}"
+                                                       id="${prefix}${type}_f_l_{{ l.label_id }}_${current_num}_${ID}" name="${prefix}${type}_f_l_{{ l.label_id }}_${current_num}_${ID}"
+                                                       onclick="addLabels('${prefix}${type}_f_ls_${current_num}_${ID}', '${prefix}${type}_f_l_{{ l.label_id }}_${current_num}_${ID}')">
+                                                <label class="form-check-label" for="${prefix}${type}_f_l_{{ l.label_id }}_${current_num}_${ID}" data-bs-toggle="tooltip"
+                                                title="{{ l.decode }}" style="font-variant: small-caps">{{ Markup(l.label) }}</label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="${prefix}${type}_f_fl_${current_num}_${ID}"
+                                   name="${prefix}${type}_f_fl_${current_num}_${ID}" placeholder="Новая форма">
+                            <label for="${prefix}${type}_f_fl_${current_num}_${ID}">Латиница</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="${prefix}${type}_f_fc_${current_num}_${ID}" name="${prefix}${type}_f_fc_${current_num}_${ID}"
+                                   placeholder="Новая форма">
+                            <label for="${prefix}${type}_f_fc_${current_num}_${ID}">Кириллица</label>
+                        </div>
+                    </td>
+                </tr>`
+);
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            $(table).find('tbody').children().last().attr("tabindex",-1).focus();
+        }
+
+        function addI_or_CV(table, type) {
+            if (table.rows.length && table.rows.length > 0) {
+                var current_num = table.rows.length;
+            }
+            else {
+                var current_num = 1;
+            }
+            var template = document.createElement('tr')
+            template.innerHTML = `
+            <th scope="row">
+                <div class="row row-cols-2 align-items-center justify-content-center g-2">
+                    <div class="col-auto">
+                        🆕
+                    </div>
+                    <div class="col text-center">${current_num}</div>
+                </div>
+            </th>
+            <td class="table-responsive">
+                <table class="table table-bordered" id="${type}_new_${current_num}">
+                    <thead>
+                        <tr>
+                            <th scope="col">№</th>
+                            <th scope="col" style="width: 30%">Пометы</th>
+                            <th scope="col">Орфографические варианты</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button class="btn btn-sm btn-outline-success" id="add_form_${type}_${current_num}"
+                        onclick="addForm(${type}_new_${current_num}, '${type}/${type}${current_num}', new_unit=true)" type="button">
+                        <span class="text-center">Добавить форму</span>
+                </button>
+            </td>
+            <td class="table-responsive">
+                <table class="table table-bordered" id="${type}_new_${current_num}_meanings">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 15%">Ранг</th>
+                            <th scope="col" style="width: 30%">Пометы</th>
+                            <th scope="col">Значение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <button id="add_meaning_${type}_${current_num}" class="btn btn-sm btn-outline-success"
+                        onclick="addMeaning(${type}_new_${current_num}_meanings, '${type}/${type}${current_num}', new_unit=true)" type="button">
+                        <span class="text-center">Добавить значение</span>
+                </button>
+            </td>`
+            table.getElementsByTagName("tbody")[0].appendChild(template);
+            $(`#add_meaning_${type}_${current_num}`).click();
+            $(`#add_form_${type}_${current_num}`).click();
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            for (var i = 0; i < document.getElementsByTagName('textarea').length; ++i) {
+                autosize(document.getElementsByTagName('textarea')[i]);
+            };
+            $(table).find('tbody').children().last().attr("tabindex",-1).focus();
+        }
+
+        function addNewForm(gloss_id, decode, full_name) {
+            if ($(`abbr`).filter(function() {
+              return $(this).text() == decode;
+            }).length) {
+                alert('Такая форма уже добавлена!')
+                document.getElementById('select_new').selectedIndex = 0;
+            }
+            else {
+                var template = document.createElement('tr')
+                template.innerHTML = `
+                    <th scope="row">
+                        <div class="row row-cols-2 align-items-center justify-content-center g-2">
+                            <div class="col-auto">
+                                🆕
+                            </div>
+                            <div class="col text-center">
+                                <abbr style="font-variant-caps: small-caps" data-bs-toggle="tooltip" title="${full_name}">${decode}</abbr>
+                            </div>
+                        </div>
+                    </th>
+                    <td class="table-responsive">
+                        <table class="table table-bordered" id="form_forms_new_${gloss_id}">
+                            <thead>
+                                <tr>
+                                    <th scope="col">№</th>
+                                    <th scope="col" style="width: 15%;">Пометы</th><th scope="col">Орфографические варианты</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <button class="btn btn-sm btn-outline-success" id="add_new_form_${gloss_id}_lex" onclick="addForm(form_forms_new_${gloss_id}, 'lex/{{ unit_id }}', new_unit=true, gloss='${gloss_id}_')" type="button">
+                            <span class="text-center">Добавить вариант формы</span>
+                        </button>
+                    </td>
+                `;
+                document.getElementById('unit_forms').getElementsByTagName("tbody")[0].appendChild(template);
+                $(`#add_new_form_${gloss_id}_lex`).click();
+            }
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        }
+
+        function deleteElement(row, ID, type) {
+            $(row).remove();
+            $('#entry').append(`<input class="d-none" type="text" name="delete_${type}_${ID}" value="${ID}">`);
+        }
+
+        function disableCheckBox(pos_id, grammar) {
+            var pos_id = `${pos_id}`;
+            $(grammar).children().each(function () {
+                if ($(this).attr('pos_ids')) {
+                    if ($(this).attr('pos_ids').split(',').includes(pos_id)) {
+                        $(this).prop("disabled", false);
+                    } else {
+                        $(this).prop("disabled", true);
+                    }
+                }
+            });
+            grammar.selectedIndex = 0;
+        }
+        var exampleEl = document.getElementById('delete_lex')
+        var popover = new bootstrap.Popover(exampleEl)
+
+        function addLabels(aim, dropdown) {
+            if ($(`#${dropdown}`).is(':checked')) {
+                const re_ns = RegExp('\n', 'g');
+                const re_spaces = RegExp(' +$', 'gm');
+                var current_text = $(`#${aim}`).text().replaceAll(re_ns, '').replace(re_spaces, '');
+                if (current_text.match('Пометы')) {
+                    var selected = [$(`#${dropdown}`).attr('full_name')];
+                } else {
+                    var selected = [current_text, $(`#${dropdown}`).attr('full_name')];
+                }
+                $(`#${aim}`).text(selected.join(', '));
+            } else {
+                var label = $(`#${dropdown}`).attr('full_name');
+                const re = RegExp(`(,)*( |^)${label}`.replace('\.', '\\\.'), 'g');
+                const re_spaces = RegExp('[ \n]+$', 'gm');
+                const re_beginning = RegExp('^[ \n]*, ', 'gm');
+                var new_text = $(`#${aim}`).text().replace(re, '').replace(re_spaces, '');
+                if (new_text == '') {
+                    new_text = 'Пометы'
+                }
+                new_text = new_text.replace(re_beginning, '')
+                $(`#${aim}`).text(new_text)
+            }
+        };
+
+        function print(what, id) {
+            var where = `#${id}`;
+            var $txt = jQuery(where);
+                var caretPos = $txt[0].selectionStart;
+                var textAreaTxt = $txt.val();
+                $txt.val(textAreaTxt.substring(0, caretPos) + what + textAreaTxt.substring(caretPos));
+            window.setTimeout(function () {
+                    $(where).focus();
+                    document.getElementById(id).setSelectionRange(7, 12);
+                }, 0);
+        };
+
+        function new_link() {
+            if ($(`#links`).find('> div').length > 0) {
+                var current_num = $(`#links`).find('> div').length + 1;
+            } else {
+                var current_num = 1
+            }
+            $('#links').append(
+            `<div class="col-12 row row-cols-3 align-items-center justify-content-start g-2 pb-1" id="link_${current_num}">
+                <div class="col-auto" onclick="$('#link_${current_num}').remove()" style="cursor: pointer;">
+                    ❌
+                </div>
+                <div class="col-auto">
+                    <input class="form-control form-control-sm" type="number" placeholder="Ранг" maxlength="20" name="link_rank_${current_num}" form="entry">
+                </div>
+                <div class="col-auto">
+                    <input class="form-control form-control-sm" type="number" placeholder="ID" maxlength="20" name="link_id_${current_num}" form="entry" onchange="preview(this);" current_num="${current_num}">
+                </div>
+                <div class="col-auto">
+                    <select class="form-select form-select-sm" type="number" name="link_type_${current_num}" form="entry">
+                        <option value="1">см. также</option>
+                        <option value="2">синоним</option>
+                        <option value="3">антоним</option>
+                        <option value="4">омоним</option>
+                        <option value="5">дериват</option>
+                        <option value="6">когнат</option>
+                        <option value="7">гипероним</option>
+                        <option value="8">гипоним</option>
+                        <option value="9">когипоним</option>
+                        <option value="10">конверсив</option>
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <div class="text-secondary" id="preview_${current_num}"></div>
+                </div>
+             </div>
+            `
+            );
+            $('#links').children().last().attr("tabindex",-1).focus();
+        };
+
+        function preview(ID) {
+            var packet = {
+                type: 'preview_entry',
+                input: $(ID).val()
+            };
+            fetch('{{ url_for('autocomplete') }}', {
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify(packet),
+                cache: 'no-cache',
+                headers: new Headers({
+                    'content-type': 'application/json'
+                })
+            })
+            .then(function (response) {
+                if (response.status == 200) {
+                    response.json().then(function (items) {
+                            $(`#preview_${$(ID).attr('current_num')}`).html(items);
+                        }
+                    )
+                }
+            });
+        }
+    </script>
+{% endblock %}

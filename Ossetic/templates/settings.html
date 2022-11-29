@@ -1,0 +1,432 @@
+{% extends "base.html" %}
+{% block title %}Настройки{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-12 col-lg-3 text-center row g-1">
+                <div class="col-12 mb-2">
+                    <div>
+                        <button type="submit" class="btn btn-primary" form="settings">Сохранить</button>
+                    </div>
+                </div>
+                <div class="col-12 mb-2">
+                    <div>
+                        <a href="{{ url_for('download_db') }}" class="btn btn-warning">Скачать БД</a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div>
+                        <a href="{{ url_for('maintenance') }}" class="btn btn-danger">{% if maintenance %}Выключить ТО{% else %}Включить ТО{% endif %}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-9">
+                <p>
+                    Для удаления глоссы или пометы достаточно оставить пустым поле «Глосса»/«Помета». Если эта глосса
+                    или помета нигде не используется, она будет удалена по нажатии кнопки «Сохранить».
+                </p>
+                <p>
+                    «Ранг» позволяет настраивать порядок отображения элементов. Чем выше ранг, тем раньше соответствующая
+                    единица будет отображена (при показе статей, в кабинете редактора). Ранг можно не указывать; такие
+                    элементы будут сортироваться по алфавиту.
+                </p>
+                <p>
+                    «Тип» помет соответствует тому, в какой зоне они должны отображаться: у форм и значений, в качестве
+                    грамматических характеристик, таксономии и т. д.
+                </p>
+                <span>
+                    Глоссы с не заполненным полем «Расшифровка» являются техническими (нужными для работы сайта) и не
+                    отображаются ни в каких интерфейсах.
+                </span>
+            </div>
+        </div>
+        <form action="" method="post" id="settings">
+            <div class="container row my-2">
+                <div class="col-12 col-xl-5 row-cols-1">
+                    <div class="col-auto row row-cols-2 align-items-center justify-content-around py-2 my-2 border-top border-bottom border-2">
+                        <div class="col-auto">
+                            <span class="text-center h5">Глоссы</span>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-sm btn-outline-success" onclick="add(glosses, 'gl')" type="button">
+                                <span class="text-center">Добавить глоссу</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="table-responsive overflow-auto" style="height: 60vh">
+                            <table class="table" id="glosses">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Глосса</th>
+                                    <th scope="col">Расшифровка</th>
+                                    <th scope="col">
+                                        <span data-bs-toggle="tooltip"
+                                              title="Место глоссы в порядке отображения при просмотре словарных статей">
+                                            Ранг
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%- for gl in Glosses.query.order_by(Glosses.rank.asc()).all() -%}
+                                    <tr class="align-items-center">
+                                        <th scope="row">
+                                            <span>{{ gl.gloss_id }}</span>
+                                        </th>
+                                        <td>
+                                            <input class="form-control"
+                                                   value="{{ gl.russian }}"
+                                                   placeholder="Введите название"
+                                                   name="gl_gloss_{{ gl.gloss_id }}"
+                                                   id="gl_gloss_{{ gl.gloss_id }}"
+                                            >
+                                        </td>
+                                        <td>
+                                            <input class="form-control"
+                                                   value="{{ gl.english }}"
+                                                   placeholder="Введите расшифровку"
+                                                   name="gl_decode_{{ gl.gloss_id }}"
+                                                   id="gl_decode_{{ gl.gloss_id }}"
+                                            >
+                                        </td>
+                                        <td>
+                                            <input class="form-control"
+                                                   value="{{ gl.rank }}"
+                                                   placeholder="Введите ранг"
+                                                   name="gl_rank_{{ gl.gloss_id }}"
+                                                   id="gl_rank_{{ gl.gloss_id }}"
+                                                   type="number"
+                                            >
+                                        </td>
+                                    </tr>
+                                {%- endfor -%}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7 row-cols-1">
+                    <div class="col-auto row row-cols-2 align-items-center justify-content-around py-2 my-2 border-top border-bottom border-2">
+                        <div class="col-auto">
+                            <span class="text-center h5">Пометы</span>
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-sm btn-outline-success" onclick="add(labels_table, 'l')" type="button">
+                            <span class="text-center">Добавить помету</span>
+                        </button>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="table-responsive overflow-auto" style="height: 60vh">
+                            <table class="table" id="labels_table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Помета</th>
+                                    <th scope="col">Расшифровка</th>
+                                    <th scope="col">
+                                        <span data-bs-toggle="tooltip"
+                                              title="Место пометы в порядке отображения при просмотре словарных статей">
+                                            Ранг
+                                        </span>
+                                    </th>
+                                    <th scope="col" style="max-width: 20vw">
+                                        <span>
+                                            Тип
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%- for l in Label_names.query.order_by(Label_names.type.asc(), Label_names.rank.asc()).all() -%}
+                                    <tr>
+                                        <th scope="row">
+                                            <a href="{{ url_for('listing', type=l.type, label_id=l.label_id) }}" target="_blank">{{ l.label_id }}</a>
+                                        </th>
+                                        <td>
+                                            <input class="form-control"
+                                                   value="{{ l.label }}"
+                                                   placeholder="Введите название"
+                                                   name="l_label_{{ l.label_id }}"
+                                                   id="l_label_{{ l.label_id }}"
+                                            >
+                                        </td>
+                                        <td>
+                                            <input class="form-control"
+                                                   value="{{ l.decode }}"
+                                                   placeholder="Введите расшифровку"
+                                                   name="l_decode_{{ l.label_id }}"
+                                                   id="l_decode_{{ l.label_id }}"
+                                            >
+                                        </td>
+                                        <td>
+                                            <input class="form-control"
+                                                   value="{{ l.rank }}"
+                                                   placeholder="Введите ранг"
+                                                   name="l_rank_{{ l.label_id }}"
+                                                   id="l_rank_{{ l.label_id }}"
+                                                   type="number"
+                                            >
+                                        </td>
+                                        <td>
+                                            <div class="row align-items-center justify-content-center">
+                                                <div class="col-12 text-center">
+                                                    <select class="form-select" name="l_type_{{ l.label_id }}" onchange="disable_pos(l_pos_button_{{ l.label_id }}, this.value, 'l_pos_{{ l.label_id }}_')">
+                                                        <option value="1"{% if l.type == 1 %} selected{% endif %}>
+                                                            Формы и значения
+                                                        </option>
+                                                        <option value="2"{% if l.type == 2 %} selected{% endif %}>
+                                                            Грамматика
+                                                        </option>
+                                                        <option value="3"{% if l.type == 3 %} selected{% endif %}>
+                                                            Таксономия
+                                                        </option>
+                                                        <option value="4"{% if l.type == 4 %} selected{% endif %}>
+                                                            Топология
+                                                        </option>
+                                                        <option value="5"{% if l.type == 5 %} selected{% endif %}>
+                                                            Мереология
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-12 text-center">
+                                                    <a class="text-primary {% if l.type != 2 %}d-none{% endif %}"
+                                                       href="javascript:;"
+                                                       role="button"
+                                                       id="l_pos_button_{{ l.label_id }}"
+                                                       data-bs-toggle="dropdown"
+                                                       data-bs-auto-close="outside"
+                                                       aria-expanded="false"
+                                                       style="text-decoration-line: none; font-variant: small-caps"
+                                                    >
+                                                        {% if l.pos_id %}
+                                                            <div class="row">
+                                                                {% for pos in Check.split(l.pos_id, ',')  %}
+                                                                    <div class="col-auto">{{ Parts_of_speech.query.get(Check.int(pos)).pos_short }}</div>
+                                                                {% endfor %}
+                                                            </div>
+                                                        {% else %}
+                                                           Части речи
+                                                        {% endif %}
+                                                    </a>
+                                                    <ul class="dropdown-menu p-1 overflow-auto" style="height: 200px;" aria-labelledby="dropdownMenuButton">
+                                                        {% for pos in Parts_of_speech.query.all() %}
+                                                            <li>
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input"
+                                                                           type="checkbox"
+                                                                           value="{{ pos.pos_id }}"
+                                                                           full_name="{{ pos.pos_short }}"
+                                                                           id="l_pos_{{ l.label_id }}_{{ pos.pos_id }}"
+                                                                           name="l_pos_{{ pos.pos_id }}_{{ l.label_id }}"
+                                                                           onclick="addLabels('l_pos_button_{{ l.label_id }}', 'l_pos_{{ l.label_id }}_{{ pos.pos_id }}')"
+                                                                           {% if Check.str(pos.pos_id) in Check.split(l.pos_id, ',') %}checked{% endif %}
+                                                                    >
+                                                                    <label class="form-check-label"
+                                                                           for="l_pos_{{ l.label_id }}_{{ pos.pos_id }}"
+                                                                           data-bs-toggle="tooltip"
+                                                                           title="{{ pos.pos }}"
+                                                                           style="font-variant: small-caps"
+                                                                    >
+                                                                        {{ Amend.md(pos.pos_short) }}
+                                                                    </label>
+                                                                </div>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {%- endfor -%}
+                            </tbody>
+                        </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function add(table, type) {
+            if (table.rows.length && table.rows.length > 0) {
+                var current_num = table.rows.length - 1;
+            }
+            else {
+                var current_num = 1;
+            }
+            var template = document.createElement('tr');
+            if (type == 'l') {
+                template.innerHTML = `
+                <tr>
+                    <th scope="row">
+                        <span class="text-center">🆕</span>
+                    </th>
+                    <td>
+                        <input class="form-control"
+                               placeholder="Введите название"
+                               name="new_${type}_name_${current_num}"
+                               id="new_${type}_name_${current_num}"
+                        >
+                    </td>
+                    <td>
+                        <input class="form-control"
+                               placeholder="Введите расшифровку"
+                               name="new_${type}_decode_${current_num}"
+                               id="new_${type}_decode_${current_num}"
+                        >
+                    </td>
+                    <td>
+                        <input class="form-control"
+                               placeholder="Введите ранг"
+                               name="new_${type}_rank_${current_num}"
+                               id="new_${type}_rank_${current_num}"
+                               type="number"
+                        >
+                    </td>
+                    <td>
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 text-center">
+                                <select class="form-select" name="new_${type}_type_${current_num}" onchange="disable_pos(new_${type}_pos_button_${current_num}, this.value, 'new_${type}_pos_${current_num}_')">
+                                    <option value="1">
+                                        Формы и значения
+                                    </option>
+                                    <option value="2">
+                                        Грамматика
+                                    </option>
+                                    <option value="3">
+                                        Таксономия
+                                    </option>
+                                    <option value="4">
+                                        Топология
+                                    </option>
+                                    <option value="5">
+                                        Мереология
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-12 text-center">
+                                <a class="text-primary d-none"
+                                   href="javascript:;"
+                                   role="button"
+                                   id="new_${type}_pos_button_${current_num}"
+                                   data-bs-toggle="dropdown"
+                                   data-bs-auto-close="outside"
+                                   aria-expanded="false"
+                                   style="text-decoration-line: none; font-variant: small-caps"
+                                >
+                                     <span>Части речи</span>
+                                </a>
+                                <ul class="dropdown-menu p-1 overflow-auto" style="height: 200px;" aria-labelledby="dropdownMenuButton">
+                                    {% for pos in Parts_of_speech.query.all() %}
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input"
+                                                       type="checkbox"
+                                                       value="{{ pos.pos_id }}"
+                                                       full_name="{{ pos.pos_short }}"
+                                                       id="new_${type}_pos_${current_num}_{{ pos.pos_id }}"
+                                                       name="new_${type}_pos_{{ pos.pos_id }}_${current_num}"
+                                                       onclick="addLabels('new_${type}_pos_button_${current_num}', 'new_${type}_pos_${current_num}_{{ pos.pos_id }}')"
+                                                       disabled
+                                                >
+                                                <label class="form-check-label"
+                                                       for="new_${type}_pos_${current_num}_{{ pos.pos_id }}"
+                                                       data-bs-toggle="tooltip"
+                                                       title="{{ pos.pos }}"
+                                                       style="font-variant: small-caps"
+                                                >
+                                                    {{ Amend.md(pos.pos_short) }}
+                                                </label>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>`
+            }
+            else {
+                template.innerHTML = `
+                    <tr>
+                        <th scope="row">
+                            <span class="text-center">🆕</span>
+                        </th>
+                        <td>
+                            <input class="form-control"
+                                   placeholder="Введите название"
+                                   name="new_${type}_name_${current_num}"
+                                   id="new_${type}_name_${current_num}"
+                            >
+                        </td>
+                        <td>
+                            <input class="form-control"
+                                   placeholder="Введите расшифровку"
+                                   name="new_${type}_decode_${current_num}"
+                                   id="new_${type}_decode_${current_num}"
+                            >
+                        </td>
+                        <td>
+                            <input class="form-control"
+                                   placeholder="Введите ранг"
+                                   name="new_${type}_rank_${current_num}"
+                                   id="new_${type}_rank_${current_num}"
+                                   type="number"
+                            >
+                        </td>
+                    </tr>`
+            }
+            table.getElementsByTagName("tbody")[0].appendChild(template);
+            $(template).attr("tabindex",-1).focus();
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        }
+
+        function addLabels(aim, dropdown) {
+            if ($(`#${dropdown}`).is(':checked')) {
+                const re_ns = RegExp('\n', 'g');
+                const re_spaces = RegExp(' +$', 'gm');
+                var current_text = $(`#${aim}`).text().replaceAll(re_ns, '').replace(re_spaces, '');
+                if (current_text.match('Части речи')) {
+                    var selected = [$(`#${dropdown}`).attr('full_name')];
+                } else {
+                    var selected = [current_text, $(`#${dropdown}`).attr('full_name')];
+                }
+                $(`#${aim}`).text(selected.join(', '));
+            } else {
+                var label = $(`#${dropdown}`).attr('full_name');
+                const re = RegExp(`(, )*${label}`.replace('\.', '\\\.'), 'g');
+                const re_spaces = RegExp('[ \n]+$', 'gm');
+                const re_beginning = RegExp('^[ \n]*, ', 'gm');
+                var new_text = $(`#${aim}`).text().replace(re, '').replace(re_spaces, '');
+                if (new_text == '') {
+                    new_text = 'Части речи'
+                }
+                new_text = new_text.replace(re_beginning, '')
+                $(`#${aim}`).text(new_text)
+            }
+        };
+
+        function disable_pos(button, type, startswith) {
+            if (type == 2) {
+                $(button).removeClass('d-none');
+                for (let i of $(`input[id^=${startswith}]`)) {
+                    $(i).prop('disabled', false)
+                }
+            } else {
+                console.log($(button));
+                $(button).addClass('d-none');
+                console.log($(button));
+                for (let i of $(`input[id^=${startswith}]`)) {
+                    $(i).prop('disabled', true)
+                }
+            }
+
+        }
+    </script>
+{% endblock %}

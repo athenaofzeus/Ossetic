@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_asadyn" xml:lang="os"><form xml:id="form_d5833e66" xml:lang="os-x-iron" type="lemma"><orth>asadyn</orth><form xml:id="form_d5833e68" type="participle"><orth>asæst</orth></form></form><form xml:id="form_d5833e71" xml:lang="os-x-digor" type="dialectal"><orth>asadun</orth><form xml:id="form_d5833e73" type="participle"><orth>asast</orth></form></form><sense n="1" xml:id="sense_asadyn.1"><abv:tr xml:lang="ru"><q>становиться пасмурным, облачным</q></abv:tr></sense><sense n="2" xml:id="sense_asadyn.2"><sense xml:id="sense_d5833e87"><abv:tr xml:lang="ru"><q>покрывать семена землей при посеве</q></abv:tr></sense><sense xml:id="sense_d5833e96"><abv:tr xml:lang="ru"><q>сажать семена (фасоль, горох)</q></abv:tr></sense></sense><re xml:id="re_d5833e106"><form xml:id="form_d5833e108" type="lemma"><orth>bonasadæn</orth></form><sense xml:id="sense_d5833e111"><sense xml:id="sense_d5833e112"><abv:tr xml:lang="ru"><q>привал</q></abv:tr></sense><sense xml:id="sense_d5833e121"><abv:tr xml:lang="ru"><q>полдневный отдых</q></abv:tr><note type="comment" xml:lang="ru"> ((о путниках, о
+                                животных))</note><note type="comment" xml:lang="ru"> ((о путниках, о
+                                животных))</note></sense></sense></re><re xml:id="re_d5833e141"><re xml:id="re_d5833e143"><form xml:id="form_d5833e145" type="lemma"><orth>asæst</orth></form><sense xml:id="sense_d5833e148"><abv:tr xml:lang="ru"><q>облачность</q></abv:tr></sense></re><re xml:id="re_d5833e159"><form xml:id="form_d5833e161" type="lemma"><orth>asæst bon</orth></form><sense xml:id="sense_d5833e164"><abv:tr xml:lang="ru"><q>пасмурный день</q></abv:tr></sense></re></re><re xml:id="re_d5833e176"><form xml:id="form_d5833e178" type="lemma"><orth>asadæn</orth></form><sense xml:id="sense_d5833e181"><abv:tr xml:lang="ru"><q>вид граблей, которыми заравнивают грядку и покрывают семена
+                                землей</q></abv:tr></sense></re><abv:exampleGrp xml:id="exampleGrp_d5833e192"><abv:example xml:id="example_d5833e194"><quote>asady saw mīǧtæj arv</quote><abv:tr xml:lang="ru"><q>небо покрывается черными тучами</q></abv:tr><bibl><ref type="bibl" target="#src_Xar._Zærdæ"><abbr><name full="yes" instant="false">Xar.</name> Zærdæ</abbr></ref><biblScope>87</biblScope></bibl></abv:example><abv:example xml:id="example_d5833e213"><quote>dony bylyl je ʽfsædtæn bonasadæn ærkodta</quote><abv:tr xml:lang="ru"><q>на берегу реки он устроил привал для своего войска</q></abv:tr><bibl><ref type="bibl" target="#src_ЮОПам."><abbr xml:lang="ru">ЮОПам.</abbr></ref><biblScope>III
+                            52</biblScope></bibl></abv:example><abv:example xml:id="example_d5833e232"><quote>æxsæv bonmæ fæcydysty, æmæ bony cʼæxæj Arag˳yjy donyl Zinony xīdy cūr
+                            qædbyny bonasadæn æryncadysty</quote><abv:tr xml:lang="ru"><q>всю ночь шли, а на рассвете остановились на привал у реки Арагвы
+                                возле Жинванского моста на опушке леса</q></abv:tr><bibl><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref><biblScope>96</biblScope></bibl></abv:example><abv:example xml:id="example_d5833e251" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>ærǧaw bonasadæni baduncæ</quote><abv:tr xml:lang="ru"><q>стадо расположилось на полдневный отдых</q></abv:tr></abv:example></abv:exampleGrp><abv:exampleGrp xml:id="exampleGrp_d5833e270"><abv:example xml:id="example_d5833e272" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>næwæg tud muggægtæ asadænæj asaduncæ</quote><abv:tr xml:lang="ru"><q>свежепосеянные семена покрывают землей с помощью (граблей)
+                                <hi rendition="#rend_smallcaps">asadæn</hi></q></abv:tr></abv:example></abv:exampleGrp><etym xml:lang="ru">Старое сращение преверба <ref type="xr" target="#entry_a-"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">a-</tei:w></ref> с
+                    основой <hi rendition="#rend_italic">*sad-</hi> ‘покрывать’, ‘затенять’, ср. <mentioned corresp="#mentioned_d5833e370" xml:id="mentioned_d5833e295" xml:lang="sa"><lang>скр.</lang>
+                        <w>chad-, āchad-</w>
+                        <gloss><q>покрывать</q></gloss></mentioned>, <mentioned corresp="#mentioned_d5833e378" xml:id="mentioned_d5833e303" xml:lang="sa"><w>āchad-</w>
+                        <gloss><q>убежище</q></gloss></mentioned>. Вероятно изначальное родство с
+                    германской группой слов: <mentioned corresp="#mentioned_d5833e384" xml:id="mentioned_d5833e309" xml:lang="en"><lang>англ.</lang>
+                        <w>shadow</w></mentioned>, <mentioned corresp="#mentioned_d5833e389" xml:id="mentioned_d5833e314" xml:lang="de"><lang>нем.</lang>
+                        <w>Schatten</w></mentioned>, <mentioned corresp="#mentioned_d5833e395" xml:id="mentioned_d5833e320" xml:lang="goh"><lang>др.в.нем.</lang>
+                        <w>scato</w>
+                        <gloss><q>тень</q></gloss></mentioned>, <mentioned corresp="#mentioned_d5833e403" xml:id="mentioned_d5833e328" xml:lang="no"><lang>норв.</lang>
+                        <w>skodde</w>
+                        <gloss><q>облако</q></gloss></mentioned>, <mentioned corresp="#mentioned_d5833e411" xml:id="mentioned_d5833e336" xml:lang="got"><lang>гот.</lang>
+                        <w>skadus</w>
+                        <gloss><q>тьма</q></gloss></mentioned>; сюда же <mentioned corresp="#mentioned_d5833e419" xml:id="mentioned_d5833e344" xml:lang="sga"><lang>др.ирл.</lang>
+                        <w>scáth</w>
+                        <gloss><q>тень</q></gloss></mentioned>, <mentioned corresp="#mentioned_d5833e427" xml:id="mentioned_d5833e352" xml:lang="grc"><lang>гр.</lang>
+                        <w>σκότος</w>
+                        <gloss><q>тьма</q></gloss></mentioned>. Ср. ос. <ref type="xr" target="#entry_wajsadyn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">wajsadyn</tei:w></ref> ‘молчать’ (о невесте, соблюдающей обычай
+                    молчания). Ср. также ос. <ref type="xr" target="#entry_satæg"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">satæg</tei:w></ref> ‘прохлада’,
+                    ‘тень’, ‘прохладный’.</etym></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

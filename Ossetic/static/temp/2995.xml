@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_k&#xE6;r&#xE6;&#x292;&#x12B;" xml:lang="os"><form xml:id="form_d2589e66" xml:lang="os-x-iron" type="lemma"><orth>kæræʒī</orth></form><form xml:id="form_d2589e69" xml:lang="os-x-digor" type="dialectal"><orth>kæræʒej</orth></form><sense xml:id="sense_d2589e72"><sense xml:id="sense_d2589e73"><abv:tr xml:lang="ru"><q>друг друга</q></abv:tr></sense><sense xml:id="sense_d2589e82"><abv:tr xml:lang="ru"><q>взаимно</q></abv:tr></sense></sense><abv:exampleGrp xml:id="exampleGrp_d2589e92"><abv:example xml:id="example_d2589e94"><quote>kæræʒīmæ bakæstytæ kodtoj, fæla kæræʒī nal bazydtoj</quote><abv:tr xml:lang="ru"><q>они посмотрели друг на друга, но уже не узнали друг друга</q></abv:tr><bibl><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref><biblScope>35</biblScope></bibl></abv:example><abv:example xml:id="example_d2589e113"><quote>kæd kæræʒījy fag næ rævdydtam? kæd kæræʒījæn fag næ fæʒyrdtam warzon
+                            nyxæstæ?</quote><abv:tr xml:lang="ru"><q>разве мы не достаточно ласкали друг друга? разве мы не достаточно
+                                говорили друг другу слова любви?</q></abv:tr><bibl><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref><biblScope>19</biblScope></bibl></abv:example><abv:example xml:id="example_d2589e132"><quote>kærdtæ ‘slasync kæræʒīmæ</quote><abv:tr xml:lang="ru"><q>извлекают мечи друг на друга</q></abv:tr><bibl><ref type="bibl" target="#src_ОЭп."><abbr xml:lang="ru">ОЭп.</abbr></ref><biblScope>38</biblScope></bibl></abv:example><abv:example xml:id="example_d2589e151" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>oj cæqaltæ kæræʒemæn desæ-ʒoræ fækodtoncæ</quote><abv:tr xml:lang="ru"><q>волны с удивлением рассказывали об этом друг другу</q></abv:tr><bibl><ref type="bibl" target="#src_Iræf"><abbr>Iræf</abbr></ref><biblScope>43</biblScope></bibl></abv:example><abv:example xml:id="example_d2589e173" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>niccijnæ ‘ncæ kæræʒebæl</quote><abv:tr xml:lang="ru"><q>обрадовались друг другу</q></abv:tr><bibl><ref type="bibl" target="#src_MSt."><abbr>MSt.</abbr></ref><biblScope>8%l15–16%l</biblScope></bibl></abv:example><abv:example xml:id="example_d2589e196"><quote>kæræʒī warzgæjæ cærūt!</quote><abv:tr xml:lang="ru"><q>живите, любя друг друга!</q></abv:tr></abv:example></abv:exampleGrp><etym xml:lang="ru">Может быть, из <mentioned corresp="#mentioned_d2589e250" xml:id="mentioned_d2589e214" xml:lang="trk"><lang>тюрк.</lang>
+                        <w>qar(ə)šə</w>
+                        <gloss><q>взаимно</q></gloss></mentioned>; ср. <hi rendition="#rend_italic">qaršə qarsə</hi> ‘друг против
+                    друга’ (<bibl><ref type="bibl" target="#ref_Радлов"><abbr xml:lang="ru"><name full="yes" instant="false">Радлов</name></abbr></ref><biblScope>II
+                            209</biblScope></bibl>), <mentioned corresp="#mentioned_d2589e262" xml:id="mentioned_d2589e226" xml:lang="tr-x-anat"><lang>анат.</lang>
+                        <w>karšələklə</w>
+                        <gloss><q>взаимный</q></gloss></mentioned>, <mentioned corresp="#mentioned_d2589e270" xml:id="mentioned_d2589e234" xml:lang="tr-x-anat"><w/>
+                        <gloss><q>обоюдный</q></gloss></mentioned>, <mentioned corresp="#mentioned_d2589e276" xml:id="mentioned_d2589e240" xml:lang="tr-x-anat"><w/>
+                        <gloss><q>двухсторонний</q></gloss></mentioned>.</etym></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

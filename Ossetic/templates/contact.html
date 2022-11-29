@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Обратная связь{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="alert alert-warning" role="alert">
+            <p>
+                Используйте эту форму, если хотите связаться с редакцией проекта.
+            </p>
+            <span>
+                Для сообщений об ошибках в словарных статьях следует пользоваться
+                функцией
+                <button class="btn btn-sm btn-outline-danger disabled">
+                    Сообщить об ошибке
+                </button>
+                в каждой из словарных статей.
+            </span>
+        </div>
+        <form action="" method="post" id="contact">
+            <div class="row align-items-center gy-2 mb-2">
+                <div class="col-12 col-md-3">
+                    <label for="name" class="form-label mb-0">Как к вам обращаться<span class="text-danger">*</span></label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input required type="text" class="form-control" id="name" name="name" placeholder="Додхудо Карамшоев" maxlength="50">
+                </div>
+                <div class="col-12 col-md-3">
+                    <label for="email" class="form-label mb-0">Ваш имейл<span class="text-danger">*</span></label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input required type="email" class="form-control" id="email" name="email" placeholder="hello@hse.ru" maxlength="50">
+                </div>
+                <div class="col-12 col-md-3">
+                    <label for="message" class="form-label mb-0">Ваше сообщение<span class="text-danger">*</span></label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <textarea required class="form-control" id="message" name="message" placeholder="До 5000 символов" maxlength="5000" style="max-height: 300px"></textarea>
+                </div>
+                <div class="col-12 col-md-3">
+                    <label for="question" class="form-label mb-0">
+                        Сколько значений у слова «<a href="{{ url_for('entry', unit_id='MTQ4NTY.xl-uijAkISQGyWx_Y9Ph8mGi8vw', ortho='po') }}" target="_blank">xabar</a>» в словаре Д. Карамшоева?
+                        <span class="text-danger">*</span></label>
+                </div>
+                <div class="col-12 col-md-9">
+                    <input required type="text" class="form-control" id="question" name="question" placeholder="649" maxlength="10">
+                </div>
+            </div>
+            <div class="text-start">
+                <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        autosize($('#message'));
+    </script>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% block title %}Конвертер орфографий{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="container d-flex flex-column mb-3">
+            <span class="h5 text-center align-self-center">Конвертер орфографий</span>
+            <form name="convertion_input" action="converter" method="POST" enctype="multipart/form-data">
+                <div class="modal fade" id="settings" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Настройки обработки символов</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="col-1">
+                                        <label class="form-label col-1" for="gamma">γ</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select col-11" name="gamma" id="gamma">
+                                            <option value="auto">Авто</option>
+                                            <option value="uvular">увулярный</option>
+                                            <option value="velar">велярный</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="col-1">
+                                        <label class="form-label " for="gh_ipa">ɣ</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select" name="gh_ipa" id="gh_ipa">
+                                            <option value="auto">Авто</option>
+                                            <option value="uvular">увулярный</option>
+                                            <option value="velar">велярный</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-2 justify-content-center">
+                                    <div class="col-1">
+                                        <label class="form-label " for="j">j</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select" name="j" id="j">
+                                            <option value="auto" selected>Авто</option>
+                                            <option value="y">[й]</option>
+                                            <option value="dzh">[дж]</option>
+                                            <option value="dz">[дз]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col-1">
+                                        <label class="form-label" for="sh">sh</label>
+                                    </div>
+                                    <div class="col-6">
+                                        <select class="form-select" name="sh" id="sh">
+                                            <option value="auto" selected>Авто</option>
+                                            <option value="skh">[сх]</option>
+                                            <option value="sch">[ш]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <p>
+                        <textarea required autofocus id="input" class="form-control" name="text" placeholder="Введите текст (до 5000 знаков)" spellcheck="false" maxlength="5000" style="max-height: 450px">{{ convert_pack["original_text"] }}</textarea>
+                    </p>
+                    <p>
+                        <input class="form-control" type="file" name="text_file" value="text_file" accept=".txt" data-bs-toggle="tooltip" title="Конвертировать txt-файл">
+                    </p>
+                    <div class="row row-cols-1 row-cols-md-2 align-items-center mb-2">
+                        <div class="d-flex col-6 justify-content-center justify-content-md-start">
+                            <button class="btn btn-primary" type="submit">Конвертировать</button>
+                        </div>
+                        <div class="d-flex col-6 justify-content-center justify-content-md-end">
+                            <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#settings">Настройки</button>
+                        </div>
+                    </div>
+                </div>
+                {% if convert_pack != False %}
+                    <div class="card" data-bs-toggle="tooltip" title="Нажмите, чтобы скопировать">
+                        <div type="button" class="card-body overflow-auto text-start" data-clipboard-text="{{ convert_pack["converted_text"] }}" style="max-height: 450px;">
+                            {{ convert_pack["converted_text_html"] }}
+                        </div>
+                    </div>
+                {% endif %}
+            </form>
+        </div>
+        <div class="container mb-2">
+            <div class="h5 text-center">
+                Вопросы и ответы
+            </div>
+            <div class="accordion" id="guide">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingWhy">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#why" aria-expanded="false" aria-controls="why">
+                            Зачем нужен конвертер орфографий?
+                        </button>
+                    </h2>
+                    <div id="why" class="accordion-collapse collapse" aria-labelledby="headingWhy" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <p>
+                                Конвертер орфографий переводит текст в орфографию, принятую шугнанским проектом.
+                            </p>
+                            <span>
+                                Про шугнанские орфографии можно подробнее узнать <a href="{{ url_for('ortho_table') }}" class="link-primary" target="_blank">здесь</a>.
+                                Также доступна для скачивания <a href="{{ url_for('ortho_layout') }}" class="link-primary" target="_blank">специальная раскладка</a> с проектной латиницей для Windows.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOrpho">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Orpho" aria-expanded="false" aria-controls="Orpho">
+                            Как можно настроить конвертацию?
+                        </button>
+                    </h2>
+                    <div id="Orpho" class="accordion-collapse collapse" aria-labelledby="headingOrpho" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <p>
+                                Некоторые символы обозначают разные фонемы в разных орфографиях.
+                                Конвертер умеет определять, какая фонема имеется в виду, если текст достаточно большой, но может и ошибаться.
+                                В таком случае пользователь может сам определить, как конвертер будет воспринимать эти символы: нужно выбрать соответствующий вариант в поле настроек в правой части страницы «Конвертер».
+                            </p>
+                            <ul>
+                                <li>Символы <mark>γ</mark> и <mark>ɣ</mark> могут означать увулярный согласный <a href="https://en.wikipedia.org/wiki/Voiced_uvular_fricative" class="link-primary" target="_blank">/ʁ/</a> или велярный согласный <a href="https://en.wikipedia.org/wiki/Voiced_velar_fricative" class="link-primary" target="_blank">/ɣ/</a>.</li>
+                                <li>Символ <mark>j</mark> обычно означает фонему <a href="https://en.wikipedia.org/wiki/Voiced_palatal_approximant" class="link-primary" target="_blank">/j/</a> («й») или <a href="https://en.wikipedia.org/wiki/Voiced_alveolo-palatal_affricate" class="link-primary" target="_blank">/dʑ/</a> («джь»), а изредка может обозначать <a href="https://en.wikipedia.org/wiki/Voiced_alveolar_affricate" class="link-primary" target="_blank">/dz/</a> («дз»).</li>
+                                <li>Диграф <mark>sh</mark> может означать фонему <a href="https://en.wikipedia.org/wiki/Voiceless_postalveolar_fricative" class="link-primary" target="_blank">/ʃ/</a> («ш») или сочетание звуков /sh/ («сх»).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingZones">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Reference" aria-expanded="false" aria-controls="Reference">
+                            Как ссылаться на ресурс?
+                        </button>
+                    </h2>
+                    <div id="Reference" class="accordion-collapse collapse" aria-labelledby="headingZones" data-bs-parent="#guide">
+                        <div class="accordion-body">
+                            <span>Пожалуйста, для ссылки на ресурс используйте <a class="link-primary" href="{{ url_for('about', _anchor='reference') }}">данные</a>, указанные на странице «О проекте».</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/clipboard.js-master/dist/clipboard.min.js"></script>
+    <script>
+        var btns = document.querySelectorAll('div');
+        var clipboard = new ClipboardJS(btns);
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
+        autosize($('#input'));
+    </script>
+{% endblock %}
+

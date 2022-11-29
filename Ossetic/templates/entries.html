@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}Словарные статьи{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="container">
+            <form action="" method="post" id="search">
+                <div class="row justify-content-center">
+                    <div class="col-auto mb-2 mb-md-0">
+                        <button class="btn btn-outline-primary" type="submit" form="search">Искать</button>
+                    </div>
+                    <div class="col-auto mb-2 mb-md-0">
+                        <select class="form-select" name="parameter">
+                            <option value="ID">ID</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <input required name="query" class="form-control" type="text">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Лексема</th>
+                        <th scope="col">Язык</th>
+                        <th scope="col">Источник</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in entries %}
+                            <tr>
+                                <th scope="row">{{ entry.unit_id }}</th>
+                                <td>
+                                    {{ Amend.entry(entry.unit_id, link=True, new_window=True) }}
+                                </td>
+                                <td>
+                                    {{ Languages.query.get(Language_assignment.query.filter_by(unit_id=entry.unit_id).first().lang_id).lang_ru }}
+                                </td>
+                                <td>
+                                    {% if entry.source == 1 %}
+                                        Редакция
+                                    {% elif entry.source == 2 %}
+                                        Абаев
+                                    {% endif %}
+                                </td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if items.has_prev or items.has_next %}
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    {% if items.has_prev %}
+                        <div class="col-4">
+                            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('entries', page=items.prev_num) }}">Назад</a>
+                        </div>
+                    {% endif %}
+                    {% if items.has_next %}
+                        <div class="col-4">
+                            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('entries', page=items.next_num) }}">Вперёд</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

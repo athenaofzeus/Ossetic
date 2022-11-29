@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_7l&#x1E7;&#x12B;tyn" xml:lang="os" abv:completeness="complete"><form xml:id="form_d2678e66" type="lemma" xml:lang="os-x-iron"><orth>ᵆlǧītyn</orth><form xml:id="form_d2678e68" type="participle"><orth>ᵆlǧyst</orth></form></form><form xml:id="form_d2678e71" xml:lang="os-x-digor" type="dialectal"><orth>ælǧetun</orth><form xml:id="form_d2678e73" type="participle"><orth>ælǧist</orth></form></form><sense xml:id="sense_d2678e76"><sense xml:id="sense_d2678e77"><abv:tr xml:lang="ru"><q>проклинать</q></abv:tr></sense><sense xml:id="sense_d2678e86"><abv:tr xml:lang="ru"><q>ругать</q></abv:tr></sense></sense><note xml:lang="ru" type="comment">; ант. <ref type="xr" target="#entry_arfæ"><phr>arfæ
+              kænyn</phr>
+            <gloss><q>благословлять</q></gloss></ref></note><re xml:id="re_d2678e113"><form xml:id="form_d2678e115" type="lemma"><orth>ælǧyst</orth></form><sense xml:id="sense_d2678e118"><sense xml:id="sense_d2678e119"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">проклятый</q></tr></sense><sense xml:id="sense_d2678e130"><abv:tr xml:lang="ru"><q>бедовый</q></abv:tr></sense><sense xml:id="sense_d2678e139"><abv:tr xml:lang="ru"><q>проклятие</q></abv:tr></sense><sense xml:id="sense_d2678e148"><abv:tr xml:lang="ru"><q>ругань</q></abv:tr></sense><sense xml:id="sense_d2678e157"><abv:tr xml:lang="ru"><q>брань</q></abv:tr></sense></sense></re><re xml:id="re_d2678e168"><form xml:id="form_d2678e170" type="lemma"><orth>X˳ycawy lǧyst</orth></form><sense xml:id="sense_d2678e173"><sense xml:id="sense_d2678e174"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">проклятый Богом</q></tr></sense><sense xml:id="sense_d2678e185"><abv:tr xml:lang="ru"><q>бедовый</q></abv:tr></sense></sense></re><re xml:id="re_d2678e196"><form xml:id="form_d2678e198" type="lemma"><orth>ælǧītæg</orth></form><sense xml:id="sense_d2678e201"><sense xml:id="sense_d2678e202"><tr xmlns="http://ossetic-studies.org/ns/abaevdict" xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">проклинатель</q></tr></sense><sense xml:id="sense_d2678e213"><abv:tr xml:lang="ru"><q>враг</q></abv:tr></sense></sense><note type="bibl">(<bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref>
+              <biblScope>584</biblScope></bibl>)</note></re><exampleGrp xmlns="http://ossetic-studies.org/ns/abaevdict" xml:id="exampleGrp_d2678e232"><example xml:id="example_d2678e234" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">Wadæxezæ…, sæ <oRef>isælǧista</oRef>…, sæ
+              kærdagæ kard kud næbal kærda, se ‘xsagæ topp kud
+              n<?oxy_comment_start author="oleg" timestamp="20220401T201824+0300" comment="typo? should be næ"?>a<?oxy_comment_end?>bal
+              æxsa, sæ wajagæ bæx kud næbal waja…</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">Уадахеза их прокляла, чтобы их острый меч
+                больше не резал, чтобы их меткое ружье больше не попадало, чтобы их резвый конь
+                больше не скакал…</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref>
+              <biblScope>II 43–44</biblScope></bibl></example><example xml:id="example_d2678e266"><quote xmlns="http://www.tei-c.org/ns/1.0">æz sæ ne <oRef>‘lǧītyn</oRef>, fælæ sæ X˳ycaw
+                <oRef>ralǧītæd</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">я их не проклинаю, но да проклянет их Бог</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Брит."><abbr xml:lang="ru"><name full="yes" instant="false">Брит.</name></abbr></ref>
+              <biblScope>38</biblScope></bibl></example><example xml:id="example_d2678e292"><quote xmlns="http://www.tei-c.org/ns/1.0">fydūsy <oRef>lǧyst</oRef> cæwag ū</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">проклятие злой женщины сбывается</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><biblScope xml:lang="ru">поговорка</biblScope></bibl></example><example xml:id="example_d2678e318"><quote xmlns="http://www.tei-c.org/ns/1.0">je <oRef>‘lǧyst</oRef> wæjygyl ærcydī</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">его проклятие сбылось на великане</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref>
+              <biblScope>108</biblScope></bibl></example><example xml:id="example_d2678e343"><quote xmlns="http://www.tei-c.org/ns/1.0">æz mælyn, fælæ <oRef>ælǧyst</oRef>
+              fæū</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">я умираю, но будь ты проклят</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_ИАА"><abbr xml:lang="ru">ИАА</abbr></ref>
+              <biblScope>III 115</biblScope></bibl></example><example xml:id="example_d2678e369"><quote xmlns="http://www.tei-c.org/ns/1.0">dy cy leǧwibælas <oRef>ralǧystaj</oRef>, ūj
+              bax˳yskʼ īs</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">смоковница, которую Ты проклял, засохла</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Марк"><abbr xml:lang="ru">Марк</abbr></ref>
+              <biblScope><hi rendition="#rend_italic">11</hi> 21</biblScope></bibl></example><example xml:id="example_d2678e397"><quote xmlns="http://www.tei-c.org/ns/1.0">k˳yd bacydystūt Alardyjy dūrtæm æd ʒabyrtæ —
+                <oRef>ralǧītʒæn</oRef> wæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">как вы (осмелились) подойти в обуви к камням
+                (бога) Аларды? — он проклянет вас</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_MD"><abbr>MD</abbr></ref>
+              <biblScope>1956 XII 44</biblScope></bibl></example><example xml:id="example_d2678e422" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">æ kʼoxtæ ratudta <oRef>ælǧisti</oRef>
+              kʼoxæj</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">она вырвала свои руки из руки негодяя</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_MD"><abbr>MD</abbr></ref>
+              <biblScope>1940 III 56</biblScope></bibl></example><example xml:id="example_d2678e450"><quote xmlns="http://www.tei-c.org/ns/1.0">ḱyzg æj <oRef>ralǧysta</oRef>: <q rendition="#rend_doublequotes">qil dūr fest!</q></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">девушка его прокляла: <q rendition="#rend_doublequotes">обратись в стоячий камень!</q></q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Munk."><abbr>Munk.</abbr></ref>
+              <biblScope>84</biblScope></bibl></example><example xml:id="example_d2678e481" xml:lang="os-x-digor"><usg xmlns="http://www.tei-c.org/ns/1.0"><lang>д.</lang></usg><quote xmlns="http://www.tei-c.org/ns/1.0">rajdajʒænæncæ næ <oRef>ælǧetun</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">они станут нас проклинать</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Gurdž._Æduli"><abbr><name full="yes" instant="false">Gurdž.</name> Æduli</abbr></ref>
+              <biblScope>72</biblScope></bibl></example><example xml:id="example_d2678e508"><quote xmlns="http://www.tei-c.org/ns/1.0">ʒwary læg <oRef>ælǧīty</oRef>, æfxæry
+              adæmy</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">жрец проклинает, попрекает людей</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Čerm."><abbr><name full="yes" instant="false">Čerm.</name></abbr></ref>
+              <biblScope>183</biblScope></bibl></example><example xml:id="example_d2678e534"><quote xmlns="http://www.tei-c.org/ns/1.0">walymmæ fækæwa dæ ūd <oRef>ralǧītæg</oRef>,
+              calymmæ æz moj ne ‘skænon</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">пусть до тех пор поплачет проклинатель твоей
+                души (твой враг), пока я не выйду замуж</q><note xmlns="http://www.tei-c.org/ns/1.0" xml:lang="ru" type="comment"> (т.е. <q>я
+                  никогда не выйду замуж</q>)</note></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>88</biblScope></bibl></example><example xml:id="example_d2678e569"><quote xmlns="http://www.tei-c.org/ns/1.0">dæ <oRef>balǧītæg</oRef> aftæ: læg ʒyqmard
+              fæcī</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">да постигнет твоего ненавистника такая
+                (участь): человек тут же скончался</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Čerm."><abbr><name full="yes" instant="false">Čerm.</name></abbr></ref>
+              <biblScope>98</biblScope></bibl></example><example xml:id="example_d2678e594"><quote xmlns="http://www.tei-c.org/ns/1.0"><oRef>ælǧystæj</oRef>, wæd nadæj cy næ
+              bavzærston</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">брани, побоев,— чего только я не вытерпел</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref>
+              <biblScope>56</biblScope></bibl></example><example xml:id="example_d2678e618"><quote xmlns="http://www.tei-c.org/ns/1.0">ḱyzg ne ‘srazy īs, æmæ jæm jæ fyd ysxæræm īs,
+                <oRef>ælǧysta</oRef> jæ</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">девушка не согласилась, и отец озлился на нее,
+                бранил ее</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Сека"><abbr xml:lang="ru"><name full="yes" instant="false">Сека</name></abbr></ref>
+              <biblScope>106</biblScope></bibl></example><example xml:id="example_d2678e643"><quote xmlns="http://www.tei-c.org/ns/1.0">avd azy k˳y acydī, wæd sæ <oRef>ælǧyst</oRef>
+              dær fæcī</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">когда прошло семь лет, то миновал (срок)
+                проклятия</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_ОЭ"><abbr xml:lang="ru">ОЭ</abbr></ref>
+              <biblScope>I 74</biblScope></bibl></example><example xml:id="example_d2678e668"><quote xmlns="http://www.tei-c.org/ns/1.0"><oRef>ælǧītag</oRef> næ wydī Q˳ydajnat, fælæ
+              acy xatt nal baurædta jæxī</quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">Кудайнат не имел обыкновения ругаться, но на
+                этот раз не сдержался</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Arsen"><abbr><name full="yes" instant="false">Arsen</name></abbr></ref>
+              <biblScope>57</biblScope></bibl></example><example xml:id="example_d2678e693"><quote xmlns="http://www.tei-c.org/ns/1.0">ænæfsarm <oRef>sælǧysta</oRef></quote><tr xml:lang="ru"><q xmlns="http://www.tei-c.org/ns/1.0">он непристойно выругался</q></tr><bibl xmlns="http://www.tei-c.org/ns/1.0"><ref type="bibl" target="#src_Нафи"><abbr xml:lang="ru"><name full="yes" instant="false">Нафи</name></abbr></ref>
+              <biblScope>176</biblScope></bibl></example></exampleGrp><etym xml:lang="ru">Восходит закономерно к <mentioned corresp="#mentioned_d2678e934" xml:id="mentioned_d2678e720" xml:lang="ira"><w type="rec">graiθ-</w></mentioned>. Существовала, по-видимому, параллельная иранская форма
+            <mentioned corresp="#mentioned_d2678e938" xml:id="mentioned_d2678e724" xml:lang="ira"><w type="rec">graid-</w>, <w type="rec">grid-</w></mentioned>,
+          которая дала <mentioned corresp="#mentioned_d2678e945" xml:id="mentioned_d2678e731" xml:lang="fa"><lang>перс.</lang>
+            <w>girīstan</w> : <w>giryam</w>
+            <gloss><q>плакать</q></gloss>, <gloss><q>рыдать</q></gloss></mentioned>,
+              <gloss><q>вопить</q></gloss>, <mentioned corresp="#mentioned_d2678e961" xml:id="mentioned_d2678e747" xml:lang="pal"><lang>пехл.</lang>
+            <w>grīstan</w>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Hübschmann._PSt.">Hübschmann.
+                  PSt.</ref>
+                <biblScope>93</biblScope></bibl>)</note></mentioned>, ошибочно возводившиеся к
+            <mentioned corresp="#mentioned_d2678e976" xml:id="mentioned_d2678e762" xml:lang="ira"><w type="rec">gar-</w></mentioned> (<bibl><ref type="bibl" target="#ref_Horn._Gr."><abbr><name full="yes" instant="false">Horn</name>. Gr.</abbr></ref>
+            <biblScope>204</biblScope></bibl>) или <mentioned corresp="#mentioned_d2678e985" xml:id="mentioned_d2678e771" xml:lang="ira"><w type="rec">gard-</w>, <w type="rec">garz-</w></mentioned> (<bibl><ref type="bibl" target="#ref_Nyberg"><abbr><name full="yes" instant="false">Nyberg</name></abbr></ref>
+            <biblScope>II 83—84</biblScope></bibl>). Обращает на себя внимание точное соответствие
+          прош. основы: ос. <oRef>lǧist</oRef>, <mentioned corresp="#mentioned_d2678e999" xml:id="mentioned_d2678e785" xml:lang="fa"><lang>перс.</lang>
+            <w>grist</w></mentioned>. Ср. также <mentioned corresp="#mentioned_d2678e1005" xml:id="mentioned_d2678e791" xml:lang="x-balochi"><lang>бел.</lang>
+            <w>grēt</w>
+            <gloss><q>плакал</q></gloss>
+            <note type="bibl">(<bibl><author>EIfenbein</author>, <biblScope>BSOAS 1961 XXIV
+                  951е</biblScope></bibl>)</note></mentioned>, <mentioned corresp="#mentioned_d2678e1021" xml:id="mentioned_d2678e807" xml:lang="isk"><lang>пам. ишк.</lang>
+            <w>yərənd-</w> : <w>yərəst</w>
+            <gloss><q>ругаться</q></gloss>, <gloss><q>браниться</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Пахалина"><abbr xml:lang="ru"><name full="yes" instant="false">Пахалина</name></abbr></ref>
+                <biblScope>203</biblScope></bibl>)</note></mentioned>. За пределами иранского мира
+          глагол хорошо представлен в германских: <mentioned corresp="#mentioned_d2678e1042" xml:id="mentioned_d2678e828" xml:lang="got-x-crm"><lang>гот. (крым.)</lang>
+            <w>kriten</w>
+            <gloss><q>плакать</q></gloss></mentioned>, <mentioned xml:id="mentioned_d2678e836"><mentioned corresp="#mentioned_d2678e1051" xml:id="mentioned_d2678e837" xml:lang="gml"><lang>ср.н.нем.</lang>
+              <w>kriten</w></mentioned>, <mentioned corresp="#mentioned_d2678e1056" xml:id="mentioned_d2678e842" xml:lang="nl"><lang>нидерл.</lang>
+              <w>krijten</w></mentioned>, <mentioned corresp="#mentioned_d2678e1061" xml:id="mentioned_d2678e847" xml:lang="de"><lang>нем.</lang>
+              <w>kreissen</w></mentioned>
+            <gloss><q>кричать</q></gloss>, <gloss><q>вопить</q></gloss></mentioned>. Из германского
+          идет романская группа: <mentioned corresp="#mentioned_d2678e1072" xml:id="mentioned_d2678e858" xml:lang="it"><lang>ит.</lang>
+            <w>gridare</w>
+            <gloss><q>кричать</q></gloss>, <gloss><q>бранить</q></gloss></mentioned>,
+              <mentioned xml:id="mentioned_d2678e869"><mentioned corresp="#mentioned_d2678e1084" xml:id="mentioned_d2678e870" xml:lang="es"><lang>исп.</lang>
+              <w>gritar</w></mentioned>, <mentioned corresp="#mentioned_d2678e1089" xml:id="mentioned_d2678e875" xml:lang="oc"><lang>прованс.</lang>
+              <w>cridar</w></mentioned>, <mentioned corresp="#mentioned_d2678e1094" xml:id="mentioned_d2678e880" xml:lang="fr"><lang>фр.</lang>
+              <w>crier</w></mentioned>
+            <gloss><q>кричать</q></gloss></mentioned>. — Основы <mentioned corresp="#mentioned_d2678e1103" xml:id="mentioned_d2678e889" xml:lang="ira"><w type="rec">graiθ-</w></mentioned>, <mentioned corresp="#mentioned_d2678e1107" xml:id="mentioned_d2678e893" xml:lang="ira"><w type="rec">graid-</w></mentioned> представляют, возможно, удлинение одного и того же корня
+            <mentioned corresp="#mentioned_d2678e1111" xml:id="mentioned_d2678e897" xml:lang="ira"><w type="rec">grai-</w>, <w type="rec">gri-</w></mentioned>
+          (ср. <mentioned corresp="#mentioned_d2678e1118" xml:id="mentioned_d2678e904" xml:lang="ku"><lang>курд.</lang>
+            <w>girin</w>
+            <gloss><q>плакать</q></gloss></mentioned>). В дальнейшем возможна связь с <mentioned corresp="#mentioned_d2678e1126" xml:id="mentioned_d2678e912" xml:lang="ine"><lang>и.е.</lang>
+            <w>g˳er(ə)-</w>
+            <gloss><q>кричать</q></gloss>, <gloss><q>бранить</q></gloss>
+            <note type="bibl">(<bibl><ref type="bibl" target="#ref_Pokorny"><abbr><name full="yes" instant="false">Pokorny</name></abbr></ref>
+                <biblScope>478</biblScope></bibl>)</note></mentioned>.</etym></entry>
+    
+        </body>
+    </text>
+</TEI>
+        

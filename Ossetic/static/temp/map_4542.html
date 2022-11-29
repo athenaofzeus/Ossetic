@@ -1,0 +1,2743 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7c82605e6fc1bd68ecb8814d606079c0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7c82605e6fc1bd68ecb8814d606079c0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7c82605e6fc1bd68ecb8814d606079c0 = L.map(
+                "map_7c82605e6fc1bd68ecb8814d606079c0",
+                {
+                    center: [42.98, 44.61],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_2409336ed45be993cf0a3c9c2119a39c = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "Tiles \u0026copy; Esri \u0026mdash; Source: US National Park Service", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_7c82605e6fc1bd68ecb8814d606079c0);
+        
+    
+            var marker_ce50d8e2333fa6ee09616dabec3d555c = L.marker(
+                [42.98, 44.61],
+                {}
+            ).addTo(map_7c82605e6fc1bd68ecb8814d606079c0);
+        
+    
+            var icon_595df50126bb153de9529851984427f7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_ce50d8e2333fa6ee09616dabec3d555c.setIcon(icon_595df50126bb153de9529851984427f7);
+        
+    
+            var marker_cluster_5905f1fb2e91c8361b0a9f100623c4dc = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5905f1fb2e91c8361b0a9f100623c4dc);
+        
+    
+            var marker_cluster_c0945bb2e862d4970e536e4f2c05f776 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c0945bb2e862d4970e536e4f2c05f776);
+        
+    
+            var marker_cluster_ebe67502cf8c275faaccd2edc91e7933 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ebe67502cf8c275faaccd2edc91e7933);
+        
+    
+            var marker_cluster_b72c88da422db17313106673c9a0b062 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b72c88da422db17313106673c9a0b062);
+        
+    
+            var marker_cluster_e97b09ac68e64924b1ad04a437534dbb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e97b09ac68e64924b1ad04a437534dbb);
+        
+    
+            var marker_cluster_1c4bb1bf79b9817790157e2c70dbe607 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1c4bb1bf79b9817790157e2c70dbe607);
+        
+    
+            var marker_cluster_29c056fb8f7d11cf7e63e45ba3f712cf = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_29c056fb8f7d11cf7e63e45ba3f712cf);
+        
+    
+            var marker_cluster_363c4ee3266420a712f9cf772c1624d0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_363c4ee3266420a712f9cf772c1624d0);
+        
+    
+            var marker_cluster_6db97d57c1702bd84b9b080fb82ddce9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6db97d57c1702bd84b9b080fb82ddce9);
+        
+    
+            var marker_cluster_6b9ac63c604eb5003491dcfe1b687712 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6b9ac63c604eb5003491dcfe1b687712);
+        
+    
+            var marker_cluster_80d1c39ac0f9a32f1989e68cf46dee54 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_80d1c39ac0f9a32f1989e68cf46dee54);
+        
+    
+            var marker_cluster_c8c5ea9a7df4bfd63f7f362664e11855 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c8c5ea9a7df4bfd63f7f362664e11855);
+        
+    
+            var marker_cluster_c36423468e1035147c24ee84e6410f88 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c36423468e1035147c24ee84e6410f88);
+        
+    
+            var marker_cluster_855200ac14b3645b336c7ec584f307bb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_855200ac14b3645b336c7ec584f307bb);
+        
+    
+            var marker_cluster_53578c94cdac600cf7a2b33b09a6873c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_53578c94cdac600cf7a2b33b09a6873c);
+        
+    
+            var marker_cluster_db8b6f2e9c5226a28243674eff3e61db = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_db8b6f2e9c5226a28243674eff3e61db);
+        
+    
+            var marker_cluster_43226854834977a2792ce78948dffe51 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_43226854834977a2792ce78948dffe51);
+        
+    
+            var marker_cluster_69037f28d39aa7fb585bcb65dae41f8c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_69037f28d39aa7fb585bcb65dae41f8c);
+        
+    
+            var marker_cluster_c64b9ca0886e28576e5e86c63dc84ec9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c64b9ca0886e28576e5e86c63dc84ec9);
+        
+    
+            var marker_cluster_4ba9258a94b11c46b44f5bf660ba3996 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4ba9258a94b11c46b44f5bf660ba3996);
+        
+    
+            var marker_cluster_d255765e2d6c76b0bf8b7d457c1258f0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d255765e2d6c76b0bf8b7d457c1258f0);
+        
+    
+            var marker_cluster_4947f95502a7dbd0f61bbce04d90d551 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4947f95502a7dbd0f61bbce04d90d551);
+        
+    
+            var marker_cluster_b59c41ffca4d582eb30450a69172f17a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b59c41ffca4d582eb30450a69172f17a);
+        
+    
+            var marker_cluster_0cf31248644f2e1153273a5cedeb800d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0cf31248644f2e1153273a5cedeb800d);
+        
+    
+            var marker_cluster_af4ff3f31a09158d03bfc8ed119d2024 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_af4ff3f31a09158d03bfc8ed119d2024);
+        
+    
+            var marker_cluster_ac2bae6a10ee7001ec29df5f64de621e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ac2bae6a10ee7001ec29df5f64de621e);
+        
+    
+            var marker_cluster_ab133f090626c231aaf0fd88bfe29d39 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ab133f090626c231aaf0fd88bfe29d39);
+        
+    
+            var marker_cluster_0ed8bc7dc794582a69a6127b0538ef01 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0ed8bc7dc794582a69a6127b0538ef01);
+        
+    
+            var marker_cluster_f696c63e4e2b0af1eb812c774ffa7f5a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f696c63e4e2b0af1eb812c774ffa7f5a);
+        
+    
+            var marker_cluster_3f8b30b295682c0fe50f7864144a254f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3f8b30b295682c0fe50f7864144a254f);
+        
+    
+            var marker_cluster_ead1231b380f6c5c758fb040c0b86975 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ead1231b380f6c5c758fb040c0b86975);
+        
+    
+            var marker_cluster_24599bceb76d61242171f53907f5a884 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_24599bceb76d61242171f53907f5a884);
+        
+    
+            var marker_cluster_149992e4a911442e8e3d12dc8debc4f0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_149992e4a911442e8e3d12dc8debc4f0);
+        
+    
+            var marker_cluster_968ec8d4a8ca61b9a6e9bf80fdac18ba = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_968ec8d4a8ca61b9a6e9bf80fdac18ba);
+        
+    
+            var marker_cluster_4c9109ed6e09147a7417d86876cef3fe = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4c9109ed6e09147a7417d86876cef3fe);
+        
+    
+            var marker_cluster_f6a215c1d80d6c8056408a2dbf807846 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f6a215c1d80d6c8056408a2dbf807846);
+        
+    
+            var marker_cluster_07230eec8438c6de516ec3cbb40810dd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_07230eec8438c6de516ec3cbb40810dd);
+        
+    
+            var marker_cluster_ef451c20f42bd04e0a29471cae4038e9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ef451c20f42bd04e0a29471cae4038e9);
+        
+    
+            var marker_cluster_46f8b21f2a4f4d269eeb67241ac0c232 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_46f8b21f2a4f4d269eeb67241ac0c232);
+        
+    
+            var marker_cluster_b852e549b1d524742e6088adbc498c06 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b852e549b1d524742e6088adbc498c06);
+        
+    
+            var marker_cluster_ad0f7904d4f9067db84e42e3569cdfe8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ad0f7904d4f9067db84e42e3569cdfe8);
+        
+    
+            var marker_cluster_0b0328ef548ed6f39c888536e9407ebf = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0b0328ef548ed6f39c888536e9407ebf);
+        
+    
+            var marker_cluster_71853866b5b9f647be69ce9429161536 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_71853866b5b9f647be69ce9429161536);
+        
+    
+            var marker_cluster_f96756a8d8cd2e726993ae22b6498d1d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f96756a8d8cd2e726993ae22b6498d1d);
+        
+    
+            var marker_cluster_c78b4e5af854baeb342ad3948bb8f2ea = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c78b4e5af854baeb342ad3948bb8f2ea);
+        
+    
+            var marker_cluster_a6fc292e767057bee528362a3e7290c4 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a6fc292e767057bee528362a3e7290c4);
+        
+    
+            var marker_cluster_d47c6d578ad92c9834a2b001bf5a1361 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d47c6d578ad92c9834a2b001bf5a1361);
+        
+    
+            var marker_cluster_7ce27dc1b0b23bbab2128b7204b33c0c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7ce27dc1b0b23bbab2128b7204b33c0c);
+        
+    
+            var marker_cluster_8d1a471e260e5370b3366df77a83f5fe = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8d1a471e260e5370b3366df77a83f5fe);
+        
+    
+            var marker_cluster_d345b67b0e3a4de10f1a84cfdbda66d5 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d345b67b0e3a4de10f1a84cfdbda66d5);
+        
+    
+            var marker_cluster_87284408746cb77a3ca5c2d46f774982 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_87284408746cb77a3ca5c2d46f774982);
+        
+    
+            var marker_cluster_81dd047a215432fc767124298e0f4239 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_81dd047a215432fc767124298e0f4239);
+        
+    
+            var marker_cluster_4ddd5512c1cd5c9d81544729585514a8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4ddd5512c1cd5c9d81544729585514a8);
+        
+    
+            var marker_cluster_3d14063d0903a6b58c11b94992f2f22a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3d14063d0903a6b58c11b94992f2f22a);
+        
+    
+            var marker_cluster_3241f4c68b79fd4e315777d497ebfb3e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3241f4c68b79fd4e315777d497ebfb3e);
+        
+    
+            var marker_cluster_6c8b698fb4200fc9b26de9983e698311 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6c8b698fb4200fc9b26de9983e698311);
+        
+    
+            var marker_cluster_4f3e3ec9eb905ac8ad66a19e59668a87 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4f3e3ec9eb905ac8ad66a19e59668a87);
+        
+    
+            var marker_cluster_e213adb3a14ae5904609d9888df7ee52 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e213adb3a14ae5904609d9888df7ee52);
+        
+    
+            var marker_cluster_53cd62a2ffa6fd2c788a6ad21130e9f2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_53cd62a2ffa6fd2c788a6ad21130e9f2);
+        
+    
+            var marker_cluster_2561a8baf9c250b58814825cbd91bacb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2561a8baf9c250b58814825cbd91bacb);
+        
+    
+            var marker_cluster_eec1d2dfdd8acb99fb060047744ebc15 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_eec1d2dfdd8acb99fb060047744ebc15);
+        
+    
+            var marker_cluster_47b0ae63bead8fa6a9d6336917103d03 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_47b0ae63bead8fa6a9d6336917103d03);
+        
+    
+            var marker_cluster_3eafa4b0373783936978c6d978612d0b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3eafa4b0373783936978c6d978612d0b);
+        
+    
+            var marker_cluster_4cde2f1f10170897853ef3b57b8969c9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4cde2f1f10170897853ef3b57b8969c9);
+        
+    
+            var marker_cluster_b76a520762e77790bdd1fcae2ac00b13 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b76a520762e77790bdd1fcae2ac00b13);
+        
+    
+            var marker_cluster_a926ed212b1b8165cd206256ff840d04 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a926ed212b1b8165cd206256ff840d04);
+        
+    
+            var marker_cluster_205044bf8c96e76c34e537e2ace79e80 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_205044bf8c96e76c34e537e2ace79e80);
+        
+    
+            var marker_cluster_d5d878e9563ce4101c09bb64ce681187 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d5d878e9563ce4101c09bb64ce681187);
+        
+    
+            var marker_cluster_71ed1c073665ff44d8332ef8bdeee8f8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_71ed1c073665ff44d8332ef8bdeee8f8);
+        
+    
+            var marker_cluster_9d9b71476bc4a7d9a3855030b9d929fd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9d9b71476bc4a7d9a3855030b9d929fd);
+        
+    
+            var marker_cluster_c9b461f6d1f38642a2b53e2cb740c48f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c9b461f6d1f38642a2b53e2cb740c48f);
+        
+    
+            var marker_cluster_1e8079ecaef47a90e01fbf004db10e69 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1e8079ecaef47a90e01fbf004db10e69);
+        
+    
+            var marker_8767b69dbf8a9e351166ddedf0a39efd = L.marker(
+                [32.9, 53.3],
+                {}
+            ).addTo(marker_cluster_1e8079ecaef47a90e01fbf004db10e69);
+        
+    
+        var popup_4c058d658174c526dce79e9504d23888 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3a7b90ddb38d3cadde43464d709756c4 = $(`<div id="html_3a7b90ddb38d3cadde43464d709756c4" style="width: 100.0%; height: 100.0%;">Persian <i>ældar</i> ‘рука’</div>`)[0];
+                popup_4c058d658174c526dce79e9504d23888.setContent(html_3a7b90ddb38d3cadde43464d709756c4);
+            
+        
+
+        marker_8767b69dbf8a9e351166ddedf0a39efd.bindPopup(popup_4c058d658174c526dce79e9504d23888)
+        ;
+
+        
+    
+    
+            marker_8767b69dbf8a9e351166ddedf0a39efd.bindTooltip(
+                `<div>
+                     dast
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_836595be35b2703c9660e9d707b4086e = L.marker(
+                [32.9, 53.3],
+                {}
+            ).addTo(marker_cluster_1e8079ecaef47a90e01fbf004db10e69);
+        
+    
+        var popup_24c98c5de43cad85d2a0ad02d3c37c14 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a4fbe0b41e23d0fbcb582d48601c69ef = $(`<div id="html_a4fbe0b41e23d0fbcb582d48601c69ef" style="width: 100.0%; height: 100.0%;">Persian <i>ældar</i> ‘побеждать’</div>`)[0];
+                popup_24c98c5de43cad85d2a0ad02d3c37c14.setContent(html_a4fbe0b41e23d0fbcb582d48601c69ef);
+            
+        
+
+        marker_836595be35b2703c9660e9d707b4086e.bindPopup(popup_24c98c5de43cad85d2a0ad02d3c37c14)
+        ;
+
+        
+    
+    
+            marker_836595be35b2703c9660e9d707b4086e.bindTooltip(
+                `<div>
+                     dast bar āvurdan
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_fc61c8141beb60d9acb31bbdcf36201d = L.marker(
+                [32.9, 53.3],
+                {}
+            ).addTo(marker_cluster_1e8079ecaef47a90e01fbf004db10e69);
+        
+    
+        var popup_bd8cdef99533b47b419df6077045506d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3bf9331038de3f48fd23aa45abf2f4a5 = $(`<div id="html_3bf9331038de3f48fd23aa45abf2f4a5" style="width: 100.0%; height: 100.0%;">Persian <i>ældar</i> ‘иметь верх’</div>`)[0];
+                popup_bd8cdef99533b47b419df6077045506d.setContent(html_3bf9331038de3f48fd23aa45abf2f4a5);
+            
+        
+
+        marker_fc61c8141beb60d9acb31bbdcf36201d.bindPopup(popup_bd8cdef99533b47b419df6077045506d)
+        ;
+
+        
+    
+    
+            marker_fc61c8141beb60d9acb31bbdcf36201d.bindTooltip(
+                `<div>
+                     dast dāštan
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_adca6091a69fa3c8c3f5169b8fd4bd37 = L.marker(
+                [32.9, 53.3],
+                {}
+            ).addTo(marker_cluster_1e8079ecaef47a90e01fbf004db10e69);
+        
+    
+        var popup_8a24405a7d566ced77deed12a1515700 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_047775aa7674388b0a005cdd4977f074 = $(`<div id="html_047775aa7674388b0a005cdd4977f074" style="width: 100.0%; height: 100.0%;">Persian <i>ældar</i> ‘брать верх’</div>`)[0];
+                popup_8a24405a7d566ced77deed12a1515700.setContent(html_047775aa7674388b0a005cdd4977f074);
+            
+        
+
+        marker_adca6091a69fa3c8c3f5169b8fd4bd37.bindPopup(popup_8a24405a7d566ced77deed12a1515700)
+        ;
+
+        
+    
+    
+            marker_adca6091a69fa3c8c3f5169b8fd4bd37.bindTooltip(
+                `<div>
+                     dast yāftan
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_756ea4b4df21d62097ee052c43dcbfb5 = L.marker(
+                [32.9, 53.3],
+                {}
+            ).addTo(marker_cluster_1e8079ecaef47a90e01fbf004db10e69);
+        
+    
+        var popup_a585a515b618da4145d727c2eddbc171 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_113f46c641191f681bd18177becc8aef = $(`<div id="html_113f46c641191f681bd18177becc8aef" style="width: 100.0%; height: 100.0%;">Persian <i>ældar</i> ‘покровитель’</div>`)[0];
+                popup_a585a515b618da4145d727c2eddbc171.setContent(html_113f46c641191f681bd18177becc8aef);
+            
+        
+
+        marker_756ea4b4df21d62097ee052c43dcbfb5.bindPopup(popup_a585a515b618da4145d727c2eddbc171)
+        ;
+
+        
+    
+    
+            marker_756ea4b4df21d62097ee052c43dcbfb5.bindTooltip(
+                `<div>
+                     dast-gīr
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_86f472c4ac74abe1635055325fe64271 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_86f472c4ac74abe1635055325fe64271);
+        
+    
+            var marker_cluster_44ce30af2ee9f11a3a7a5e0ddf878a40 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_44ce30af2ee9f11a3a7a5e0ddf878a40);
+        
+    
+            var marker_cluster_e463c2cdd51dfe9088e0ce0c01acfd7a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e463c2cdd51dfe9088e0ce0c01acfd7a);
+        
+    
+            var marker_cluster_b692b855c7d1f2cb2dcfd162e098335a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b692b855c7d1f2cb2dcfd162e098335a);
+        
+    
+            var marker_cluster_3f72e9b0ec41d9990836fd41f8e54d02 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3f72e9b0ec41d9990836fd41f8e54d02);
+        
+    
+            var marker_cluster_c70fe8c1862149d896186f6e740fa0f9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c70fe8c1862149d896186f6e740fa0f9);
+        
+    
+            var marker_cluster_89bbc8e916c7777f2b35097a5da82bc5 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_89bbc8e916c7777f2b35097a5da82bc5);
+        
+    
+            var marker_cluster_4fe649f59d844d7f1b9e08d27c8d3b99 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4fe649f59d844d7f1b9e08d27c8d3b99);
+        
+    
+            var marker_cluster_05319d598931ec1ddc88c0ef13226c1d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_05319d598931ec1ddc88c0ef13226c1d);
+        
+    
+            var marker_cluster_e8ccc22fea9aeffa0d1773a489990577 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e8ccc22fea9aeffa0d1773a489990577);
+        
+    
+            var marker_cluster_55687e49e5fc56cc57123e374d7dfca9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_55687e49e5fc56cc57123e374d7dfca9);
+        
+    
+            var marker_cluster_ce32a6a91224fe551870e7eb9d38a90b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ce32a6a91224fe551870e7eb9d38a90b);
+        
+    
+            var marker_cluster_559c0d25c7ec61a382b1b454831fe5e3 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_559c0d25c7ec61a382b1b454831fe5e3);
+        
+    
+            var marker_cluster_77cc55468ed1c050aacaf0fd535d9c52 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_77cc55468ed1c050aacaf0fd535d9c52);
+        
+    
+            var marker_cluster_20216af8327f1753e75bb59b1f279297 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_20216af8327f1753e75bb59b1f279297);
+        
+    
+            var marker_cluster_b197476dc92cd539a970ea81c16b43c0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b197476dc92cd539a970ea81c16b43c0);
+        
+    
+            var marker_cluster_e3edd3f23a7719b35a478642a41ee176 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e3edd3f23a7719b35a478642a41ee176);
+        
+    
+            var marker_cluster_4c8adc7705980387ace0be3c8019c8f7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_4c8adc7705980387ace0be3c8019c8f7);
+        
+    
+            var marker_cluster_e3290847f05a7755e873151dae16d54a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e3290847f05a7755e873151dae16d54a);
+        
+    
+            var marker_cluster_866218d1248f38936af1ecd0660b4212 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_866218d1248f38936af1ecd0660b4212);
+        
+    
+            var marker_cluster_52dc28bbc70cfedcfaf4e7315f27e8c7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_52dc28bbc70cfedcfaf4e7315f27e8c7);
+        
+    
+            var marker_cluster_2cc3e7c43f68557e6aed314618b3b08a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2cc3e7c43f68557e6aed314618b3b08a);
+        
+    
+            var marker_cluster_597ed11608b459c9baacfe6b6baf4223 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_597ed11608b459c9baacfe6b6baf4223);
+        
+    
+            var marker_cluster_5c6e98ae6179915c0154874670e5b8e3 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5c6e98ae6179915c0154874670e5b8e3);
+        
+    
+            var marker_cluster_80a9f95ba37cc4b13459e30ca809dbfd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_80a9f95ba37cc4b13459e30ca809dbfd);
+        
+    
+            var marker_cluster_551eb80346b118c624518731576ff337 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_551eb80346b118c624518731576ff337);
+        
+    
+            var marker_cluster_0f1162187ada50b6cf6428681c6ebcf2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0f1162187ada50b6cf6428681c6ebcf2);
+        
+    
+            var marker_cluster_87b62b32cdb9ef017f548289655924e2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_87b62b32cdb9ef017f548289655924e2);
+        
+    
+            var marker_cluster_58fa3526016b13a459f42fd84f786a53 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_58fa3526016b13a459f42fd84f786a53);
+        
+    
+            var marker_cluster_ab489f3a0cf8bb75b141ed674bcf641d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ab489f3a0cf8bb75b141ed674bcf641d);
+        
+    
+            var marker_cb59d3a3a398b5c044521329b20e33d6 = L.marker(
+                [46.9068585714, 19.6555271429],
+                {}
+            ).addTo(marker_cluster_ab489f3a0cf8bb75b141ed674bcf641d);
+        
+    
+        var popup_1927ceb874624a1d95844ce4332f8e3a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5b1b4165afd2be842db446a953a33737 = $(`<div id="html_5b1b4165afd2be842db446a953a33737" style="width: 100.0%; height: 100.0%;">Hungarian <i>ældar</i> ‘centurio cohortis praetoriae’</div>`)[0];
+                popup_1927ceb874624a1d95844ce4332f8e3a.setContent(html_5b1b4165afd2be842db446a953a33737);
+            
+        
+
+        marker_cb59d3a3a398b5c044521329b20e33d6.bindPopup(popup_1927ceb874624a1d95844ce4332f8e3a)
+        ;
+
+        
+    
+    
+            marker_cb59d3a3a398b5c044521329b20e33d6.bindTooltip(
+                `<div>
+                     aladár
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_bc4c0b484e307aa798e5f6046103b8b2 = L.marker(
+                [46.9068585714, 19.6555271429],
+                {}
+            ).addTo(marker_cluster_ab489f3a0cf8bb75b141ed674bcf641d);
+        
+    
+        var popup_c8de6adb322b249695a6ee3e48aef219 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_12e2ba355d042c90a53239db94e9152d = $(`<div id="html_12e2ba355d042c90a53239db94e9152d" style="width: 100.0%; height: 100.0%;">Hungarian <i>ældar</i> </div>`)[0];
+                popup_c8de6adb322b249695a6ee3e48aef219.setContent(html_12e2ba355d042c90a53239db94e9152d);
+            
+        
+
+        marker_bc4c0b484e307aa798e5f6046103b8b2.bindPopup(popup_c8de6adb322b249695a6ee3e48aef219)
+        ;
+
+        
+    
+    
+            marker_bc4c0b484e307aa798e5f6046103b8b2.bindTooltip(
+                `<div>
+                     aladár
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_1593cfab73fa8c822a5d32849aca9253 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1593cfab73fa8c822a5d32849aca9253);
+        
+    
+            var marker_cluster_724d930fd9423c4530c9365c18b8f7ae = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_724d930fd9423c4530c9365c18b8f7ae);
+        
+    
+            var marker_cluster_bac266e83aff901a09236f6a2e063052 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_bac266e83aff901a09236f6a2e063052);
+        
+    
+            var marker_cluster_44e04442df1fc4fd39bb9dc5b3f091e0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_44e04442df1fc4fd39bb9dc5b3f091e0);
+        
+    
+            var marker_cluster_d271f4de1d68396bf7375f372e0e048a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d271f4de1d68396bf7375f372e0e048a);
+        
+    
+            var marker_cluster_a44b9ea9cb5e23a2516435e21a5b7b4e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a44b9ea9cb5e23a2516435e21a5b7b4e);
+        
+    
+            var marker_cluster_86c00477655abfa32a96409bd3dc6d90 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_86c00477655abfa32a96409bd3dc6d90);
+        
+    
+            var marker_cluster_805bdcaef490a6f5576b59583cfb409e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_805bdcaef490a6f5576b59583cfb409e);
+        
+    
+            var marker_cluster_cdbab52249f44f627789b86b5d76fd59 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_cdbab52249f44f627789b86b5d76fd59);
+        
+    
+            var marker_cluster_8d09ce87e0a4acefacc4dca29fb1f1ee = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8d09ce87e0a4acefacc4dca29fb1f1ee);
+        
+    
+            var marker_cluster_95d826d9a0cff8bd443e41d9dd555da9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_95d826d9a0cff8bd443e41d9dd555da9);
+        
+    
+            var marker_cluster_9435e25472d38160c9e8675febc7b68f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9435e25472d38160c9e8675febc7b68f);
+        
+    
+            var marker_cluster_2ebe53c98318f26ba0b99f726636f575 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2ebe53c98318f26ba0b99f726636f575);
+        
+    
+            var marker_cluster_fe488a5d026de086368fcbbae9104933 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fe488a5d026de086368fcbbae9104933);
+        
+    
+            var marker_cluster_43094f3d90aeb089dc8d577f1bf0164b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_43094f3d90aeb089dc8d577f1bf0164b);
+        
+    
+            var marker_9add2da64c0f14da3b259b5889a2dba4 = L.marker(
+                [41.850397, 43.78613],
+                {}
+            ).addTo(marker_cluster_43094f3d90aeb089dc8d577f1bf0164b);
+        
+    
+        var popup_d1f9d444b2839a12010e69bface95e3d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5e86ce7ea7f4c9b53eaee52a547d8de4 = $(`<div id="html_5e86ce7ea7f4c9b53eaee52a547d8de4" style="width: 100.0%; height: 100.0%;">Georgian <i>ældar</i> ‘рука’</div>`)[0];
+                popup_d1f9d444b2839a12010e69bface95e3d.setContent(html_5e86ce7ea7f4c9b53eaee52a547d8de4);
+            
+        
+
+        marker_9add2da64c0f14da3b259b5889a2dba4.bindPopup(popup_d1f9d444b2839a12010e69bface95e3d)
+        ;
+
+        
+    
+    
+            marker_9add2da64c0f14da3b259b5889a2dba4.bindTooltip(
+                `<div>
+                     xeli
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_a7f2a9a1618862b55bf29584f4775d88 = L.marker(
+                [41.850397, 43.78613],
+                {}
+            ).addTo(marker_cluster_43094f3d90aeb089dc8d577f1bf0164b);
+        
+    
+        var popup_fe96c68cb4e5330daa7f65763c2014e6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5a2fdbd71bc7546a4e5da101fcdebb1b = $(`<div id="html_5a2fdbd71bc7546a4e5da101fcdebb1b" style="width: 100.0%; height: 100.0%;">Georgian <i>ældar</i> ‘царь’</div>`)[0];
+                popup_fe96c68cb4e5330daa7f65763c2014e6.setContent(html_5a2fdbd71bc7546a4e5da101fcdebb1b);
+            
+        
+
+        marker_a7f2a9a1618862b55bf29584f4775d88.bindPopup(popup_fe96c68cb4e5330daa7f65763c2014e6)
+        ;
+
+        
+    
+    
+            marker_a7f2a9a1618862b55bf29584f4775d88.bindTooltip(
+                `<div>
+                     xelmc’ipe
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_9876bde59f482b21a5f7f4302ba30cb2 = L.marker(
+                [41.850397, 43.78613],
+                {}
+            ).addTo(marker_cluster_43094f3d90aeb089dc8d577f1bf0164b);
+        
+    
+        var popup_4db98ae938177cb35cd42677c346ef2b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9f5042f7cf92425d48c6977292203b18 = $(`<div id="html_9f5042f7cf92425d48c6977292203b18" style="width: 100.0%; height: 100.0%;">Georgian <i>ældar</i> ‘властитель’</div>`)[0];
+                popup_4db98ae938177cb35cd42677c346ef2b.setContent(html_9f5042f7cf92425d48c6977292203b18);
+            
+        
+
+        marker_9876bde59f482b21a5f7f4302ba30cb2.bindPopup(popup_4db98ae938177cb35cd42677c346ef2b)
+        ;
+
+        
+    
+    
+            marker_9876bde59f482b21a5f7f4302ba30cb2.bindTooltip(
+                `<div>
+                     xelis upali
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_1a3ee47fe07fac0de607f885e7a14408 = L.marker(
+                [41.850397, 43.78613],
+                {}
+            ).addTo(marker_cluster_43094f3d90aeb089dc8d577f1bf0164b);
+        
+    
+        var popup_e8f8582b2c45be5ca62ccdee28218849 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8cd19cac5ec6088c5877e8a4b6f2eb32 = $(`<div id="html_8cd19cac5ec6088c5877e8a4b6f2eb32" style="width: 100.0%; height: 100.0%;">Georgian <i>ældar</i> ‘старшина’</div>`)[0];
+                popup_e8f8582b2c45be5ca62ccdee28218849.setContent(html_8cd19cac5ec6088c5877e8a4b6f2eb32);
+            
+        
+
+        marker_1a3ee47fe07fac0de607f885e7a14408.bindPopup(popup_e8f8582b2c45be5ca62ccdee28218849)
+        ;
+
+        
+    
+    
+            marker_1a3ee47fe07fac0de607f885e7a14408.bindTooltip(
+                `<div>
+                     xelosani
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_2b316daa9ea18695089e90880a804993 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2b316daa9ea18695089e90880a804993);
+        
+    
+            var marker_cluster_72af87e2d03467d1bcdc811c4d1153b8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_72af87e2d03467d1bcdc811c4d1153b8);
+        
+    
+            var marker_cluster_463e73c59e53225914217d9a14c7af04 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_463e73c59e53225914217d9a14c7af04);
+        
+    
+            var marker_cluster_795fdac6f31892761ab0bee8ce056dc9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_795fdac6f31892761ab0bee8ce056dc9);
+        
+    
+            var marker_cluster_e84c6ff19e5284b44d6eed6b8c1f136a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e84c6ff19e5284b44d6eed6b8c1f136a);
+        
+    
+            var marker_cluster_51786c0ae32936d949b7efd5d5f36a81 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_51786c0ae32936d949b7efd5d5f36a81);
+        
+    
+            var marker_cluster_75dd08d6aa758cac5d3fe98e29e1acb5 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_75dd08d6aa758cac5d3fe98e29e1acb5);
+        
+    
+            var marker_cluster_8630e4f684531637e82c68dadfbb6aad = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8630e4f684531637e82c68dadfbb6aad);
+        
+    
+            var marker_cluster_7658683d9f55f60f3a65f065e5be4145 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7658683d9f55f60f3a65f065e5be4145);
+        
+    
+            var marker_cluster_25a5dfbc6691d4250bcfa1fc54afca8a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_25a5dfbc6691d4250bcfa1fc54afca8a);
+        
+    
+            var marker_cluster_d17f061eddddde62f5fedf9ba58dd638 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d17f061eddddde62f5fedf9ba58dd638);
+        
+    
+            var marker_cluster_721f41aad7e1c2ede0fa28be6934adb1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_721f41aad7e1c2ede0fa28be6934adb1);
+        
+    
+            var marker_cluster_9a93431c2199bb386ae1c73aa01742fc = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9a93431c2199bb386ae1c73aa01742fc);
+        
+    
+            var marker_cluster_2d461467c3050c1838811e0c7d0c0c2a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2d461467c3050c1838811e0c7d0c0c2a);
+        
+    
+            var marker_cluster_2ab8c2b11f3af823d122283b31de0982 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2ab8c2b11f3af823d122283b31de0982);
+        
+    
+            var marker_cluster_ce20cee5a339f55ffdaa0df6483e347a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ce20cee5a339f55ffdaa0df6483e347a);
+        
+    
+            var marker_cluster_dda69eda89204401c61776dd3b6d3d7c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_dda69eda89204401c61776dd3b6d3d7c);
+        
+    
+            var marker_cluster_96b00c5a12b9bbf55430efabc447b7a8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_96b00c5a12b9bbf55430efabc447b7a8);
+        
+    
+            var marker_cluster_dbc8e65e7cffd65b6106f6d807ff627c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_dbc8e65e7cffd65b6106f6d807ff627c);
+        
+    
+            var marker_cluster_afd98ecac3d6912a2a9c2339ec8a80e4 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_afd98ecac3d6912a2a9c2339ec8a80e4);
+        
+    
+            var marker_cluster_44617d2532ef9530d635ddf1647d9b18 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_44617d2532ef9530d635ddf1647d9b18);
+        
+    
+            var marker_cluster_361741d130b67028a4358df72240785f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_361741d130b67028a4358df72240785f);
+        
+    
+            var marker_cluster_07502e000c58589dae7828142ffba5aa = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_07502e000c58589dae7828142ffba5aa);
+        
+    
+            var marker_cluster_efa36f694de1049d9336200421010586 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_efa36f694de1049d9336200421010586);
+        
+    
+            var marker_cluster_ce3dae7e5acfb7e7bb4e8b3240deaeba = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ce3dae7e5acfb7e7bb4e8b3240deaeba);
+        
+    
+            var marker_cluster_038463a6e5100b855072221bd1960a89 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_038463a6e5100b855072221bd1960a89);
+        
+    
+            var marker_cluster_af1b19afe46e6d66a3bb02105cce7756 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_af1b19afe46e6d66a3bb02105cce7756);
+        
+    
+            var marker_cluster_c9e6d0fd7ee042c9158583756162243f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c9e6d0fd7ee042c9158583756162243f);
+        
+    
+            var marker_cluster_213c869adf161e1970c64f0066db224e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_213c869adf161e1970c64f0066db224e);
+        
+    
+            var marker_cluster_5965eee045cd38a18e976afa039950e0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5965eee045cd38a18e976afa039950e0);
+        
+    
+            var marker_cluster_90859da7bb7809531dc198bce79ba68e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_90859da7bb7809531dc198bce79ba68e);
+        
+    
+            var marker_cluster_d7123eb4a1b79d280e66fae1e33e4838 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d7123eb4a1b79d280e66fae1e33e4838);
+        
+    
+            var marker_b00f9a19bf614fd37b05bff3ab615926 = L.marker(
+                [43.3815, 42.9188],
+                {}
+            ).addTo(marker_cluster_d7123eb4a1b79d280e66fae1e33e4838);
+        
+    
+        var popup_5e5493266eeb575dcb22cd8037886142 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_587ed58dd634aa6a09f7f0be81c7800b = $(`<div id="html_587ed58dd634aa6a09f7f0be81c7800b" style="width: 100.0%; height: 100.0%;">Balkar <i>ældar</i> </div>`)[0];
+                popup_5e5493266eeb575dcb22cd8037886142.setContent(html_587ed58dd634aa6a09f7f0be81c7800b);
+            
+        
+
+        marker_b00f9a19bf614fd37b05bff3ab615926.bindPopup(popup_5e5493266eeb575dcb22cd8037886142)
+        ;
+
+        
+    
+    
+            marker_b00f9a19bf614fd37b05bff3ab615926.bindTooltip(
+                `<div>
+                     Rdar-nәǧәš
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_bbe1b9aaf8a8c0edd489876d95326966 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_bbe1b9aaf8a8c0edd489876d95326966);
+        
+    
+            var marker_cluster_5718c0ccc3b3add0176fcfa4f986e948 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5718c0ccc3b3add0176fcfa4f986e948);
+        
+    
+            var marker_cluster_2767c8b31147f0ed6470599b3a846189 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2767c8b31147f0ed6470599b3a846189);
+        
+    
+            var marker_cluster_5a5c461843230a3ec78ab5b604e4f94c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5a5c461843230a3ec78ab5b604e4f94c);
+        
+    
+            var marker_cluster_a6a449c30ae5fb7504535ec5df7a18e7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a6a449c30ae5fb7504535ec5df7a18e7);
+        
+    
+            var marker_cluster_a2149736ecf85d71677a5721c353fcdd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a2149736ecf85d71677a5721c353fcdd);
+        
+    
+            var marker_cluster_1f390b50c629a12e9e3565f95b1d52f2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1f390b50c629a12e9e3565f95b1d52f2);
+        
+    
+            var marker_cluster_3680a079a43b86d412f51558de3ca756 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3680a079a43b86d412f51558de3ca756);
+        
+    
+            var marker_cluster_c73041e57c618c9c2b8af89ad8b100ae = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c73041e57c618c9c2b8af89ad8b100ae);
+        
+    
+            var marker_cluster_5e544c4fc80ed0741044d2db2ed271f6 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5e544c4fc80ed0741044d2db2ed271f6);
+        
+    
+            var marker_cluster_8c427be94b0c15c347a5309ac83d65ac = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8c427be94b0c15c347a5309ac83d65ac);
+        
+    
+            var marker_cluster_9684869ed5274cf06e056dee92c6e4a3 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9684869ed5274cf06e056dee92c6e4a3);
+        
+    
+            var marker_cluster_1de5f53576f1199151d6a7ad9930aad4 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1de5f53576f1199151d6a7ad9930aad4);
+        
+    
+            var marker_cluster_b74900696b938749e33d96f45ffcd42c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b74900696b938749e33d96f45ffcd42c);
+        
+    
+            var marker_cluster_f9ba4a81d9cc0a08abfa5d610f8d6ef4 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f9ba4a81d9cc0a08abfa5d610f8d6ef4);
+        
+    
+            var marker_cluster_c8768c9d908b0b154f1b005bcffc98f8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c8768c9d908b0b154f1b005bcffc98f8);
+        
+    
+            var marker_cluster_730ad6b30980dcc180dad3dcb5ade883 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_730ad6b30980dcc180dad3dcb5ade883);
+        
+    
+            var marker_cluster_6125d842540d994e2779ddb0e85431f6 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6125d842540d994e2779ddb0e85431f6);
+        
+    
+            var marker_cluster_96dd1ba3e1caad0098c8d4e181802444 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_96dd1ba3e1caad0098c8d4e181802444);
+        
+    
+            var marker_cluster_a00a100e9b66642d59a483c55a4416ef = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a00a100e9b66642d59a483c55a4416ef);
+        
+    
+            var marker_cluster_48083adb11cb3a76d5ef5a70212f6b9c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_48083adb11cb3a76d5ef5a70212f6b9c);
+        
+    
+            var marker_cluster_86378802380f2a24a0a9c31a1b9b8a57 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_86378802380f2a24a0a9c31a1b9b8a57);
+        
+    
+            var marker_cluster_690d2dfd584e3c32824fb0ed6d480ae5 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_690d2dfd584e3c32824fb0ed6d480ae5);
+        
+    
+            var marker_cluster_f2d87f2491a63f461d8c6f190f17355e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f2d87f2491a63f461d8c6f190f17355e);
+        
+    
+            var marker_9952422ad2160b96b8c2b993e7b70cc4 = L.marker(
+                [48.32, 106.29],
+                {}
+            ).addTo(marker_cluster_f2d87f2491a63f461d8c6f190f17355e);
+        
+    
+        var popup_412eace4b7ac1893501e0f765786b24c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d8d136b5c11ddb2c12afcc312c52dfb1 = $(`<div id="html_d8d136b5c11ddb2c12afcc312c52dfb1" style="width: 100.0%; height: 100.0%;">Mongolian <i>ældar</i> </div>`)[0];
+                popup_412eace4b7ac1893501e0f765786b24c.setContent(html_d8d136b5c11ddb2c12afcc312c52dfb1);
+            
+        
+
+        marker_9952422ad2160b96b8c2b993e7b70cc4.bindPopup(popup_412eace4b7ac1893501e0f765786b24c)
+        ;
+
+        
+    
+    
+            marker_9952422ad2160b96b8c2b993e7b70cc4.bindTooltip(
+                `<div>
+                     aldar
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_33b42b2e9470da2c7835a053a97ba526 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_33b42b2e9470da2c7835a053a97ba526);
+        
+    
+            var marker_cluster_1ee29a1ff1996ba7f75b9d06cdff3bcb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1ee29a1ff1996ba7f75b9d06cdff3bcb);
+        
+    
+            var marker_cluster_09cb2dc149fe5fe08c318da7169fc3ed = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_09cb2dc149fe5fe08c318da7169fc3ed);
+        
+    
+            var marker_cluster_2feefbcc556a9e9d5381bdd3e296314f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2feefbcc556a9e9d5381bdd3e296314f);
+        
+    
+            var marker_cluster_2ab21c96287f2b4676e9ec6462d26983 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2ab21c96287f2b4676e9ec6462d26983);
+        
+    
+            var marker_cluster_b880b25b2301010a87b93faf4e7d02de = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b880b25b2301010a87b93faf4e7d02de);
+        
+    
+            var marker_cluster_40b742979c9525ca11c775c23b966f2c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_40b742979c9525ca11c775c23b966f2c);
+        
+    
+            var marker_cluster_cfcba87651df8bfc7e2c9b03048ac3b8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_cfcba87651df8bfc7e2c9b03048ac3b8);
+        
+    
+            var marker_cluster_f0d1a13370a97c27e8fbb785087fd0e7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f0d1a13370a97c27e8fbb785087fd0e7);
+        
+    
+            var marker_cluster_9647c4ad5f265fe2a82b538a4b893051 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9647c4ad5f265fe2a82b538a4b893051);
+        
+    
+            var marker_cluster_7ed2296cd8614785309327453687a629 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7ed2296cd8614785309327453687a629);
+        
+    
+            var marker_cluster_9d8c10f1211f860850d27a1cccf17c4b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9d8c10f1211f860850d27a1cccf17c4b);
+        
+    
+            var marker_cluster_7a3678442e28acc973bb0ddcc3785825 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7a3678442e28acc973bb0ddcc3785825);
+        
+    
+            var marker_cluster_d5308c617970c2f3b20f16b038e85818 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d5308c617970c2f3b20f16b038e85818);
+        
+    
+            var marker_cluster_b3db94435775b0ee7ebd649417a2df9d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b3db94435775b0ee7ebd649417a2df9d);
+        
+    
+            var marker_cluster_d406cff7162b9b43ceb3e59293e7450e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d406cff7162b9b43ceb3e59293e7450e);
+        
+    
+            var marker_cluster_fce2cb5f249f977c70244c7595c7498e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fce2cb5f249f977c70244c7595c7498e);
+        
+    
+            var marker_cluster_c33fb07686d7feeee8ec7f0990e90e7f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c33fb07686d7feeee8ec7f0990e90e7f);
+        
+    
+            var marker_cluster_8daacf7b3ba21a4fd45a5eacefaffe9e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8daacf7b3ba21a4fd45a5eacefaffe9e);
+        
+    
+            var marker_cluster_6c55a0ef8f4f3630bb691cf33b454c24 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6c55a0ef8f4f3630bb691cf33b454c24);
+        
+    
+            var marker_cluster_652b54da3357d16abf8013bd786d2f06 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_652b54da3357d16abf8013bd786d2f06);
+        
+    
+            var marker_cluster_0f2360192038f2f5773e22e5ddec0116 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0f2360192038f2f5773e22e5ddec0116);
+        
+    
+            var marker_cluster_0c4f732d31263aefc3fbcfb60c9e5167 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0c4f732d31263aefc3fbcfb60c9e5167);
+        
+    
+            var marker_cluster_e36c6ac37fa50ac112c26b4a5d19af19 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e36c6ac37fa50ac112c26b4a5d19af19);
+        
+    
+            var marker_cluster_a9b9b8bf3e2a2443760498bec4d2e27e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a9b9b8bf3e2a2443760498bec4d2e27e);
+        
+    
+            var marker_cluster_dd2da89222ec227ab36ecc23abc3e346 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_dd2da89222ec227ab36ecc23abc3e346);
+        
+    
+            var marker_cluster_7bbc4ed65b5a412eabb8b72de446378e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7bbc4ed65b5a412eabb8b72de446378e);
+        
+    
+            var marker_cluster_b0559dfa20f9a2d25e09a0a09073539b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b0559dfa20f9a2d25e09a0a09073539b);
+        
+    
+            var marker_cluster_afaf09f4f00b8eb950f7268830a5eba6 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_afaf09f4f00b8eb950f7268830a5eba6);
+        
+    
+            var marker_cluster_1d02db920c22fe077c81144e53ab26e9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1d02db920c22fe077c81144e53ab26e9);
+        
+    
+            var marker_cluster_11ca34cade5e212fd048ee1d3d40db05 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_11ca34cade5e212fd048ee1d3d40db05);
+        
+    
+            var marker_cluster_328b6276e43d88514519a8214cac1045 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_328b6276e43d88514519a8214cac1045);
+        
+    
+            var marker_cluster_26de658dbae37a80a210dbb27444738b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_26de658dbae37a80a210dbb27444738b);
+        
+    
+            var marker_cluster_ddedbb069335ebd57985710eabf32680 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_ddedbb069335ebd57985710eabf32680);
+        
+    
+            var marker_cluster_7a9040a8fda21f469388d9a61dcdab27 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7a9040a8fda21f469388d9a61dcdab27);
+        
+    
+            var marker_cluster_98810bb8702cde552eb90ea79733ffd2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_98810bb8702cde552eb90ea79733ffd2);
+        
+    
+            var marker_cluster_fb2548bc13499d20c84f251d35fdd0fb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fb2548bc13499d20c84f251d35fdd0fb);
+        
+    
+            var marker_cluster_9c5b7e56989d668ac275fbcad1e6b09e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9c5b7e56989d668ac275fbcad1e6b09e);
+        
+    
+            var marker_cluster_dbf95baef87ba29eca7de552fc00b697 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_dbf95baef87ba29eca7de552fc00b697);
+        
+    
+            var marker_cluster_99503c7b467b541f86e791d4deada8fa = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_99503c7b467b541f86e791d4deada8fa);
+        
+    
+            var marker_cluster_280e4c84ca347a0bc50bfad8b7e4731e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_280e4c84ca347a0bc50bfad8b7e4731e);
+        
+    
+            var marker_cluster_faae109753bdbc12ea51bfddcd4a3d5f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_faae109753bdbc12ea51bfddcd4a3d5f);
+        
+    
+            var marker_cluster_f6d750a2b962229c0cd59ddea69ee9b1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f6d750a2b962229c0cd59ddea69ee9b1);
+        
+    
+            var marker_cluster_3676fd96cecd685df83cb5c9963b0dc1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3676fd96cecd685df83cb5c9963b0dc1);
+        
+    
+            var marker_cluster_b020efaa67358c9e576f573f780c0a92 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b020efaa67358c9e576f573f780c0a92);
+        
+    
+            var marker_cluster_2036094504ae78c3b7d9eea6057183c6 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2036094504ae78c3b7d9eea6057183c6);
+        
+    
+            var marker_cluster_8a7becd768de2ee42dff3d52bb8cddb1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8a7becd768de2ee42dff3d52bb8cddb1);
+        
+    
+            var marker_cluster_0cef53aaf6eb6543e65eb3a7a5d57f94 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0cef53aaf6eb6543e65eb3a7a5d57f94);
+        
+    
+            var marker_cluster_cb41a7a60e6655b4699e15f5f579184f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_cb41a7a60e6655b4699e15f5f579184f);
+        
+    
+            var marker_cluster_f7e4259e05d4057632392d14ae743ec2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f7e4259e05d4057632392d14ae743ec2);
+        
+    
+            var marker_cluster_97bd13182a71a862aa9db194f6ea0fcc = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_97bd13182a71a862aa9db194f6ea0fcc);
+        
+    
+            var marker_cluster_0b8abd0a69e37628840cda1b8c9ef88e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0b8abd0a69e37628840cda1b8c9ef88e);
+        
+    
+            var marker_cluster_667f6a875fffd86042b795d879149cf7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_667f6a875fffd86042b795d879149cf7);
+        
+    
+            var marker_cluster_a257026e2fc6a417715608a9d98fb25f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a257026e2fc6a417715608a9d98fb25f);
+        
+    
+            var marker_cluster_dcd3c9bb77d10df0f7f05f7d14c3e12d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_dcd3c9bb77d10df0f7f05f7d14c3e12d);
+        
+    
+            var marker_cluster_a14fc0af3fb1c5141e9ad664aa583d5c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a14fc0af3fb1c5141e9ad664aa583d5c);
+        
+    
+            var marker_cluster_6aa2fa86fa6c49397a84e925f1d27339 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6aa2fa86fa6c49397a84e925f1d27339);
+        
+    
+            var marker_cluster_e48aeaf259b78bc538601fcaaa3095e6 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e48aeaf259b78bc538601fcaaa3095e6);
+        
+    
+            var marker_cluster_bc517f51451c01cd6071b3b1600eb970 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_bc517f51451c01cd6071b3b1600eb970);
+        
+    
+            var marker_cluster_38eb388b982cfa53a2c7e6640c87c6ae = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_38eb388b982cfa53a2c7e6640c87c6ae);
+        
+    
+            var marker_cluster_1f4f48be63cc166b1d1a61cab5a7822d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1f4f48be63cc166b1d1a61cab5a7822d);
+        
+    
+            var marker_cluster_758d531fd27b02b53a27a60b9bd3b612 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_758d531fd27b02b53a27a60b9bd3b612);
+        
+    
+            var marker_cluster_2514a3449729c51aa7f67c401cf7de00 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2514a3449729c51aa7f67c401cf7de00);
+        
+    
+            var marker_cluster_2787184af0b28b4df057e2460809fceb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_2787184af0b28b4df057e2460809fceb);
+        
+    
+            var marker_cluster_b818abaea1348c6dff8cabfbe776a6d7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b818abaea1348c6dff8cabfbe776a6d7);
+        
+    
+            var marker_cluster_f4e374f500f34c880a9678ace66b5629 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f4e374f500f34c880a9678ace66b5629);
+        
+    
+            var marker_cluster_f85601b76151e0c6e1176df15d5448f4 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f85601b76151e0c6e1176df15d5448f4);
+        
+    
+            var marker_cluster_b972d7a33f2d4d93d794504a16150373 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b972d7a33f2d4d93d794504a16150373);
+        
+    
+            var marker_cluster_428e0cafe32b4565599bfd9e8f209b26 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_428e0cafe32b4565599bfd9e8f209b26);
+        
+    
+            var marker_cluster_cbb328ddace33a0520818aada721709c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_cbb328ddace33a0520818aada721709c);
+        
+    
+            var marker_cluster_0574cb35349c7233247ef446fe28dbc9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0574cb35349c7233247ef446fe28dbc9);
+        
+    
+            var marker_cluster_d5d84d498653e6623e62ab8a33f543e2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d5d84d498653e6623e62ab8a33f543e2);
+        
+    
+            var marker_cluster_1301571ac102a1d4100b63c276af8e0f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1301571ac102a1d4100b63c276af8e0f);
+        
+    
+            var marker_cluster_f682b17095ffd86937478c4f6b64d4bd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f682b17095ffd86937478c4f6b64d4bd);
+        
+    
+            var marker_cluster_0801db48ae7c37e642baa3981b2cd9a7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0801db48ae7c37e642baa3981b2cd9a7);
+        
+    
+            var marker_cluster_6b556d289650dabdef92986d1f326c8c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6b556d289650dabdef92986d1f326c8c);
+        
+    
+            var marker_cluster_31086d35dce152a442e595dd5687f564 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_31086d35dce152a442e595dd5687f564);
+        
+    
+            var marker_cluster_5bef15a74b9d0b1db547b5655141a0ae = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_5bef15a74b9d0b1db547b5655141a0ae);
+        
+    
+            var marker_68601862d63781f240b3fe0f7078b7ff = L.marker(
+                [39.7, 66.983],
+                {}
+            ).addTo(marker_cluster_5bef15a74b9d0b1db547b5655141a0ae);
+        
+    
+        var popup_f9104744f97418ad1d53923cfbcb22fc = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_036136d2457c6566fdf86af99148ad71 = $(`<div id="html_036136d2457c6566fdf86af99148ad71" style="width: 100.0%; height: 100.0%;">Sogdian <i>ældar</i> ‘владение’</div>`)[0];
+                popup_f9104744f97418ad1d53923cfbcb22fc.setContent(html_036136d2457c6566fdf86af99148ad71);
+            
+        
+
+        marker_68601862d63781f240b3fe0f7078b7ff.bindPopup(popup_f9104744f97418ad1d53923cfbcb22fc)
+        ;
+
+        
+    
+    
+            marker_68601862d63781f240b3fe0f7078b7ff.bindTooltip(
+                `<div>
+                     *arδār(ʼrδʼr)
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_7334de8c347a6859cf304e6221881e36 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7334de8c347a6859cf304e6221881e36);
+        
+    
+            var marker_cluster_7ccc5f0fd76300cbd189949fb1426fd7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7ccc5f0fd76300cbd189949fb1426fd7);
+        
+    
+            var marker_cluster_0ea2326ae71dbee70ec7b571218251f1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0ea2326ae71dbee70ec7b571218251f1);
+        
+    
+            var marker_cluster_c4bb8efcd4e37edef7a09c4c3d903e8a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c4bb8efcd4e37edef7a09c4c3d903e8a);
+        
+    
+            var marker_cluster_403f9b4bce675bd292093a97bde04010 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_403f9b4bce675bd292093a97bde04010);
+        
+    
+            var marker_cluster_43ba0c08a497929f6772de986601822b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_43ba0c08a497929f6772de986601822b);
+        
+    
+            var marker_cluster_40d22ed7fd5fb6ef3f69335ca4c9b9ef = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_40d22ed7fd5fb6ef3f69335ca4c9b9ef);
+        
+    
+            var marker_cluster_fed443163286cc7b86ddc886bd6d0526 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fed443163286cc7b86ddc886bd6d0526);
+        
+    
+            var marker_cluster_faa4bf88fda28824d279839590345224 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_faa4bf88fda28824d279839590345224);
+        
+    
+            var marker_cluster_7369e9f6d8739c6b310db8eee402f0d6 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_7369e9f6d8739c6b310db8eee402f0d6);
+        
+    
+            var marker_cluster_fc981b79dfefe68036a75fc31fb311cd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fc981b79dfefe68036a75fc31fb311cd);
+        
+    
+            var marker_cluster_56b3d2db9fa09c7c62f8e9049b1d9fbd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_56b3d2db9fa09c7c62f8e9049b1d9fbd);
+        
+    
+            var marker_cluster_9f768053f9a90ea9608f894e8c5155b7 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9f768053f9a90ea9608f894e8c5155b7);
+        
+    
+            var marker_cluster_db00b148fbd3f834c40bf31e6273d539 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_db00b148fbd3f834c40bf31e6273d539);
+        
+    
+            var marker_cluster_803d0c3fde7da7b76dc03ea3076b0a8b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_803d0c3fde7da7b76dc03ea3076b0a8b);
+        
+    
+            var marker_cluster_41873dfcdad30a970e9fe4047c006cb8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_41873dfcdad30a970e9fe4047c006cb8);
+        
+    
+            var marker_cluster_a56d4bc3b1c60a13fbaff7dca6344389 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a56d4bc3b1c60a13fbaff7dca6344389);
+        
+    
+            var marker_cluster_90652f111f29b95ecd5edba86b364733 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_90652f111f29b95ecd5edba86b364733);
+        
+    
+            var marker_cluster_9e54ddb8d85bbef7a006ae38745bca2f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9e54ddb8d85bbef7a006ae38745bca2f);
+        
+    
+            var marker_cluster_c7f20c66a0571b839b9488e9906d5bff = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c7f20c66a0571b839b9488e9906d5bff);
+        
+    
+            var marker_cluster_134d903d48e5cd8d0db7892fc4027534 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_134d903d48e5cd8d0db7892fc4027534);
+        
+    
+            var marker_cluster_143d918448668f3b9b7bd7b8989a3720 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_143d918448668f3b9b7bd7b8989a3720);
+        
+    
+            var marker_cluster_8bebf6d8832f36a7da78bfdeaf55149e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8bebf6d8832f36a7da78bfdeaf55149e);
+        
+    
+            var marker_cluster_c64e6b65a93a08c01f4766134b79a461 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c64e6b65a93a08c01f4766134b79a461);
+        
+    
+            var marker_cluster_fde81b754f7234e229b7d43b2db086a5 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fde81b754f7234e229b7d43b2db086a5);
+        
+    
+            var marker_cluster_631ea7e17f968ad435ffe3149364bcc0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_631ea7e17f968ad435ffe3149364bcc0);
+        
+    
+            var marker_386454a8342de109c11c735f603fbc7c = L.marker(
+                [39.8667, 32.8667],
+                {}
+            ).addTo(marker_cluster_631ea7e17f968ad435ffe3149364bcc0);
+        
+    
+        var popup_e233b5ac620efe74585e00ede14d983a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_97be58cb1d0c8a9d4449a3d64078f147 = $(`<div id="html_97be58cb1d0c8a9d4449a3d64078f147" style="width: 100.0%; height: 100.0%;">Turkish <i>ældar</i> ‘рука’</div>`)[0];
+                popup_e233b5ac620efe74585e00ede14d983a.setContent(html_97be58cb1d0c8a9d4449a3d64078f147);
+            
+        
+
+        marker_386454a8342de109c11c735f603fbc7c.bindPopup(popup_e233b5ac620efe74585e00ede14d983a)
+        ;
+
+        
+    
+    
+            marker_386454a8342de109c11c735f603fbc7c.bindTooltip(
+                `<div>
+                     qol
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_a14fabdf72360a2d57e97ec83b09e7dd = L.marker(
+                [39.8667, 32.8667],
+                {}
+            ).addTo(marker_cluster_631ea7e17f968ad435ffe3149364bcc0);
+        
+    
+        var popup_fe7132f41081d9efa39a2a04aa074ac4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2054e65c0bea0a47d2688f2d4b4a70e6 = $(`<div id="html_2054e65c0bea0a47d2688f2d4b4a70e6" style="width: 100.0%; height: 100.0%;">Turkish <i>ældar</i> ‘править’</div>`)[0];
+                popup_fe7132f41081d9efa39a2a04aa074ac4.setContent(html_2054e65c0bea0a47d2688f2d4b4a70e6);
+            
+        
+
+        marker_a14fabdf72360a2d57e97ec83b09e7dd.bindPopup(popup_fe7132f41081d9efa39a2a04aa074ac4)
+        ;
+
+        
+    
+    
+            marker_a14fabdf72360a2d57e97ec83b09e7dd.bindTooltip(
+                `<div>
+                     qol hurnaq
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_de83ab775e91368ebfecf2e3d463aa31 = L.marker(
+                [39.8667, 32.8667],
+                {}
+            ).addTo(marker_cluster_631ea7e17f968ad435ffe3149364bcc0);
+        
+    
+        var popup_5f7350759a8d84687cb231837480732f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f98a2e1810239358dace9eb4a1284385 = $(`<div id="html_f98a2e1810239358dace9eb4a1284385" style="width: 100.0%; height: 100.0%;">Turkish <i>ældar</i> ‘предводитель’</div>`)[0];
+                popup_5f7350759a8d84687cb231837480732f.setContent(html_f98a2e1810239358dace9eb4a1284385);
+            
+        
+
+        marker_de83ab775e91368ebfecf2e3d463aa31.bindPopup(popup_5f7350759a8d84687cb231837480732f)
+        ;
+
+        
+    
+    
+            marker_de83ab775e91368ebfecf2e3d463aa31.bindTooltip(
+                `<div>
+                     qolavuz
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_e50cbd505188806c0f5926825f96596d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e50cbd505188806c0f5926825f96596d);
+        
+    
+            var marker_cluster_24b31c54c99df4b72e13f9d96d9f8680 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_24b31c54c99df4b72e13f9d96d9f8680);
+        
+    
+            var marker_cluster_3785cf075d280cfe9d58cce9a876c8cb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3785cf075d280cfe9d58cce9a876c8cb);
+        
+    
+            var marker_cluster_0ad4652fe98192359a83e3c9a13d9166 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_0ad4652fe98192359a83e3c9a13d9166);
+        
+    
+            var marker_cluster_639a2933eef99f35703e4435853108c2 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_639a2933eef99f35703e4435853108c2);
+        
+    
+            var marker_cluster_fbab6b6044738901f8c40ba8fdf6344e = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fbab6b6044738901f8c40ba8fdf6344e);
+        
+    
+            var marker_cluster_1c57defeadd88d1281c048886beb2187 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1c57defeadd88d1281c048886beb2187);
+        
+    
+            var marker_cluster_3e17d3b1aafc937bc4797e4bbbdd1a95 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3e17d3b1aafc937bc4797e4bbbdd1a95);
+        
+    
+            var marker_cluster_f5abdd9c70f2cbc095ee67a5d7524d26 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f5abdd9c70f2cbc095ee67a5d7524d26);
+        
+    
+            var marker_cluster_3bf053fb6ae97fbf5d7f896f580a0eb4 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3bf053fb6ae97fbf5d7f896f580a0eb4);
+        
+    
+            var marker_cluster_edbdf6bb6187db742f1880d0f0bb62ff = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_edbdf6bb6187db742f1880d0f0bb62ff);
+        
+    
+            var marker_cluster_895fd9ad248fcddbccc972d3f55e8ea0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_895fd9ad248fcddbccc972d3f55e8ea0);
+        
+    
+            var marker_cluster_f87037862a089e04de86f624ee065cf9 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f87037862a089e04de86f624ee065cf9);
+        
+    
+            var marker_cluster_64175bfc1e496ba49ca2ac4739976537 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_64175bfc1e496ba49ca2ac4739976537);
+        
+    
+            var marker_cluster_732fcb8de8f08b837bdab8102dd14775 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_732fcb8de8f08b837bdab8102dd14775);
+        
+    
+            var marker_cluster_18f28883a592682e73751db938a96f78 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_18f28883a592682e73751db938a96f78);
+        
+    
+            var marker_cluster_53c2042e1f33f9c6d980dc2e46d2c233 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_53c2042e1f33f9c6d980dc2e46d2c233);
+        
+    
+            var marker_cluster_8ec0bee9e3ea815390d3f366d6c6bf36 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8ec0bee9e3ea815390d3f366d6c6bf36);
+        
+    
+            var marker_cluster_632ab23da76cd4574c765b10c3ce6ddf = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_632ab23da76cd4574c765b10c3ce6ddf);
+        
+    
+            var marker_cluster_1701f8e5a161b157e45688993f4ed21a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1701f8e5a161b157e45688993f4ed21a);
+        
+    
+            var marker_cluster_dd28c4ff6472303bfe497b60c2cf53b3 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_dd28c4ff6472303bfe497b60c2cf53b3);
+        
+    
+            var marker_cluster_f909cf1349d1e5fee9c0037fa6c14a32 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f909cf1349d1e5fee9c0037fa6c14a32);
+        
+    
+            var marker_cluster_33e0d1108bb2f4d81e4e3da29c1fc983 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_33e0d1108bb2f4d81e4e3da29c1fc983);
+        
+    
+            var marker_cluster_cb55129ea4763e504365053212259078 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_cb55129ea4763e504365053212259078);
+        
+    
+            var marker_cluster_854c555a28c5370e2f24c0a70bebdb85 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_854c555a28c5370e2f24c0a70bebdb85);
+        
+    
+            var marker_cluster_c6372faf812daca7de991f25b0965962 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c6372faf812daca7de991f25b0965962);
+        
+    
+            var marker_cluster_8c3c5f5fef2ba45b0205da92c5a4cd8c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_8c3c5f5fef2ba45b0205da92c5a4cd8c);
+        
+    
+            var marker_cluster_f23e30efd675bbac2347146323ee45cd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f23e30efd675bbac2347146323ee45cd);
+        
+    
+            var marker_cluster_c11f97e92e8ba44bb77a71f5eeb22194 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_c11f97e92e8ba44bb77a71f5eeb22194);
+        
+    
+            var marker_cluster_6708992490b793a19fa649cf9e771d68 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_6708992490b793a19fa649cf9e771d68);
+        
+    
+            var marker_cluster_fa5d3154fbc24517531a65be6fe5fc97 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fa5d3154fbc24517531a65be6fe5fc97);
+        
+    
+            var marker_cluster_9e1f8e43a8d52cf37b4f7df4eb41a218 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9e1f8e43a8d52cf37b4f7df4eb41a218);
+        
+    
+            var marker_cluster_95aa8ce3d9eb27d9152dbb7b6acbd7f1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_95aa8ce3d9eb27d9152dbb7b6acbd7f1);
+        
+    
+            var marker_cluster_df4a1d0c9bf6dfcab7761754a71aba02 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_df4a1d0c9bf6dfcab7761754a71aba02);
+        
+    
+            var marker_cluster_a52eac4a27e5c6795d24a794d8f887e0 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a52eac4a27e5c6795d24a794d8f887e0);
+        
+    
+            var marker_cluster_3daa7b4266a406de6d640ce095fa512f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_3daa7b4266a406de6d640ce095fa512f);
+        
+    
+            var marker_ad0eee0f58f2640e1c52aa5183fdab70 = L.marker(
+                [46.566667, 45.316667],
+                {}
+            ).addTo(marker_cluster_3daa7b4266a406de6d640ce095fa512f);
+        
+    
+        var popup_025c6f1a6ad7ff0171bea6eb02000adb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_20d46356b1edb8bb3f99b017973225c0 = $(`<div id="html_20d46356b1edb8bb3f99b017973225c0" style="width: 100.0%; height: 100.0%;">Kalmyk <i>ældar</i> ‘господин’</div>`)[0];
+                popup_025c6f1a6ad7ff0171bea6eb02000adb.setContent(html_20d46356b1edb8bb3f99b017973225c0);
+            
+        
+
+        marker_ad0eee0f58f2640e1c52aa5183fdab70.bindPopup(popup_025c6f1a6ad7ff0171bea6eb02000adb)
+        ;
+
+        
+    
+    
+            marker_ad0eee0f58f2640e1c52aa5183fdab70.bindTooltip(
+                `<div>
+                     aldar
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_599f5c862a5b2bbda64a0b8e971c9be6 = L.marker(
+                [46.566667, 45.316667],
+                {}
+            ).addTo(marker_cluster_3daa7b4266a406de6d640ce095fa512f);
+        
+    
+        var popup_f55e8ab77319531e843646af7ce6c078 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_13859a8d2f8cbbae5ab4dd417c6cee3d = $(`<div id="html_13859a8d2f8cbbae5ab4dd417c6cee3d" style="width: 100.0%; height: 100.0%;">Kalmyk <i>ældar</i> ‘милостивый государь’</div>`)[0];
+                popup_f55e8ab77319531e843646af7ce6c078.setContent(html_13859a8d2f8cbbae5ab4dd417c6cee3d);
+            
+        
+
+        marker_599f5c862a5b2bbda64a0b8e971c9be6.bindPopup(popup_f55e8ab77319531e843646af7ce6c078)
+        ;
+
+        
+    
+    
+            marker_599f5c862a5b2bbda64a0b8e971c9be6.bindTooltip(
+                `<div>
+                     χārḷdacaldṛ
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_b505edc18d235689e80dda2bf8f4c82d = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_b505edc18d235689e80dda2bf8f4c82d);
+        
+    
+            var marker_cluster_f9b538cbce762e3dc8a208dcada654fb = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f9b538cbce762e3dc8a208dcada654fb);
+        
+    
+            var marker_cluster_21dbcaeac2ca7f8e106dd69908e2d37a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_21dbcaeac2ca7f8e106dd69908e2d37a);
+        
+    
+            var marker_cluster_a351427c2413bcc19b9df289ddfae7fa = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a351427c2413bcc19b9df289ddfae7fa);
+        
+    
+            var marker_cluster_9818f7d770a06a1522369abd3e0f65fd = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_9818f7d770a06a1522369abd3e0f65fd);
+        
+    
+            var marker_cluster_646ec61e8181777713856ecd2df1d45b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_646ec61e8181777713856ecd2df1d45b);
+        
+    
+            var marker_cluster_a5b62ce408bab8a79f5c606d6cb19402 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_a5b62ce408bab8a79f5c606d6cb19402);
+        
+    
+            var marker_cluster_1ec5b6811c2fd5ea50d33ef78a81a71b = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_1ec5b6811c2fd5ea50d33ef78a81a71b);
+        
+    
+            var marker_cluster_d0d49be52de3d04979b67ddefb70fa0c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d0d49be52de3d04979b67ddefb70fa0c);
+        
+    
+            var marker_cluster_562d26d66dac12457378b5e558dd3453 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_562d26d66dac12457378b5e558dd3453);
+        
+    
+            var marker_cluster_51dd61a0eab36e49afe219f52a9fecfa = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_51dd61a0eab36e49afe219f52a9fecfa);
+        
+    
+            var marker_cluster_90711c906ecd33876af67144c7ae7a7f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_90711c906ecd33876af67144c7ae7a7f);
+        
+    
+            var marker_b4109f1a8a6e78b6bef43c430fff8b3b = L.marker(
+                [48.5763, 39.3335],
+                {}
+            ).addTo(marker_cluster_90711c906ecd33876af67144c7ae7a7f);
+        
+    
+        var popup_8f3b6e8d7c9d1b998f13552b92d81706 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_703f698e3631bc148523c5d2ef10fa36 = $(`<div id="html_703f698e3631bc148523c5d2ef10fa36" style="width: 100.0%; height: 100.0%;">Scythian <i>ældar</i> </div>`)[0];
+                popup_8f3b6e8d7c9d1b998f13552b92d81706.setContent(html_703f698e3631bc148523c5d2ef10fa36);
+            
+        
+
+        marker_b4109f1a8a6e78b6bef43c430fff8b3b.bindPopup(popup_8f3b6e8d7c9d1b998f13552b92d81706)
+        ;
+
+        
+    
+    
+            marker_b4109f1a8a6e78b6bef43c430fff8b3b.bindTooltip(
+                `<div>
+                     Ἄρδαρος
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_449fb9be1e9e07c5edb28c117f4b8c72 = L.marker(
+                [48.5763, 39.3335],
+                {}
+            ).addTo(marker_cluster_90711c906ecd33876af67144c7ae7a7f);
+        
+    
+        var popup_7c459711cb1a08cea028de7560ef8603 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2155e6bb500ba36f50f05ee751aa3259 = $(`<div id="html_2155e6bb500ba36f50f05ee751aa3259" style="width: 100.0%; height: 100.0%;">Scythian <i>ældar</i> </div>`)[0];
+                popup_7c459711cb1a08cea028de7560ef8603.setContent(html_2155e6bb500ba36f50f05ee751aa3259);
+            
+        
+
+        marker_449fb9be1e9e07c5edb28c117f4b8c72.bindPopup(popup_7c459711cb1a08cea028de7560ef8603)
+        ;
+
+        
+    
+    
+            marker_449fb9be1e9e07c5edb28c117f4b8c72.bindTooltip(
+                `<div>
+                     Ἀρδάραχος
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_95002d02289b149f6343ba17d616794a = L.marker(
+                [48.5763, 39.3335],
+                {}
+            ).addTo(marker_cluster_90711c906ecd33876af67144c7ae7a7f);
+        
+    
+        var popup_5f44a4c71ba5ab79aae3e4a2ac283cc6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cb0666a154afa56701b3691851a8357e = $(`<div id="html_cb0666a154afa56701b3691851a8357e" style="width: 100.0%; height: 100.0%;">Scythian <i>ældar</i> </div>`)[0];
+                popup_5f44a4c71ba5ab79aae3e4a2ac283cc6.setContent(html_cb0666a154afa56701b3691851a8357e);
+            
+        
+
+        marker_95002d02289b149f6343ba17d616794a.bindPopup(popup_5f44a4c71ba5ab79aae3e4a2ac283cc6)
+        ;
+
+        
+    
+    
+            marker_95002d02289b149f6343ba17d616794a.bindTooltip(
+                `<div>
+                     Ἀρδαρίσχος
+                 </div>`,
+                {"permanent": true, "sticky": true}
+            );
+        
+    
+            var marker_cluster_938a0733c2600a856a649d1a088ba69a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_938a0733c2600a856a649d1a088ba69a);
+        
+    
+            var marker_cluster_713e6a75568392fecc61b8deb4d9ebb1 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_713e6a75568392fecc61b8deb4d9ebb1);
+        
+    
+            var marker_cluster_791fc2979db46b1cf94964d9e7df1522 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_791fc2979db46b1cf94964d9e7df1522);
+        
+    
+            var marker_cluster_fd864c64807e2f023d3c93e05b1c3173 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_fd864c64807e2f023d3c93e05b1c3173);
+        
+    
+            var marker_cluster_de97e1f4f6c52f399faacd07c38f0c37 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_de97e1f4f6c52f399faacd07c38f0c37);
+        
+    
+            var marker_cluster_668a991b6c44343061836199ead96f6f = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_668a991b6c44343061836199ead96f6f);
+        
+    
+            var marker_cluster_33edcb79a3bbe83afd79ea04ae36153a = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_33edcb79a3bbe83afd79ea04ae36153a);
+        
+    
+            var marker_cluster_bdcb6a29bddc2532d1ade9945d6e5a88 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_bdcb6a29bddc2532d1ade9945d6e5a88);
+        
+    
+            var marker_cluster_d8b067f8ad51594a667e5a119c6ab5a5 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_d8b067f8ad51594a667e5a119c6ab5a5);
+        
+    
+            var marker_cluster_e4da5f020582e4c164fdfd0975ff98c8 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_e4da5f020582e4c164fdfd0975ff98c8);
+        
+    
+            var marker_cluster_bd8c80b3f2828b499bf1114265227e3c = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_bd8c80b3f2828b499bf1114265227e3c);
+        
+    
+            var marker_cluster_f83611049971224bfab1a50e8fcd4480 = L.markerClusterGroup(
+                {}
+            );
+            map_7c82605e6fc1bd68ecb8814d606079c0.addLayer(marker_cluster_f83611049971224bfab1a50e8fcd4480);
+        
+</script>
+</html>

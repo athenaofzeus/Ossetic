@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/abaev.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru.css"?>
+<?xml-stylesheet type="text/css" href="/static/css/Abaev/ru_langs.css"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+            </titleStmt>
+            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+            <sourceDesc>
+                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc xml:base="../encodingdesc.xml">
+    <tagsDecl>
+        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+    </tagsDecl>
+</encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <entry xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="entry_arf&#xE6;" xml:lang="os"><form xml:id="form_d3698e66" type="lemma"><orth>arfæ</orth></form><sense xml:id="sense_d3698e69"><sense xml:id="sense_d3698e70"><abv:tr xml:lang="ru"><q>благословение</q></abv:tr></sense><sense xml:id="sense_d3698e79"><abv:tr xml:lang="ru"><q>поздравление</q></abv:tr></sense><sense xml:id="sense_d3698e88"><abv:tr xml:lang="ru"><q>приветствие</q></abv:tr></sense><sense xml:id="sense_d3698e97"><note type="comment" xml:lang="ru">в дигорском
+                            также</note><abv:tr xml:lang="ru"><q>заговор (против сглаза и пр.)</q></abv:tr><note type="comment" xml:lang="ru">в дигорском также</note></sense></sense><re xml:id="re_d3698e115"><form xml:id="form_d3698e117" type="lemma"><orth>arfæ kænyn</orth></form><sense xml:id="sense_d3698e120"><sense xml:id="sense_d3698e121"><abv:tr xml:lang="ru"><q>благословлять</q></abv:tr></sense><sense xml:id="sense_d3698e130"><abv:tr xml:lang="ru"><q>благодарить</q></abv:tr></sense></sense></re><re xml:id="re_d3698e141"><form xml:id="form_d3698e143" type="lemma"><orth>arfægond</orth></form><sense xml:id="sense_d3698e146"><abv:tr xml:lang="ru"><q>благословенный</q></abv:tr></sense></re><abv:exampleGrp xml:id="exampleGrp_d3698e157"><abv:example xml:id="example_d3698e159"><quote>arvy dwar fegom, æmæ Xætægo sk˳yvta ærdæg jæxīcæn ælǧyst, ærdæg
+                            arfæ</quote><abv:tr xml:lang="ru"><q>врата неба открылись, и Хатаго взмолился, (прося) себе наполовину
+                                проклятия, наполовину благословения</q></abv:tr><bibl><ref type="bibl" target="#src_ЮОПам."><abbr xml:lang="ru">ЮОПам.</abbr></ref><biblScope>II
+                            72</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e178"><quote>Sozyryqo jæ žippæj sista šarmy k’ylbyz, arfætæ jyl bakodta æmæ jæ
+                            ḱyzgyl aværdta</quote><abv:tr xml:lang="ru"><q>Созруко достал из кармана лоскут кожи, произнес над ним заклинания и
+                                положил его на девушку</q></abv:tr><bibl><ref type="bibl" target="#src_ЮОПам."><abbr xml:lang="ru">ЮОПам.</abbr></ref><biblScope>I
+                            97</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e197" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>cæsti arfæ</quote><abv:tr xml:lang="ru"><q>заговор (против дурного) глаза</q></abv:tr><bibl><ref type="bibl" target="#src_СОПам."><abbr xml:lang="ru">СОПам.</abbr></ref><biblScope>172—174</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e219"><quote>arfætægængæ sæ xæʒærttæm adæm cydysty</quote><abv:tr xml:lang="ru"><q>со словами благодарности народ расходился по домам</q></abv:tr><bibl><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref><biblScope>142</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e238" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>dukkag ku fæxxiztaisæ, wædta dæbæl mæ arfæ simbælun kodtainæ</quote><abv:tr xml:lang="ru"><q>если бы ты подождал второго (выстрела), я послал бы тебе мое <hi rendition="#rend_smallcaps">arfæ</hi>
+                                (т. е. убил бы тебя)если бы ты подождал второго (выстрела), я послал
+                                бы тебе мое <hi rendition="#rend_smallcaps">arfæ</hi> (т. е. убил бы тебя)</q></abv:tr><bibl><ref type="bibl" target="#src_Диг._сказ."><abbr xml:lang="ru">Диг. сказ.</abbr></ref><biblScope>3</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e261"><quote>X˳ycawæj arfægond næ festæm</quote><abv:tr xml:lang="ru"><q>нет на нас Божьего благословения</q></abv:tr><bibl><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref><biblScope>30</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e280" xml:lang="os-x-digor"><usg><lang>д.</lang></usg><quote>arfæ kænunmæ ma ragi æj; næ kinʒæ næ xæʒaræ næma issirdta</quote><abv:tr xml:lang="ru"><q>поздравлять еще рано: наша невестка еще не прибыла в наш дом</q></abv:tr><bibl><ref type="bibl" target="#src_MD"><abbr>MD</abbr></ref><biblScope>1949 II
+                            37</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e302"><quote>nīḱī myn rakodta axæm xorz arfæ</quote><abv:tr xml:lang="ru"><q>никто не сделал мне такого хорошего пожелания</q></abv:tr><bibl><ref type="bibl" target="#src_Коста"><abbr xml:lang="ru"><name full="yes" instant="false">Коста</name></abbr></ref><biblScope>144</biblScope></bibl></abv:example><abv:example xml:id="example_d3698e321"><quote>arfægond ū X˳ycawy nomæj cæwæg</quote><abv:tr xml:lang="ru"><q>благословен грядый во имя Господне</q></abv:tr><bibl><ref type="bibl" target="#src_Матфей"><abbr xml:lang="ru">Матфей</abbr></ref><biblScope><hi rendition="#rend_italic">21</hi>
+                            9</biblScope></bibl></abv:example></abv:exampleGrp><etym xml:lang="ru">Закономерная перестановка из <hi rendition="#rend_italic">*afr-</hi>; восходит к <mentioned corresp="#mentioned_d3698e479" xml:id="mentioned_d3698e344" xml:lang="ira"><lang>иран.</lang>
+                        <w>āfrī-</w></mentioned> (ожидаемого перехода <hi rendition="#rend_italic">r</hi> в <hi rendition="#rend_italic">l</hi> перед <hi rendition="#rend_italic">i</hi> не
+                    произошло, вероятно, потому, что исходной была форма на сильной ступени:
+                    <hi rendition="#rend_italic">āfray</hi>-): <mentioned corresp="#mentioned_d3698e484" xml:id="mentioned_d3698e349" xml:lang="fa"><lang>перс.</lang>
+                        <w>āfarīn, āfrīn</w></mentioned>, <mentioned corresp="#mentioned_d3698e489" xml:id="mentioned_d3698e354" xml:lang="pal"><lang>пехл.</lang>
+                        <w>āfrīn</w>
+                        <gloss><q>хвала</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e497" xml:id="mentioned_d3698e362" xml:lang="fa"><lang>перс.</lang>
+                        <w>nafrīn</w>
+                        <gloss><q>проклятие</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e505" xml:id="mentioned_d3698e370" xml:lang="sog"><lang>согд.</lang>
+                        <w>*afrīw-(ʼʼpryw-), *āfrīn(ʼʼpryn-)</w>
+                        <gloss><q>благословлять</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e514" xml:id="mentioned_d3698e379" xml:lang="sog"><w>*āfrīwan(ʼʼprywn)</w>
+                        <gloss><q>благословение</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e520" xml:id="mentioned_d3698e385" xml:lang="xpr"><lang>парф.</lang>
+                        <w>*āfrīwan(ʼfrywn)</w></mentioned>, <mentioned corresp="#mentioned_d3698e525" xml:id="mentioned_d3698e390" xml:lang="kho"><lang>сак.</lang>
+                        <w>aùrya-</w></mentioned>, <mentioned corresp="#mentioned_d3698e530" xml:id="mentioned_d3698e395" xml:lang="ae"><lang>ав.</lang>
+                        <w>āfrītī-</w>
+                        <gloss><q>заклинание</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e538" xml:id="mentioned_d3698e403" xml:lang="ae"><w/>
+                        <gloss><q>благословение</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e544" xml:id="mentioned_d3698e409" xml:lang="ae"><w/>
+                        <gloss><q>проклятие</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e551" xml:id="mentioned_d3698e416" xml:lang="ae"><w>āfrī-</w><note type="comment" xml:lang="ru"> (из <hi rendition="#rend_italic">ā-</hi> + <hi rendition="#rend_italic">frī-</hi>,
+                                <mentioned corresp="#mentioned_d3698e555" xml:id="mentioned_d3698e420" xml:lang="sa"><lang>скр.</lang>
+                                <w>prī</w></mentioned>)</note>
+                        <gloss><q>пожелать кому (хорошего или дурного)</q></gloss></mentioned>,
+                        <mentioned corresp="#mentioned_d3698e564" xml:id="mentioned_d3698e429" xml:lang="ae"><w>āfrī-vācah</w>
+                        <gloss><q>благословляющий</q></gloss></mentioned>, <mentioned corresp="#mentioned_d3698e570" xml:id="mentioned_d3698e435" xml:lang="ae"><w/>
+                        <gloss><q>проклинающий</q></gloss></mentioned> (= <mentioned corresp="#mentioned_d3698e576" xml:id="mentioned_d3698e441" xml:lang="os"><lang>ос.</lang>
+                        <w>arfæjy wac</w></mentioned>). Амбивалентность значения (‘благословлять’ —
+                    ‘проклинать’), утраченная в персидском, где для негативного значения создано
+                    новообразование (<mentioned corresp="#mentioned_d3698e581" xml:id="mentioned_d3698e446" xml:lang="ira"><lang>иран.</lang>
+                        <w>nafrīn</w></mentioned>), ясно еще чувствуется в осетинском, например
+                    <hi rendition="#rend_italic">cæsti arfæ</hi> ‘заговор против дурного глаза’, см. выше. Однако позитивное
+                    значение и в осетинском получило преобладание, так что слову <hi rendition="#rend_italic">arfæ</hi> нередко
+                    противопоставляется <ref type="xr" target="#entry_7lǧītyn"><w>ᵆlǧyst</w> <gloss><q>проклятие</q></gloss></ref>. С корнем
+                    <hi rendition="#rend_italic">frī-</hi> мы встречаемся еще в слове <ref type="xr" target="#entry_lymæn"><tei:w xmlns:tei="http://www.tei-c.org/ns/1.0">lymæn</tei:w></ref>
+                    ‘друг’ q. v.%n<bibl><ref type="bibl" target="#ref_Миллер_Вс._ОЭ"><abbr xml:lang="ru"><name full="yes" instant="false">Миллер</name> Вс. ОЭ</abbr></ref><biblScope>II
+                            86</biblScope></bibl>. — <bibl><ref type="bibl" target="#ref_Bailey._Asica"><abbr><name full="yes" instant="false">Bailey</name>. Asica</abbr></ref><biblScope>4</biblScope></bibl>; <bibl><ref type="bibl" target="#ref_BSOAS"><abbr>BSOAS</abbr></ref><biblScope>X 907</biblScope></bibl>. —
+                            <bibl><ref type="bibl" target="#ref_ОЯФ_I"><abbr xml:lang="ru">ОЯФ I</abbr></ref><biblScope xml:lang="ru">ОЯФ
+                            I 72, 581, 583 сл.</biblScope></bibl></etym></entry>
+        
+        </body>
+    </text>
+</TEI>
+        

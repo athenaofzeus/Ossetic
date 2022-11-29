@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% block title %}
+    Панель задач
+{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="container row my-2">
+            <div class="col-12 col-xxl-6 row-cols-1">
+                <div class="col-auto row row-cols-2 align-items-center justify-content-around py-2 my-2 border-top border-bottom border-2">
+                    <div class="col-auto">
+                        <span class="text-center h5">Редакторские задания</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="table-responsive overflow-auto" style="height: 60vh">
+                        <table class="table" id="personal_tasks">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Когда назначена</th>
+                                    <th scope="col">Кому назначена</th>
+                                    <th scope="col">Статус</th>
+                                </tr>
+                            </thead>
+                            <tbody id="editorial">
+                                {%- for t in Tasks.query.filter(Tasks.status.in_([1, 2, 3, 4])).filter_by(type=2).order_by(Tasks.datetime.desc()).limit(30).all() -%}
+                                    <tr class="align-items-center" task_id="{{ t.task_id }}">
+                                        <th scope="row">
+                                            <a href="{{ url_for('task', task_id=t.task_id) }}" target="_self">{{ t.task_id }}</a>
+                                        </th>
+                                        <td>
+                                            <span>{{ Amend.datetime(t.datetime) }}</span>
+                                        </td>
+                                        <td>
+                                            <div class="row align-items-center justify-content-evenly">
+                                                {% for i in Check.split(Tasks.query.get(t.task_id).assignees, ',') %}
+                                                    <div class="col-auto">{{ Amend.username(i) }}</div>
+                                                {% endfor %}
+                                                {% if not Check.split(Tasks.query.get(t.task_id).assignees, ',') %}
+                                                    Все редакторы
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{ Amend.md(Amend.task_status(t.status), html=True) }}
+                                        </td>
+                                    </tr>
+                                {%- endfor -%}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% if Check.len(Tasks.query.filter(Tasks.status.in_([1, 2, 3, 4])).filter_by(type=2).order_by(Tasks.datetime.desc()).limit(32).all()) > 30 %}
+                        <div class="col-12">
+                            <a type="button" class="h6 link-primary" onclick="moreTasks('editorial')">Смотреть больше</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-12 col-xxl-6 row-cols-1">
+                <div class="col-auto row row-cols-2 align-items-center justify-content-around py-2 my-2 border-top border-bottom border-2">
+                    <div class="col-auto">
+                        <span class="text-center h5">Сообщения об ошибках</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="table-responsive overflow-auto" style="height: 60vh">
+                        <table class="table" id="personal_tasks">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Когда назначена</th>
+                                    <th scope="col">Кому назначена</th>
+                                    <th scope="col">Статус</th>
+                                </tr>
+                            </thead>
+                            <tbody id="mistakes">
+                                {%- for t in Tasks.query.filter(Tasks.status.in_([1, 2, 3, 4])).filter_by(type=1).order_by(Tasks.datetime.desc()).limit(30).all() -%}
+                                    <tr class="align-items-center" task_id="{{ t.task_id }}">
+                                        <th scope="row">
+                                            <a href="{{ url_for('task', task_id=t.task_id) }}" target="_self">{{ t.task_id }}</a>
+                                        </th>
+                                        <td>
+                                            <span>{{ Amend.datetime(t.datetime) }}</span>
+                                        </td>
+                                        <td>
+                                            <div class="row align-items-center justify-content-evenly">
+                                                {% for i in Check.split(Tasks.query.get(t.task_id).assignees, ',') %}
+                                                    <div class="col-auto">{{ Amend.username(i) }}</div>
+                                                {% endfor %}
+                                                {% if not Check.split(Tasks.query.get(t.task_id).assignees, ',') %}
+                                                    Все редакторы
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {{ Amend.md(Amend.task_status(t.status), html=True) }}
+                                        </td>
+                                    </tr>
+                                {%- endfor -%}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% if Check.len(Tasks.query.filter(Tasks.status.in_([1, 2, 3, 4])).filter_by(type=1).order_by(Tasks.datetime.desc()).limit(32).all()) > 30 %}
+                        <div class="col-12">
+                            <a type="button" class="h6 link-primary" onclick="moreTasks('mistakes')">Смотреть больше</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function moreTasks(type) {
+            var packet = {
+                    type: type,
+                    last: $(`#${type} > tr`).last().attr('task_id')
+                };
+            fetch('{{ url_for('task_archive') }}', {
+                method: 'POST',
+                credentials: 'include',
+                body: JSON.stringify(packet),
+                cache: 'no-cache',
+                headers: new Headers({
+                    'content-type': 'application/json'
+                })
+            })
+            .then(function (response) {
+                if (response.status == 200) {
+                    response.json().then(function (items) {
+                        $(`#${type} > tr`).last().attr("tabindex",-1).focus();
+                        for (let l of items) {
+                            $(`#${type}`).append(
+                            `
+                            <tr class="align-items-center" task_id="${l[0]}">
+                                <th scope="row">
+                                    <a href="/task/${l[0]}" target="_self">${l[0]}</a>
+                                </th>
+                                <td>
+                                    <span>${l[1]}</span>
+                                </td>
+                                <td>
+                                    ${l[2]}
+                                </td>
+                                <td>
+                                    ${l[3]}
+                                </td>
+                            </tr>
+                            `
+                            )
+                        };
+                    })
+                }
+            });
+        };
+    </script>
+{% endblock %}
