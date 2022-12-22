@@ -1,5 +1,5 @@
-{%- extends 'base.html' -%}
-{%- block title -%}Запрос «{{ original_query }}»{%- endblock -%}
+{%- extends 'base_en.html' -%}
+{%- block title -%}Query “{{ original_query }}”{%- endblock -%}
 {%- block content -%}
     <div class="container">
         <div class="container mb-2">
@@ -26,8 +26,8 @@
                                                             <th scope="row">
                                                                 <abbr style="font-variant-caps: small-caps"
                                                                       data-bs-toggle="tooltip"
-                                                                      title="{{ Glosses.query.get(g[0]).russian }}">
-                                                                    {{ Glosses.query.get(g[0]).russian }}
+                                                                      title="{{ Glosses.query.get(g[0]).english }}">
+                                                                    {{ Glosses.query.get(g[0]).english }}
                                                                 </abbr>
                                                             </th>
                                                             <td class="col-12 col-md-10">
@@ -59,31 +59,31 @@
                                                     {% if Units.query.get(unit_id).source == 2 %}
                                                         <abbr class="col-auto badge bg-info text-dark mx-1"
                                                               data-bs-toggle="tooltip"
-                                                              title="Статья взята из словаря Абаева">Абаев</abbr>
+                                                              title="This article is from Abaev's dictionary">Abaev</abbr>
                                                     {% elif Units.query.get(unit_id).source == 1 %}
                                                         <abbr class="col-auto badge bg-info text-dark mx-1"
                                                               data-bs-toggle="tooltip"
-                                                              title="Статья составлена редакцией проекта">Авторская</abbr>
+                                                              title="This article has been created by the project participants">Authored</abbr>
                                                     {% endif %}
                                                     {% for l in Language_assignment.query.filter_by(unit_id=unit_id).all() %}
-                                                        <abbr class="col-auto badge rounded-pill bg-secondary mx-1">{{ Languages.query.get(l.lang_id).lang_ru }} / {{ Languages.query.get(l.lang_id).lang_en }}</abbr>
+                                                        <abbr class="col-auto badge rounded-pill bg-secondary mx-1">{{ Languages.query.get(l.lang_id).lang_en }}</abbr>
                                                     {% endfor %}
                                                     {% if Units.query.get(unit_id).source != 1 %}
                                                         {% for i in Entry_logs.query.filter_by(unit_id=unit_id, source=1).all()[:1] %}
                                                             <abbr class="col-auto badge bg-warning text-dark mx-1"
                                                                   data-bs-toggle="tooltip"
-                                                                  title="Редакция проекта внесла правки в эту статью.
-                                                                  Оригинальная версия доступна в разделе «Оригинальный текст статьи»">
-                                                                Изменено редакцией
+                                                                  title="The article has been modified by the editors.
+                                                          The original text is available in the section “Original text”">
+                                                                Modified by editors
                                                             </abbr>
                                                         {% endfor %}
                                                     {% endif %}
                                                 </div>
                                             </div>
                                             <div class="col-auto">
-                                                <a href="{{ url_for('entry', unit_id=URLSafeSerializer(app.config["SECRET_KEY"], salt='entry').dumps(unit_id)) }}"
+                                                <a href="{{ url_for('entry', unit_id=URLSafeSerializer(app.config["SECRET_KEY"], salt='entry').dumps(unit_id), en='en') }}"
                                                    class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip"
-                                                   title="Нажмите для перехода к статье" style="text-decoration: none">Полная статья</a><br>
+                                                   title="Click to open the entry" style="text-decoration: none">Full entry</a><br>
                                             </div>
                                             {% if Check.labels(unit_id, 'u') %}
                                                 <div class="col-auto">
@@ -98,7 +98,7 @@
                                         </div>
                                     </div>
                                     {%- if Units.query.get(unit_id).meanings -%}
-                                        <dt class="col-12 col-md-2 align-self-start">Значение</dt>
+                                        <dt class="col-12 col-md-2 align-self-start">Sense</dt>
                                         <dd class="col-12 col-md-10">
                                             <ol class="list-group {% if Check.len(Meanings.query.filter_by(unit_id=unit_id).order_by(Meanings.rank.asc()).all()) > 1 %}list-group-numbered{% endif %}">
                                                 {%- for m in Meanings.query.filter_by(unit_id=unit_id).order_by(Meanings.rank.asc()).all() -%}
@@ -120,7 +120,7 @@
                                                             {% endfor %}
                                                         </span>
                                                         <span>{{ Markup(Check.labels(m.meaning_id, 'm')) }}</span>
-                                                        <span>{{ Amend.md(Amend.mark(query, m.meaning), html=True) }}</span>
+                                                        <span>{{ Amend.md(Amend.mark(query, m.meaning_en), html=True) }}</span>
                                                         <!--<ul>
                                                             {% for e in Examples.query.filter_by(meaning_id=m.meaning_id).all() %}
                                                                 <li>
@@ -140,7 +140,7 @@
                                         </dd>
                                     {%- endif -%}
                                     {%- if Units.query.filter_by(parent_id=unit_id).first() -%}
-                                        <dt class="col-12 col-md-2 align-self-start">Устойчивые сочетания и идиомы</dt>
+                                        <dt class="col-12 col-md-2 align-self-start">Idioms and derivates</dt>
                                         <dd class="col-12 col-md-10">
                                             <ul class="list-group">
                                                 {%- for u in Units.query.filter_by(parent_id=unit_id).all() -%}
@@ -172,7 +172,7 @@
                                                                     {% endfor %}
                                                                 </span>
                                                                 <span>{{ Markup(Check.labels(m.meaning_id, 'm')) }}</span>
-                                                                <span>{{ Amend.md(Amend.mark(query, m.meaning), html=True) }}</span>
+                                                                <span>{{ Amend.md(Amend.mark(query, m.meaning_en), html=True) }}</span>
                                                                 <!--<ul>
                                                                     {% for e in Examples.query.filter_by(meaning_id=m.meaning_id).all() %}
                                                                         <li>
@@ -193,7 +193,6 @@
                                             </ul>
                                         </dd>
                                     {%- endif -%}
-
                                 </dl>
                             </div>
                         </div>
@@ -206,13 +205,13 @@
                 {% if page_of_units.has_prev %}
                     <div class="col-auto">
                         <a class="btn btn-sm btn-outline-secondary",
-                           href="{{ url_for('results', lengths=lengths, param=param, query=original_query, type=type, page=page-1, langs=langs) }}">Назад</a>
+                           href="{{ url_for('results', lengths=lengths, param=param, query=original_query, type=type, page=page-1, langs=langs, en='en') }}">Back</a>
                     </div>
                 {% endif %}
                 {% if page_of_units.has_next %}
                     <div class="col-auto">
                         <a class="btn btn-sm btn-outline-secondary mt-0 mt-md-2 mt-lg-0"
-                           href="{{ url_for('results', lengths=lengths, param=param, query=original_query, type=type, page=page+1, langs=langs) }}">Далее</a>
+                           href="{{ url_for('results', lengths=lengths, param=param, query=original_query, type=type, page=page+1, langs=langs, en='en') }}">Forward</a>
                     </div>
                 {% endif %}
             </div>

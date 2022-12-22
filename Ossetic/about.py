@@ -8,26 +8,41 @@ from itsdangerous import URLSafeSerializer
 from os.path import join, dirname, realpath
 from re import compile, sub
 
-
 @app.route('/languages', methods=['GET'])
 @app.route('/languages/<int:page>', methods=['GET'])
-def languages(page=1):
+@app.route('/<string:en>/languages', methods=['GET'])
+@app.route('/<string:en>/languages/<int:page>', methods=['GET'])
+def languages(page=1, en=''):
     Check.update()
     if request.method == 'GET':
         page_of_langs = Languages.query.order_by(Languages.lang_ru.asc()).paginate(page, 20)
         langs = page_of_langs.items
-        return render_template('languages.html',
-                               langs=langs,
-                               items=page_of_langs,
-                               Amend=Amend,
-                               Check=Check,
-                               Language_assignment=Language_assignment,
-                               Languages=Languages
-                               )
+        if en == 'en':
+            return render_template('languages_en.html',
+                                   langs=langs,
+                                   items=page_of_langs,
+                                   Amend=Amend,
+                                   Check=Check,
+                                   Language_assignment=Language_assignment,
+                                   Languages=Languages,
+                                   page=page
+                                   )
+        else:
+            return render_template('languages.html',
+                                   langs=langs,
+                                   items=page_of_langs,
+                                   Amend=Amend,
+                                   Check=Check,
+                                   Language_assignment=Language_assignment,
+                                   Languages=Languages,
+                                   page=page
+                                   )
 
 @app.route('/language/<string:lang_id>', methods=['GET'])
 @app.route('/language/<string:lang_id>/<int:page>', methods=['GET'])
-def language(lang_id, page=1):
+@app.route('/<string:en>/language/<string:lang_id>', methods=['GET'])
+@app.route('/<string:en>/language/<string:lang_id>/<int:page>', methods=['GET'])
+def language(lang_id, page=1, en=''):
     Check.update()
     if request.method == 'GET':
         try:
@@ -36,28 +51,47 @@ def language(lang_id, page=1):
             if Languages.query.filter_by(ISO=lang_id).first():
                 lang_id = Languages.query.filter_by(ISO=lang_id).first().lang_id
             else:
-                return Amend.flash('Языка не найдено.', 'danger', url_for('search'))
+                if en == 'en':
+                    return Amend.flash('No such language was found.', 'danger', url_for('search'))
+                else:
+                    return Amend.flash('Языка не найдено.', 'danger', url_for('search'))
         page_of_units = Units.query.join(Forms, Units.unit_id==Forms.unit_id).filter(Forms.gloss_id==0).join(Language_assignment, Forms.unit_id==Language_assignment.unit_id).filter(Language_assignment.lang_id==lang_id).order_by(Forms.latin.asc()).paginate(page, 100)
         units = page_of_units.items
-        return render_template('language.html',
-                               units=units,
-                               items=page_of_units,
-                               Amend=Amend,
-                               Check=Check,
-                               lang_id=lang_id,
-                               Unit_links=Unit_links,
-                               Languages=Languages
-                               )
-
+        if en == 'en':
+            return render_template('language_en.html',
+                                   units=units,
+                                   items=page_of_units,
+                                   Amend=Amend,
+                                   Check=Check,
+                                   lang_id=lang_id,
+                                   Unit_links=Unit_links,
+                                   Languages=Languages,
+                                   page=page
+                                   )
+        else:
+            return render_template('language.html',
+                                   units=units,
+                                   items=page_of_units,
+                                   Amend=Amend,
+                                   Check=Check,
+                                   lang_id=lang_id,
+                                   Unit_links=Unit_links,
+                                   Languages=Languages,
+                                   page=page
+                                   )
 
 @app.route('/')
-def index():
-    return redirect(url_for('search'))
+@app.route('/<string:en>/')
+def index(en=''):
+    return redirect(url_for('about', en=en))
 
 @app.route('/about')
-def about():
-    return redirect(url_for('search'))
-    return render_template("about.html")
+@app.route('/<string:en>/about')
+def about(en=''):
+    if en == 'en':
+        return render_template("about_en.html")
+    else:
+        return render_template("about.html")
 
 @app.route('/contact', methods=['POST', 'GET'])
 def contact():

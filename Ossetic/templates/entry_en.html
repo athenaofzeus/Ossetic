@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_en.html' %}
 {% block title %}
     {{ Check.main_form(unit_id) }}
 {% endblock %}
@@ -12,28 +12,28 @@
                     </div>
                     <div class="col-auto">
                         <a href="{{ url_for('edit_entry', unit_id=original_unit_id) }}" class="btn btn-sm btn-outline-purple" target="_parent">
-                            Формы и значения
+                            Forms and senses
                         </a>
                     </div>
                     <div class="col-auto">
                         <a href="{{ url_for('examples', unit_id=original_unit_id) }}" class="btn btn-sm btn-outline-purple" target="_parent">
-                            Примеры
+                            Examples
                         </a>
                     </div>
                     <div class="col-auto">
                         <a href="{{ url_for('entry_history', unit_id=original_unit_id) }}" class="btn btn-sm btn-outline-dark" target="_parent">
-                            История
+                            History
                         </a>
                     </div>
                     <div class="col-auto">
                         <button class="btn btn-sm btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#add_task" aria-expanded="false" aria-controls="add_task">
-                            Создать задачу
+                            Add a task
                         </button>
                     </div>
                 {% else %}
                     <div class="col-auto">
                         <button class="btn btn-sm btn-outline-danger" type="button" data-bs-toggle="collapse" data-bs-target="#feedback" aria-expanded="false" aria-controls="feedback">
-                            Сообщить об ошибке
+                            Report an error
                         </button>
                     </div>
                 {% endif %}
@@ -43,13 +43,13 @@
             <div class="container d-flex flex-column align-items-center justify-content-center mb-2">
                 <form class="col-10" name="send_task" id="send_task" method="post">
                     <div class="form-floating mb-2">
-                        <textarea required class="form-control" placeholder="Что нужно сделать?" id="task" name="task" maxlength="5000"></textarea>
-                        <label for="task">Суть задачи</label>
+                        <textarea required class="form-control" placeholder="What should be done?" id="task" name="task" maxlength="5000"></textarea>
+                        <label for="task">Description of the task</label>
                     </div>
                     <div class="mb-2">
-                        <label for="who" class="form-label">Исполнители <em>(последний редактор <b>уже выбран</b>)</em></label>
-                        <select class="form-select" aria-label="Выбор исполнителя" name="who" id="who" form="send_task" multiple>
-                            <option value="">все редакторы</option>
+                        <label for="who" class="form-label">Users assigned <em>(the last editor <b>is already selected</b>)</em></label>
+                        <select class="form-select" aria-label="Select assigned user" name="who" id="who" form="send_task" multiple>
+                            <option value="">all editors</option>
                             {% for u in Users.query.filter(Users.role_id.in_((2,3))).all() %}
                                 <option value="{{ u.user_id }}"{% if u.user_id == editor %} selected{% endif %}>
                                     {{ u.username }}</option>
@@ -59,10 +59,10 @@
                     <div class="form-floating mb-2">
                         <input id="unit_ids" name="unit_ids" class="form-control"
                                                    value="{{ unit_id }},"
-                                                   placeholder="Целевые статьи через запятую" required>
-                        <label for="unit_ids">Целевые статьи (ID через запятую)</label>
+                                                   placeholder="Target articles, comma-separated" required>
+                        <label for="unit_ids">Target articles (comma-separated IDs)</label>
                     </div>
-                    <button class="btn btn-sm btn-success" type="submit" form="send_task">Отправить</button>
+                    <button class="btn btn-sm btn-success" type="submit" form="send_task">Send</button>
                 </form>
             </div>
         </div>
@@ -70,22 +70,22 @@
             <div class="container d-flex flex-column align-items-center justify-content-center mb-2">
                 <form class="col-10" name="report" id="report" method="post">
                     <div class="form-floating mb-2">
-                        <textarea class="form-control overflow-hidden" placeholder="Комментарий" id="task" name="task" maxlength="1500"></textarea>
-                        <label for="task">В чём ошибка или недочёт?</label>
+                        <textarea class="form-control overflow-hidden" placeholder="Comment" id="task" name="task" maxlength="1500"></textarea>
+                        <label for="task">What is the error or problem?</label>
                     </div>
-                    <button class="btn btn-sm btn-danger" type="submit" form="report">Отправить</button>
+                    <button class="btn btn-sm btn-danger" type="submit" form="report">Send</button>
                 </form>
             </div>
         </div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#main_entry" type="button" role="tab" aria-controls="home" aria-selected="true">Статья</button>
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#main_entry" type="button" role="tab" aria-controls="home" aria-selected="true">Article</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#full_text" type="button" role="tab" aria-controls="profile" aria-selected="false">Оригинальный текст</button>
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#full_text" type="button" role="tab" aria-controls="profile" aria-selected="false">Original text</button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#map" type="button" role="tab" aria-controls="contact" aria-selected="false">Карта</button>
+                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#map" type="button" role="tab" aria-controls="contact" aria-selected="false">Map</button>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
@@ -102,8 +102,8 @@
                                                     <th scope="row">
                                                         <abbr style="font-variant-caps: small-caps"
                                                               data-bs-toggle="tooltip"
-                                                              title="{{ Glosses.query.get(g[0]).russian }}">
-                                                            {{ Glosses.query.get(g[0]).russian }}
+                                                              title="{{ Glosses.query.get(g[0]).english }}">
+                                                            {{ Glosses.query.get(g[0]).english }}
                                                         </abbr>
                                                     </th>
                                                     <td class="col-12 col-md-10">
@@ -128,7 +128,7 @@
                         {% if Unit_comments.query.filter_by(unit_id=unit_id, type=1).first().comment %}
                             <div class="col-12 container p-0">
                                 <div class="card border-dark mb-3">
-                                    <div class="card-header h6">Семантика</div>
+                                    <div class="card-header h6">Semantics</div>
                                     <div class="card-body">
                                         <span class="card-text">
                                             {{ Amend.md(Unit_comments.query.filter_by(unit_id=unit_id, type=1).first().comment) }}
@@ -140,7 +140,7 @@
                         {% if Unit_comments.query.filter_by(unit_id=unit_id, type=4).first().comment %}
                             <div class="col-12 container p-0">
                                 <div class="card border-dark mb-3">
-                                    <div class="card-header h6">Этимология</div>
+                                    <div class="card-header h6">Etymology</div>
                                     <div class="card-body">
                                         <span class="card-text">
                                             {{ Amend.md(Unit_comments.query.filter_by(unit_id=unit_id, type=4).first().comment) }}
@@ -152,7 +152,7 @@
                         {% if Unit_comments.query.filter_by(unit_id=unit_id, type=3).first().comment %}
                             <div class="col-12 container p-0">
                                 <div class="card border-warning mb-3">
-                                    <div class="card-header h6">Комментарии редакции</div>
+                                    <div class="card-header h6">Editors' comments</div>
                                     <div class="card-body">
                                         <span class="card-text">
                                             {{ Amend.md(Unit_comments.query.filter_by(unit_id=unit_id, type=3).first().comment) }}
@@ -164,7 +164,7 @@
                         {% if Unit_comments.query.filter_by(unit_id=unit_id, type=5).first().comment %}
                             <div class="col-12 container p-0">
                                 <div class="card border-warning mb-3">
-                                    <div class="card-header h6">Примечания</div>
+                                    <div class="card-header h6">Notes</div>
                                     <div class="card-body">
                                         <span class="card-text">
                                             {{ Amend.md(Unit_comments.query.filter_by(unit_id=unit_id, type=5).first().comment) }}
@@ -175,25 +175,25 @@
                         {% endif %}
                         {% if Amend.see_also(unit_id) %}
                             <div class="col-12 container p-0 mb-2">
-                                <span class="h6">См. также</span>
-                                <div>{{ Amend.see_also(unit_id) }}</div>
+                                <span class="h6">See also</span>
+                                <div>{{ Amend.see_also(unit_id, en='en') }}</div>
                             </div>
                         {% endif %}
                         {% if Mereological_labels.query.filter_by(unit_id=unit_id).first() %}
                             <div class="col-12 container p-0">
-                                <span class="h6">Мереология</span>
+                                <span class="h6">Mereology</span>
                                 <div>{{ Check.labels(unit_id, 'mer') }}</div>
                             </div>
                         {% endif %}
                         {% if Taxonomic_labels.query.filter_by(unit_id=unit_id).first() %}
                             <div class="col-12 container p-0 mb-2">
-                                <span class="h6">Таксономия</span>
+                                <span class="h6">Taxonomy</span>
                                 <div>{{ Check.labels(unit_id, 'tax') }}</div>
                             </div>
                         {% endif %}
                         {% if Topological_labels.query.filter_by(unit_id=unit_id).first() %}
                             <div class="col-12 container p-0 mb-2">
-                                <span class="h6">Топология</span>
+                                <span class="h6">Topology</span>
                                 <div>{{ Check.labels(unit_id, 'top') }}</div>
                             </div>
                         {% endif %}
@@ -205,7 +205,7 @@
                                             <div class="carousel-item{% if Check.index(p, Units.query.get(unit_id).pictures) == 0 %} active{% endif %}">
                                                 <img src="{{ url_for('static', filename='pictures/'+p.picture.route) }}"
                                                      class="d-block w-100"
-                                                     alt="Иллюстрация к статье"
+                                                     alt="Entry illustrations"
                                                      style=".carousel-inner > .item > img, .carousel-inner > .item > a > img {width: 100%;max-height: 500px;max-width: 400px;}"
                                                 >
                                             </div>
@@ -214,11 +214,11 @@
                                     {% if Check.len(Units.query.get(unit_id).pictures) > 1 %}
                                         <button class="carousel-control-prev" type="button" data-bs-target="#pictures_{{ unit_id }}" data-bs-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Назад</span>
+                                            <span class="visually-hidden">Back</span>
                                         </button>
                                         <button class="carousel-control-next" type="button" data-bs-target="#pictures_{{ unit_id }}" data-bs-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Вперёд</span>
+                                            <span class="visually-hidden">Forward</span>
                                         </button>
                                     {% endif %}
                                 </div>
@@ -226,7 +226,7 @@
                         {% endif %}
                         {% if session.get('user') and status(session.get('user')) >= 1 and tasks %}
                             <div class="col-12 container p-0 mb-2">
-                                <span class="h6">Задачи с упоминанием статьи</span>
+                                <span class="h6">Tasks regarding this entry</span>
                                 <ul class="list-group list-group-flush">
                                     {% for t in tasks %}
                                         <li class="list-group-item px-0">️🗒 <a href="{{ url_for('task', task_id=t) }}"
@@ -246,22 +246,22 @@
                                             {% if Units.query.get(unit_id).source == 2 %}
                                                 <abbr class="col-auto badge bg-info text-dark mx-1"
                                                       data-bs-toggle="tooltip"
-                                                      title="Статья взята из словаря Абаева">Абаев</abbr>
+                                                      title="This article is from Abaev's dictionary">Abaev</abbr>
                                             {% elif Units.query.get(unit_id).source == 1 %}
                                                 <abbr class="col-auto badge bg-info text-dark mx-1"
                                                       data-bs-toggle="tooltip"
-                                                      title="Статья составлена редакцией проекта">Авторская</abbr>
+                                                      title="This article has been created by the project participants">Authored</abbr>
                                             {% endif %}
                                             {% for l in Language_assignment.query.filter_by(unit_id=unit_id).all() %}
-                                                <abbr class="col-auto badge rounded-pill bg-secondary mx-1">{{ Languages.query.get(l.lang_id).lang_ru }} / {{ Languages.query.get(l.lang_id).lang_en }}</abbr>
+                                                <abbr class="col-auto badge rounded-pill bg-secondary mx-1">{{ Languages.query.get(l.lang_id).lang_en }}</abbr>
                                             {% endfor %}
                                             {% if Units.query.get(unit_id).source != 1 %}
                                                 {% if 1 in log_sources %}
                                                     <abbr class="col-auto badge bg-warning text-dark mx-1"
                                                           data-bs-toggle="tooltip"
-                                                          title="Редакция проекта внесла правки в эту статью.
-                                                          Оригинальная версия доступна в разделе «Оригинальный текст статьи»">
-                                                        Изменено редакцией
+                                                          title="The article has been modified by the editors.
+                                                          The original text is available in the section “Original text”">
+                                                        Modified by editors
                                                     </abbr>
                                                 {% endif %}
                                             {% endif %}
@@ -277,7 +277,7 @@
                             <div class="card-body">
                                 <dl class="row justify-content-between align-items-center mb-0">
                                     {%- if Units.query.get(unit_id).meanings -%}
-                                        <dt class="col-12 col-md-3 align-self-start">Значение</dt>
+                                        <dt class="col-12 col-md-3 align-self-start">Sense</dt>
                                         <dd class="col-12 col-md-9">
                                             <ol class="list-group {% if Check.len(Meanings.query.filter_by(unit_id=unit_id).order_by(Meanings.rank.asc()).all()) > 1 %}list-group-numbered"{% endif %}>
                                                 {%- for m in Meanings.query.filter_by(unit_id=unit_id).order_by(Meanings.rank.asc()).all() -%}
@@ -299,7 +299,7 @@
                                                             {% endfor %}
                                                         </span>
                                                         <span>{{ Markup(Check.labels(m.meaning_id, 'm')) }}</span>
-                                                        <span>{{ Amend.md(m.meaning, html=True) }}</span>
+                                                        <span>{{ Amend.md(m.meaning_en, html=True) }}</span>
                                                         <ul>
                                                             {% for e in Examples.query.filter_by(meaning_id=m.meaning_id).all() %}
                                                                 <li>
@@ -308,7 +308,7 @@
                                                                         <span><em>{{ e.example }}</em></span><br>
                                                                     </div>
                                                                     <div class="col-12">
-                                                                        <span>‛{{ e.translation }}’</span>
+                                                                        <span>‛{{ e.translation_en }}’</span>
                                                                     </div>
                                                                 </li>
                                                             {% endfor %}
@@ -319,7 +319,7 @@
                                         </dd>
                                     {%- endif -%}
                                     {%- if Units.query.filter_by(parent_id=unit_id).first() -%}
-                                        <dt class="col-12 col-md-3 align-self-start">Устойчивые сочетания и идиомы</dt>
+                                        <dt class="col-12 col-md-3 align-self-start">Idioms and derivates</dt>
                                         <dd class="col-12 col-md-9">
                                             <ul class="list-group">
                                                 {%- for u in Units.query.filter_by(parent_id=unit_id).all() -%}
@@ -353,7 +353,7 @@
                                                                     {% endfor %}
                                                                 </span>
                                                                 <span>{{ Markup(Check.labels(m.meaning_id, 'm')) }}</span>
-                                                                <span>{{ Amend.md(m.meaning, html=True) }}</span>
+                                                                <span>{{ Amend.md(m.meaning_en, html=True) }}</span>
                                                                 <ul>
                                                                     {% for e in Examples.query.filter_by(meaning_id=m.meaning_id).all() %}
                                                                         <li>
@@ -362,7 +362,7 @@
                                                                                 <span><em>{{ e.example }}</em></span><br>
                                                                             </div>
                                                                             <div>
-                                                                                <span>‛{{ e.translation }}’</span>
+                                                                                <span>‛{{ e.translation_en }}’</span>
                                                                             </div>
                                                                         </li>
                                                                     {% endfor %}
@@ -382,15 +382,15 @@
             </div>
             <div class="tab-pane fade" id="full_text" role="tabpanel" aria-labelledby="full_text-tab">
                 <div class="card card-body m-2">
-                    <iframe src='{{ url_for('xml_entry', unit_id=unit_id) }}' style="height: 70vh;" id="full_text_iframe">
-                        <b>Ваш браузер устарел и не поддерживает iframe.</b>
+                    <iframe src='{{ url_for('xml_entry', unit_id=unit_id, en='en') }}' style="height: 70vh;" id="full_text_iframe">
+                        <b>Your browser is outdated and does not support iframe.</b>
                     </iframe>
                 </div>
             </div>
             <div class="tab-pane fade" id="map" role="tabpanel" aria-labelledby="map-tab">
                 <div class="card card-body m-2">
-                    <iframe src='{{ url_for('map_for_entry', unit_id=unit_id) }}' style="height: 70vh;" id="map_iframe">
-                        <b>Ваш браузер устарел и не поддерживает iframe.</b>
+                    <iframe src='{{ url_for('map_for_entry', unit_id=unit_id, en='en') }}' style="height: 70vh;" id="map_iframe">
+                        <b>Your browser is outdated and does not support iframe.</b>
                     </iframe>
                 </div>
             </div>

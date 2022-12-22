@@ -1,5 +1,5 @@
 from Ossetic import app
-from flask import render_template, request, url_for, Markup, session, redirect, jsonify, make_response
+from flask import render_template, request, url_for, Markup, session, redirect, jsonify, make_response, Response
 from Ossetic.models import db, Units, Forms, Glosses, Users, Label_names, Meanings, Examples, Example_labels, \
     Form_labels, Entry_logs, Tasks, Meaning_labels, Unit_labels, Unit_comments, Unit_pictures, Pictures, Parts_of_speech,\
     Grammar_labels, Taxonomic_labels, Topological_labels, Mereological_labels, Task_logs, Languages, Language_assignment,\
@@ -10,9 +10,9 @@ from re import compile, sub, search, IGNORECASE
 import os, sqlite3, folium
 from folium.plugins import MarkerCluster
 
-
 @app.route('/dict/entry/<string:unit_id>', methods=['GET', 'POST'])
-def entry(unit_id):
+@app.route('/<string:en>/dict/entry/<string:unit_id>', methods=['GET', 'POST'])
+def entry(unit_id, en=''):
     Check.update()
     if request.method == 'GET':
         original_unit_id = unit_id
@@ -24,7 +24,6 @@ def entry(unit_id):
         else:
             editor = None
         tasks = [t.task_id for t in Tasks.query.all() if t.unit_ids and str(unit_id) in t.unit_ids.split(',')]
-
         first = """
         <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
     <teiHeader>
@@ -57,7 +56,8 @@ def entry(unit_id):
         </body>
     </text>
 </TEI>"""
-        return render_template('entry.html',
+        if en == 'en':
+            return render_template('entry_en.html',
                                unit_id=unit_id,
                                original_unit_id=original_unit_id,
                                Markup=Markup,
@@ -85,6 +85,35 @@ def entry(unit_id):
                                first=first,
                                last=last
                                )
+        else:
+            return render_template('entry.html',
+                                   unit_id=unit_id,
+                                   original_unit_id=original_unit_id,
+                                   Markup=Markup,
+                                   Check=Check,
+                                   Amend=Amend,
+                                   Glosses=Glosses,
+                                   Units=Units,
+                                   Users=Users,
+                                   Forms=Forms,
+                                   editor=editor,
+                                   Examples=Examples,
+                                   Meanings=Meanings,
+                                   Grammar_labels=Grammar_labels,
+                                   Label_names=Label_names,
+                                   Parts_of_speech=Parts_of_speech,
+                                   Unit_labels=Unit_labels,
+                                   Languages=Languages,
+                                   Taxonomic_labels=Taxonomic_labels,
+                                   Mereological_labels=Mereological_labels,
+                                   Topological_labels=Topological_labels,
+                                   Language_assignment=Language_assignment,
+                                   Unit_comments=Unit_comments,
+                                   log_sources=[l.source for l in Entry_logs.query.filter_by(unit_id=unit_id).all()],
+                                   tasks=tasks,
+                                   first=first,
+                                   last=last
+                                   )
 
     elif request.method == 'POST':
         original_unit_id = unit_id
@@ -1020,23 +1049,37 @@ def delete_entry(unit_id):
         Amend.delete('u', unit_id)
         db.session.commit()
     return Amend.flash('Статья удалена.', 'success', url_for('search'))
-
+@app.route('/<string:en>/entries', methods=['GET', 'POST'])
+@app.route('/<string:en>/entries/<int:page>', methods=['GET', 'POST'])
 @app.route('/entries', methods=['GET', 'POST'])
 @app.route('/entries/<int:page>', methods=['GET', 'POST'])
-def entries(page=1):
+def entries(page=1, en=''):
     Check.update()
     if request.method == 'GET':
         page_of_entries = Units.query.filter_by(parent_id=None).join(Forms).order_by(Forms.latin.asc(), Forms.form_id.asc()).paginate(page, 100)
         entries = page_of_entries.items
-        return render_template('entries.html',
-                               entries=entries,
-                               items=page_of_entries,
-                               Amend=Amend,
-                               Forms=Forms,
-                               Entry_logs=Entry_logs,
-                               Language_assignment=Language_assignment,
-                               Languages=Languages
-                               )
+        if en == 'en':
+            return render_template('entries_en.html',
+                                   entries=entries,
+                                   items=page_of_entries,
+                                   Amend=Amend,
+                                   Forms=Forms,
+                                   Entry_logs=Entry_logs,
+                                   Language_assignment=Language_assignment,
+                                   Languages=Languages,
+                                   page=page
+                                   )
+        else:
+            return render_template('entries.html',
+                                   entries=entries,
+                                   items=page_of_entries,
+                                   Amend=Amend,
+                                   Forms=Forms,
+                                   Entry_logs=Entry_logs,
+                                   Language_assignment=Language_assignment,
+                                   Languages=Languages,
+                                   page=page
+                                   )
 
     elif request.method == 'POST':
         if request.form.get('query'):
@@ -1448,9 +1491,9 @@ def autocomplete():
         return Check.status()
     """
     no_spaces_at_edges = compile(r'( +$|^ +)')
-    type, input, area, langs = (
+    type, input, area, langs, en = (
     request.get_json().get('type'), no_spaces_at_edges.sub('', request.get_json().get('input')).lower(),
-    request.get_json().get('area', ''), request.get_json().get('langs', ''))
+    request.get_json().get('area', ''), request.get_json().get('langs', ''), request.get_json().get('en', ''))
     langs = tuple([int(l) for l in langs if Languages.query.filter_by(lang_id=int(l)).first()])
     if len(langs) == 1:
         langs = (langs[0], langs[0])
@@ -1476,8 +1519,20 @@ def autocomplete():
             )
             response = {f[0].lower() for f in res.fetchall()}
         elif area == 'meaning':
-            res = cur.execute(
-                f'''
+            if en == 'en':
+                res = cur.execute(
+                    f'''
+                    SELECT Meanings.meaning_en FROM Meanings 
+                    JOIN Units ON Meanings.unit_id == Units.unit_id
+                    JOIN Language_assignment ON Meanings.unit_id == Language_assignment.unit_id
+                    WHERE meaning_en REGEXP ? AND Units.status == 1 AND Language_assignment.lang_id IN {langs}
+                    ORDER BY Units.full_entry_en ASC
+                    ''',
+                    [create_query(input, lengths='l', mapping=False, type='sub_beginning')]
+                )
+            else:
+                res = cur.execute(
+                    f'''
                             SELECT Meanings.meaning FROM Meanings 
                             JOIN Units ON Meanings.unit_id == Units.unit_id
                             JOIN Language_assignment ON Meanings.unit_id == Language_assignment.unit_id
@@ -1502,45 +1557,54 @@ def autocomplete():
     return jsonify([])
 
 @app.route('/dict/get_xml/<string:unit_id>', methods=['GET', 'POST'])
-def xml_entry(unit_id):
-    with open('Ossetic' + url_for('static', filename='temp') + f'/{unit_id}.xml', 'w', encoding='utf-8') as f:
-        f.write(f"""<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/abaev.css')}"?>
-<?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/ru.css')}"?>
-<?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/ru_langs.css')}"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
-    <teiHeader>
-        <fileDesc>
-            <titleStmt>
-                <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
-            </titleStmt>
-            <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
-    Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
-            <sourceDesc>
-                <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
-                        <title>Историко-этимологический словарь осетинского языка</title>. Т.
-                        <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
-                        <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
-            </sourceDesc>
-        </fileDesc>
-        <encodingDesc xml:base="../encodingdesc.xml">
-    <tagsDecl>
-        <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
-        <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
-        <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
-        <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
-    </tagsDecl>
-</encodingDesc>
-    </teiHeader>
-    <text>
-        <body>
-            {Units.query.get(unit_id).full_entry}
-        </body>
-    </text>
-</TEI>
-        """
-        )
-    return redirect(url_for('static', filename=f'temp/{unit_id}.xml'))
+@app.route('/<string:en>/dict/get_xml/<string:unit_id>', methods=['GET', 'POST'])
+def xml_entry(unit_id, en=''):
+    if en == 'en':
+        what = Units.query.get(unit_id).full_entry_en
+        header = f'''<?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/abaev.css')}"?>
+                    <?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/en.css')}"?>
+                    <?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/en_langs.css')}"?>
+                        '''
+    else:
+        what = Units.query.get(unit_id).full_entry
+        header = f'''<?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/abaev.css')}"?>
+            <?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/ru.css')}"?>
+            <?xml-stylesheet type="text/css" href="{url_for('static', filename='css/Abaev/ru_langs.css')}"?>
+                '''
+    entry_text = f"""<?xml version="1.0" encoding="UTF-8"?>
+    {header}
+    <TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:abv="http://ossetic-studies.org/ns/abaevdict" xmlns:xi="http://www.w3.org/2001/XInclude">
+        <teiHeader>
+            <fileDesc>
+                <titleStmt>
+                    <title>Abaev Dictionary: entry <hi rendition="#rend_italic">ældar</hi></title>
+                </titleStmt>
+                <publicationStmt xml:base="../pubstmt.xml"><p>Translated from Russian in 2020 by Oleg Belyaev (ed.), Irina Khomchenkova, Julia
+        Sinitsyna and Vadim Dyachkov.</p></publicationStmt>
+                <sourceDesc>
+                    <bibl xml:lang="ru"><author>Абаев, Василий Иванович</author>.
+                            <title>Историко-этимологический словарь осетинского языка</title>. Т.
+                            <biblScope unit="volume">I</biblScope>. A–Kʼ. <pubPlace>М.–Л.</pubPlace>:
+                            <publisher>Наука</publisher>, <date>1958</date>. С. <biblScope unit="page">??–??</biblScope>.</bibl>
+                </sourceDesc>
+            </fileDesc>
+            <encodingDesc xml:base="../encodingdesc.xml">
+        <tagsDecl>
+            <rendition xml:id="rend_italic" scheme="css">font-variant: italic;</rendition>
+            <rendition xml:id="rend_smallcaps" scheme="css">font-variant: small-caps;</rendition>
+            <rendition xml:id="rend_singlequotes" scheme="css" scope="q">quotes: "‘" "’";</rendition>
+            <rendition xml:id="rend_doublequotes" scheme="css" scope="q">quotes: "«" "»";</rendition>
+        </tagsDecl>
+    </encodingDesc>
+        </teiHeader>
+        <text>
+            <body>
+                {what}
+            </body>
+        </text>
+    </TEI>
+            """
+    return Response(entry_text, mimetype='text/xml')
 
 @app.route('/dict/xml_redirect/<string:xml_id>', methods=['GET', 'POST'])
 def redirect_to_entry(xml_id):
@@ -1551,9 +1615,23 @@ def redirect_to_entry(xml_id):
     else:
         return Amend.flash(f'Статьи с ID <em>{xml_id}</em> не найдено.', 'danger', url_for('search'))
 
+@app.route('/<string:en>/dict/map/<string:unit_id>', methods=['GET', 'POST'])
 @app.route('/dict/map/<string:unit_id>', methods=['GET', 'POST'])
-def map_for_entry(unit_id):
-    mentioned = {unit.target_id: (Language_assignment.query.filter_by(unit_id=unit.target_id).first().lang_id, [Meanings.query.filter_by(unit_id=unit.target_id).first().meaning for m in [1] if Meanings.query.filter_by(unit_id=unit.target_id).first() and Meanings.query.filter_by(unit_id=unit.target_id).first().meaning != None]) for unit in Unit_links.query.filter_by(unit_id=unit_id, type=2)}
+def map_for_entry(unit_id, en=''):
+    if en == 'en':
+        mentioned = {unit.target_id: (Language_assignment.query.filter_by(unit_id=unit.target_id).first().lang_id,
+                                      [Meanings.query.filter_by(unit_id=unit.target_id).first().meaning_en for m in [1] if
+                                       Meanings.query.filter_by(
+                                           unit_id=unit.target_id).first() and Meanings.query.filter_by(
+                                           unit_id=unit.target_id).first().meaning_en != None]) for unit in
+                     Unit_links.query.filter_by(unit_id=unit_id, type=2)}
+    else:
+        mentioned = {unit.target_id: (Language_assignment.query.filter_by(unit_id=unit.target_id).first().lang_id,
+                                      [Meanings.query.filter_by(unit_id=unit.target_id).first().meaning for m in [1] if
+                                       Meanings.query.filter_by(
+                                           unit_id=unit.target_id).first() and Meanings.query.filter_by(
+                                           unit_id=unit.target_id).first().meaning != None]) for unit in
+                     Unit_links.query.filter_by(unit_id=unit_id, type=2)}
 
     m = folium.Map(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
@@ -1578,8 +1656,8 @@ def map_for_entry(unit_id):
                               show=False)).add_to(clusters[Languages.query.get(mentioned.get(token)[0]).lang_en])
     # folium.LayerControl().add_to(map)
 
-    m.save("Ossetic" + url_for('static', filename=f'temp' + f"/map_{unit_id}.html"))
+    #m.save("Ossetic" + url_for('static', filename=f'temp' + f"/map_{unit_id}.html"))
     #m.save(f"map_{unit_id}.html")
-    return redirect(url_for('static', filename=f'temp/map_{unit_id}.html'))
+    return Response(m._repr_html_(), mimetype='text/html')
 
 

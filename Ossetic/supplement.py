@@ -93,9 +93,11 @@ class Amend:
         what = what.replace(r'([ \.!\?\\,\(\)\[\]\"\':;&\$^#@=\|\n]|^)', '').replace(r'([ \.!\?\\,\(\)\[\]\"\':;&\$^#@=\|\n]|$)', '')
         #where = sub(r'(-|=)', '(-|=|)', where)
         #print(what, where) #кашкаш -- не выделяет
+        if not where:
+            where = ''
         return Markup(sub(what, r"<mark class='p-0'>\1</mark>", where, flags=IGNORECASE))
 
-    def entry(self, link=True, new_window=False):
+    def entry(self, link=True, new_window=False, en=''):
         unit_id = URLSafeSerializer(app.config['SECRET_KEY'], salt='entry').dumps(self)
         if not Units.query.get(self):
             return None
@@ -108,7 +110,7 @@ class Amend:
             else:
                 add = ''
             if link:
-                entry = Markup(f"""<a href="{url_for('entry', unit_id=unit_id)}" class="link-primary"{add}>{Check.main_form(self)}</a>""")
+                entry = Markup(f"""<a href="{url_for('entry', unit_id=unit_id, en=en)}" class="link-primary"{add}>{Check.main_form(self)}</a>""")
             else:
                 entry = Markup(f"""<span class="text-dark"{add}>{Check.main_form(self)}</span>""")
         else:
@@ -151,18 +153,27 @@ class Amend:
             Mereological_labels.query.filter_by(unit_id=id).delete()
         db.session.commit()
 
-    def see_also(self):
+    def see_also(self, en=''):
         if not Unit_links.query.filter_by(unit_id=self).all():
             return ''
         result = '<ul class="list-group list-group-flush">'
         for link in Unit_links.query.filter_by(unit_id=self).order_by(Unit_links.type.asc(), Unit_links.rank.asc()).all():
             if link.type == 1:
                 if Language_assignment.query.filter_by(unit_id=link.target_id).first().lang_id == 198:
-                    type = '(дигорское)'
+                    if en == 'en':
+                        type = '(Digor)'
+                    else:
+                        type = '(дигорское)'
                 elif Language_assignment.query.filter_by(unit_id=link.target_id).first().lang_id == 199:
-                    type = '(иронское)'
+                    if en == 'en':
+                        type = '(Iron)'
+                    else:
+                        type = '(иронское)'
             elif link.type == 2:
-                type = '(упомянуто)'
+                if en == 'en':
+                    type = '(mentioned)'
+                else:
+                    type = '(упомянуто)'
             elif link.type == 3:
                 type = '(антоним)'
             elif link.type == 4:

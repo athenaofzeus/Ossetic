@@ -1,0 +1,135 @@
+{% extends 'base_en.html' %}
+{% block title %}About the project{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <nav id="about" class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+                    <span class="h4">Lexicographic resources for Ossetic</span>
+                    <nav class="nav nav-pills flex-column">
+                        <a class="nav-link active" href="#project">Project information</a>
+                        <a class="nav-link active" href="#reference">Citing the dictionary</a>
+                        <a class="nav-link active" href="#support">External support</a>
+                        <a class="nav-link active" href="#leaders">Project leader</a>
+                       <a class="nav-link active" href="#team_Russia">Team</a>
+                    </nav>
+                </nav>
+            </div>
+            <div class="col-12 col-lg-9"
+                 style="height: 120vh; overflow-y: scroll; position: relative;"
+                 tabindex="0"
+                 id="spy_about"
+                 data-bs-spy="scroll"
+                 data-bs-target="#about"
+                 data-bs-offset="200"
+            >
+                <h4 id="project">Project information</h4>
+                <p>
+                    This is the website of the project to create electronic lexicographic resources for Ossetic led by faculty members and students of the <a href="https://iling-ran.ru/web/en/departments/indo-european/iranian" class="link-primary" target="_blank">Department of Iranian Languages</a> of the Institute of Linguistics <abbr data-bs-toggle="tooltip" title="Russian Academy of Sciences">RAS</abbr> and the <a href="https://tipl.philol.msu.ru" class="link-primary" target="_blank">Department of Theoretical and Applied Linguistics</a> of Lomonosov Moscow State University.
+                </p>
+                <p>
+                    Currently, our main aim is the creation of an electronic and bilingual edition of the Historical-Etymological Dictionary of Ossetic by Vasiliy I. Abaev.
+                </p>
+                <h4 id="reference">Citing the project</h4>
+                    <p>
+                        Please cite this publication when referring to the project or the electronic dictionary:</p>
+                        <div class="card text-dark bg-light mb-3 border-1 btn-outline-dark" data-bs-toggle="tooltip" title="Нажмите, чтобы скопировать / Click to copy">
+                            <div type="button" class="card-body" data-clipboard-text="Belyaev, Oleg, Irina Khomchenkova, Julia Sinitsyna, Vadim Dyachkov. Digitizing print dictionaries using TEI: The Abaev Dictionary Project // IWCLUL 2021: The Seventh International Workshop on Computational Linguistics of Uralic Languages. Proceedings of the Workshop. Stroudsburg, USA: Association for Computational Linguistics, 2021. P. 12–19.">
+                                Belyaev, Oleg, Irina Khomchenkova, Julia Sinitsyna, Vadim Dyachkov. Digitizing print dictionaries using TEI: The Abaev Dictionary Project // IWCLUL 2021: The Seventh International Workshop on Computational Linguistics of Uralic Languages. Proceedings of the Workshop. Stroudsburg, USA: Association for Computational Linguistics, 2021. P. 12–19.
+                            </div>
+                        </div>
+                    </p>
+                <h4 id="support">External support</h4>
+                <p>
+                    The electronic dictionary and the translation of vols. 3 and 4 are supported by the Russian Science Foundation project no. 22-28-01639, <a href="https://rscf.ru/project/22-28-01639/">https://rscf.ru/project/22-28-01639/</a>.
+                </p>
+                <p>
+                    We express special gratitude to Amirkhan Torchinov, who was the original initiator of this project and continues to provide invaluable support. We are also grateful to the Ossetian community of Moscow for supporting the translation of volumes 1 and 2, as well as help in publishing their English version; specifically, we would like to thank Alexander Totoonov, Valery Dzgoev, Oleg Pukhov, Vladislav Khabliev, Ruslan Bestolov, Vitaly Daurov, Igor Dzutsev, Marina Kabolova, Vladimir Tuganov, Zoinbek Abaev, Victor Dzhioev, Vladimir Baroev and Boris Bazaev.
+                </p>
+                <h4 id="leaders">Project leader</h4>
+                <p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Oleg Belyaev
+                            </p>
+                            <span>
+                                Head of department of Iranian languages, <abbr data-bs-toggle="tooltip" title="Institute of Linguistics of the Russian Academy of Sciences">IL RAS</abbr>; associate professor, Department of Theoretical and Applied Linguistics, Lomonosov <abbr data-bs-toggle="tooltip" title="Moscow State University">MSU</abbr>. Specialist on Ossetic, East Caucasian, linguistic typology, formal syntax, one of the developers of the <a href="http://corpus.ossetic-studies.org/search/index.php?interface_language=ru">Ossetic National Corpus</a> and other linguistic databases. Leader of the RSF project no. 22-28-01639.
+                            </span>
+                        </li>
+                    </ul>
+                </p>
+                <h5 id="team_Russia">Team</h5>
+                <p>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Irina Khomchenkova
+                            </p>
+                            <span>
+                                Graduate student, Department of Theoretical and Applied Linguistics, Lomonosov <abbr data-bs-toggle="tooltip" title="Moscow State University">MSU</abbr>; research fellow, Vinogradov Russian Language Institute <abbr data-bs-toggle="tooltip" title="Russian Academy of Sciences">RAS</abbr>; junior research fellow, <abbr data-bs-toggle="tooltip" title="Institute of Linguistics of the Russian Academy of Sciences">IL RAS</abbr> (funded by RSF grant no. 22-28-01639). Interests: Ossetic grammar and lexicon, morphology and syntax of Uralic, typology of comitative constructions, lexical typology.
+                            </span>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Julia Sinitsyna
+                            </p>
+                            <span>
+                                Graduate student, Department of Theoretical and Applied Linguistics, Lomonosov <abbr data-bs-toggle="tooltip" title="Moscow State University">MSU</abbr>; junior research fellow, <abbr data-bs-toggle="tooltip" title="Institute of Linguistics of the Russian Academy of Sciences">IL RAS</abbr> (funded by RSF project no. 22-28-01639). Interests: Ossetic grammar and lexicon, morphology and syntax of Uralic, typology of comparative constructions, lexical typology. 
+                            </span>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Vadim Dyachkov
+                            </p>
+                            <span>
+                                Research fellow, Department of Applied Linguistics, <abbr data-bs-toggle="tooltip" title="Institute of Linguistics of the Russian Academy of Sciences">IL RAS</abbr>, project member of RSF grant no. 22-28-01639. Interests: Ossetic grammar and lexicon, morphology and syntax of African languages, syntax of adjectives.
+                            </span>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Anna Byzova
+                            </p>
+                            <span>
+                                Student, Department of Theoretical and Applied Linguistics, Lomonosov <abbr data-bs-toggle="tooltip" title="Moscow State University">MSU</abbr>. Interests: Ossetic grammar and lexicon, syntax of Uralic, syntax of unmarked NP dependents.
+                            </span>
+                        </li>
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Artem Badeev
+                            </p>
+                            <span>
+                                Student, <abbr data-bs-toggle="tooltip" title="Institute for Oriental and Classical Studies">IOCS</abbr>, HSE University; research assistant, Department of Iranian Languages, <abbr data-bs-toggle="tooltip" title="Institute of Linguistics of the Russian Academy of Sciences">IL RAS</abbr>. Interests: historical morphology of Iranian languages.
+                            </span>
+                        </li>                        
+                        <li class="list-group-item">
+                            <p class="h6">
+                                Yury Makarov
+                            </p>
+                            <span>
+                                Student, School of Linguistics, HSE University; research assistant, Department of Linguistic Typology, <abbr data-bs-toggle="tooltip" title="Institute of Linguistics of the Russian Academy of Sciences">IL RAS</abbr>. Administrator of the dictionary website.
+                                Interests: phonetics, phonological typology, Pamir languages.
+                            </span>
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/clipboard.js-master/dist/clipboard.min.js"></script>
+    <script>
+        var scrollSpy = new bootstrap.ScrollSpy(spy_about, {
+          target: '#about'
+        })
+        var btns = document.querySelectorAll('div');
+        var clipboard = new ClipboardJS(btns);
+
+        clipboard.on('success', function (e) {
+            console.log(e);
+        });
+
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
+    </script>
+{% endblock %}

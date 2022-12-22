@@ -5,9 +5,15 @@ from Ossetic.supplement import Amend, Check
 
 @app.route('/dict', methods=['GET', 'POST'])
 @app.route('/dict/<string:query>', methods=['GET', 'POST'])
-def search(query=''):
+@app.route('/<string:en>/dict', methods=['GET', 'POST'])
+@app.route('/<string:en>/dict/<string:query>', methods=['GET', 'POST'])
+def search(query='', en=''):
     Check.update()
     if request.method == 'GET':
+        if en == 'en':
+            return render_template("search_en.html",
+                               query=query,
+                               Languages=Languages)
         return render_template('search.html',
                                query=query,
                                Languages=Languages
@@ -25,4 +31,4 @@ def search(query=''):
         else:
             lengths = 'nl'
         query = query.replace('=', '-')
-        return redirect(url_for('results', query=query, param=param, type=type, lengths=lengths, langs=langs))
+        return redirect(url_for('results', query=query, param=param, type=type, lengths=lengths, langs=langs, en=en))

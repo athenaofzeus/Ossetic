@@ -10,12 +10,15 @@ from itsdangerous import URLSafeSerializer
 import sqlite3, os
 from urllib.parse import unquote
 
-
 @app.route('/dict/search/<string:langs>/<string:query>/<string:type>/<string:lengths>/<string:param>/',
            methods=['GET'])
 @app.route('/dict/search/<string:langs>/<string:query>/<string:type>/<string:lengths>/<string:param>/<int:page>/',
            methods=['GET'])
-def results(query, param, type, lengths, langs, page=1):
+@app.route('/<string:en>/dict/search/<string:langs>/<string:query>/<string:type>/<string:lengths>/<string:param>/',
+           methods=['GET'])
+@app.route('/<string:en>/dict/search/<string:langs>/<string:query>/<string:type>/<string:lengths>/<string:param>/<int:page>/',
+           methods=['GET'])
+def results(query, param, type, lengths, langs, page=1, en=''):
     Check.update()
     def sort_by_forms(unit_ids):
         forms = list()
@@ -28,8 +31,10 @@ def results(query, param, type, lengths, langs, page=1):
         return [int(f.split('_')[-1]) for f in forms]
 
     query = unquote(query)
-    if len(query) < 3 and type != 'full':
+    if len(query) < 3 and type != 'full' and not en:
         return Amend.flash(f'Запрос <code>{query}</code> слишком короток.', 'warning', url_for('search'))
+    elif len(query) < 3 and type != 'full' and en == 'en':
+        return Amend.flash(f'The query <code>{query}</code> is too short.', 'warning', url_for('search', en='en'))
     original_param = param
     original_query = query
     langs = tuple([int(l) for l in langs.split(',') if Languages.query.filter_by(lang_id=int(l)).first()])
@@ -54,14 +59,19 @@ def results(query, param, type, lengths, langs, page=1):
             )
             [output.update({f[0]: None}) for f in res.fetchall()]
             where_found = 'среди форм'
+            where_found_en = 'within forms'
         elif param == 'meaning':
             query = Amend.create_query(query, lengths=lengths, mapping=True, type=type, langs=langs)
+            if en == 'en':
+                area = 'meaning_en'
+            else:
+                area = 'meaning'
             res = cur.execute(
                 f'''
                 SELECT Meanings.unit_id FROM Meanings 
                 JOIN Units ON Meanings.unit_id == Units.unit_id
                 JOIN Language_assignment ON Meanings.unit_id == Language_assignment.unit_id
-                WHERE meaning REGEXP ? AND Units.status == 1 AND Language_assignment.lang_id IN {langs}
+                WHERE {area} REGEXP ? AND Units.status == 1 AND Language_assignment.lang_id IN {langs}
                 ''',
                 [(query)]
             )
@@ -73,6 +83,7 @@ def results(query, param, type, lengths, langs, page=1):
                 else:
                     output.add(r)
             where_found = 'среди значений'
+            where_found_en = 'within senses'
         elif param == 'example':
             query = Amend.create_query(query, lengths=lengths, mapping=True, type=type, langs=langs)
             res = cur.execute(
@@ -88,6 +99,7 @@ def results(query, param, type, lengths, langs, page=1):
             )
             [output.update({f[0]: None}) for f in res.fetchall()]
             where_found = 'среди примеров'
+            where_found_en = 'within examples'
         elif param == 'idioms':
             query, alternant = Amend.create_query(query, lengths=lengths, mapping=True, type=type, langs=langs)
             res = cur.execute(
@@ -100,7 +112,8 @@ def results(query, param, type, lengths, langs, page=1):
                 [(query)]
             )
             [output.update({f[0]: None}) for f in res.fetchall()]
-            where_found = 'среди идиом и устойчивых сочетаний'
+            where_found = 'среди идиом и дериватов'
+            where_found_en = 'within idioms and derivates'
         elif param == 'cvs':
             query, alternant = Amend.create_query(query, lengths=lengths, mapping=True, type=type, langs=langs)
             res = cur.execute(
@@ -114,38 +127,56 @@ def results(query, param, type, lengths, langs, page=1):
             )
             [output.update({f[0]: None}) for f in res.fetchall()]
             where_found = 'среди сложных глаголов'
+            where_found_en = 'within compound verbs'
         elif param == 'full_entry':
             query = Amend.create_query(query, lengths=lengths, mapping=True, type=type, langs=langs)
+            if en == 'en':
+                area = 'full_entry_en'
+            else:
+                area = 'full_entry'
             res = cur.execute(
                 f'''
                 SELECT Units.unit_id FROM Units 
                 JOIN Language_assignment ON Units.unit_id == Language_assignment.unit_id
-                WHERE full_entry REGEXP ? and parent_id IS NULL AND Units.status == 1
+                WHERE {area} REGEXP ? and parent_id IS NULL AND Units.status == 1
                 AND Language_assignment.lang_id IN {langs}
                 ''',
                 [(query)]
             )
             [output.update({f[0]: None}) for f in res.fetchall()]
             where_found = 'среди полного текста статей'
+            where_found_en = 'within original entry texts'
         if type == 'full':
             type_message = '(указано слово целиком) '
+            type_message_en = '(the query is a complete word) '
         elif type == 'sub':
             type_message = ''
+            type_message_en = ''
         if lengths == 'l':
             lengths_message = '; диакритики из запроса учтены'
+            lengths_message_en = '; diacritics matter'
         elif lengths == 'nl' and original_param == 'shughni':
             lengths_message = '; диакритики из запроса <b>не</b>&nbsp;учтены'
+            lengths_message_en = '; diacritics <b>do not</b>&nbsp;matter'
         else:
             lengths_message = ''
+            lengths_message_en = ''
         languages = ', '.join({Languages.query.get(l).lang_en for l in langs if Languages.query.filter_by(lang_id=l).first()})
         ortho_message = f'<br><span>Языки: {languages}.</span>'
+        ortho_message_en = f'<br><span>Languages: {languages}.</span>'
         message = f'''<span>Результаты поиска по запросу <code>{original_query}</code> 
         {type_message}{where_found}{lengths_message}.{ortho_message}'''
-        if not output:
+        message_en = f'''<span>Results for the query <code>{original_query}</code> 
+                {type_message_en}{where_found_en}{lengths_message_en}.{ortho_message_en}'''
+        if not output and not en:
             return Amend.flash(f'По запросу <code>{original_query}</code> {type_message}{where_found} \
             ничего не найдено{lengths_message}.{ortho_message}', 'warning', url_for('search'))
+        elif not output and en == 'en':
+            return Amend.flash(f'The query <code>{original_query}</code> {type_message_en}{where_found_en} \
+            has yielded no results{lengths_message_en}.{ortho_message_en}', 'warning', url_for('search', en='en'))
         output = sort_by_forms(output)
         message += f'<hr><span>Количество найденных лексем&nbsp;— {len(output)}.<span>'
+        message_en += f'<hr><span>Lexemes found: {len(output)}.<span>'
         if ceil(len(output) / 20) < page and len(output) > 20:
             return Check.page()
         if len(output) > page*20:
@@ -160,7 +191,37 @@ def results(query, param, type, lengths, langs, page=1):
                          'has_next': has_next,
                          'has_prev': has_prev
                          }
-        return render_template('results_page.html',
+        if en == 'en':
+            return render_template('results_page_en.html',
+                               unit_ids=page_of_units.get('units'),
+                               param=param,
+                               type=type,
+                               lengths=lengths,
+                               original_query=original_query,
+                               query=query,
+                               page_of_units=page_of_units,
+                               page=page,
+                               message=message_en,
+                               Markup=Markup,
+                               Forms=Forms,
+                               Units=Units,
+                               Check=Check,
+                               Glosses=Glosses,
+                               Label_names=Label_names,
+                               Grammar_labels=Grammar_labels,
+                               Parts_of_speech=Parts_of_speech,
+                               app=app,
+                               URLSafeSerializer=URLSafeSerializer,
+                               Entry_logs=Entry_logs,
+                               Examples=Examples,
+                               Meanings=Meanings,
+                               Amend=Amend,
+                               Languages=Languages,
+                               Language_assignment=Language_assignment,
+                               langs=','.join([str(l) for l in langs])
+                               )
+        else:
+            return render_template('results_page.html',
                                unit_ids=page_of_units.get('units'),
                                param=param,
                                type=type,

@@ -1,0 +1,62 @@
+{% extends "base_en.html" %}
+{% block title %}Language index{% endblock %}
+{% block content %}
+    <div class="container mb-2">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Language</th>
+                        <th scope="col">Glottocode</th>
+                        <th scope="col">ISO</th>
+                        <th scope="col">Latitude</th>
+                        <th scope="col">Longitude</th>
+                        <th scope="col">Number of entries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lang in langs %}
+                            <tr>
+                                <th scope="row">{{ lang.lang_id }}</th>
+                                <td>
+                                    <a href="{{ url_for('language', lang_id=lang.lang_id, en='en') }}" class="link-primary">{{ lang.lang_en }}</a>
+                                </td>
+                                <td>
+                                    {{ lang.glottocode }}
+                                </td>
+                                <td>
+                                    {{ lang.ISO }}
+                                </td>
+                                <td>
+                                    {{ lang.latitude }}
+                                </td>
+                                <td>
+                                    {{ lang.longitude }}
+                                </td>
+                                <td>
+                                    {{ Check.len(Language_assignment.query.filter_by(lang_id=lang.lang_id).all()) }}
+                                </td>
+                            </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if items.has_prev or items.has_next %}
+            <div class="container text-center">
+                <div class="row justify-content-center">
+                    {% if items.has_prev %}
+                        <div class="col-4">
+                            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('languages', page=items.prev_num, en='en') }}">Back</a>
+                        </div>
+                    {% endif %}
+                    {% if items.has_next %}
+                        <div class="col-4">
+                            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('languages', page=items.next_num, en='en') }}">Forward</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

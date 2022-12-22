@@ -97,8 +97,7 @@
                             <option selected value="forms">форм</option>
                             <option value="meaning">значений</option>
                             <option value="example">примеров</option>
-                            <option value="idioms">идиом и устойчивых сочетаний</option>
-                            <option value="cvs">сложных глаголов</option>
+                            <option value="idioms">идиом и дериватов</option>
                             <option value="full_entry">оригинальных текстов статей</option>
                         </select>
                     </div>
@@ -115,108 +114,7 @@
                     </div>
                 </div>
             </form>
-        </div><!--
-        <div class="container mb-2">
-            <div class="h5 text-center">
-                Вопросы и ответы
-            </div>
-            <div class="accordion" id="guide">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingNotation">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Notation" aria-expanded="false" aria-controls="Notation">
-                            Что это за словарь? Как он устроен?
-                        </button>
-                    </h2>
-                    <div id="Notation" class="accordion-collapse collapse" aria-labelledby="headingNotation" data-bs-parent="#guide">
-                        <div class="accordion-body">
-                            <p>
-                                На данный момент, помимо авторских статей, на сайт выгружен «Шугнанско-русский словарь» Д. Карамшоева
-                                и «Рушанские и хуфские тексты и словарь» В. С. Соколовой.
-                                Информация об устройстве словаря Д.&nbsp;Карамшоева и список условных сокращений доступны в разделе
-                                <a href="{{ url_for('static', filename='Карамшоев.pdf') }}" target="_blank" class="link-primary">здесь</a>,
-                                для словаря В. С. Соколовой — <a href="{{ url_for('static', filename='Соколова.pdf') }}" target="_blank" class="link-primary">здесь</a>.
-                            </p>
-                            <span>
-                                Обратите внимание, что редакция проекта может вносить правки в словарные статьи.
-                                В таких случаях статья помечается с помощью значка
-                                <span class="col-auto badge bg-warning text-dark mx-1"
-                                      data-bs-toggle="tooltip"
-                                      title="Редакция проекта внесла правки в эту статью.
-                                      Оригинальная версия доступна в разделе «Оригинальный текст статьи»">
-                                    Изменено редакцией
-                                </span>, а текст статьи, соответстсвующий источнику, остаётся доступным в разделе
-                                «Оригинальный текст статьи».
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingRegister">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#register" aria-expanded="false" aria-controls="register">
-                            Можно ли игнорировать диакритики и регистр в запросах?
-                        </button>
-                    </h2>
-                    <div id="register" class="accordion-collapse collapse" aria-labelledby="headingRegister" data-bs-parent="#guide">
-                        <div class="accordion-body">
-                            <p>Поисковый запрос нечувствителен к регистру. Символы <mark>-</mark> и <mark>=</mark> не различаются.</p>
-                            <span>В запросах можно игнорировать диакритики для всех специальных символов (см. выше).
-                                По умолчанию будут найдены все словарные статьи, где в запросе <mark>х̌ӯвд</mark> на месте <mark>ӯ</mark> есть, например,
-                                и <mark>ӯ</mark>, и <mark>у̊</mark>, и <mark>у</mark>, а на месте <mark>х̌</mark>&nbsp;— и <mark>ӽ</mark>, и <mark>х̌</mark>, и <mark>х</mark>.
-                                Чтобы отключить это, выберите опцию <mark>Указаны все диакритики</mark>.
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOrpho">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Orpho" aria-expanded="false" aria-controls="Orpho">
-                            В какой орфографии можно делать запросы?
-                        </button>
-                    </h2>
-                    <div id="Orpho" class="accordion-collapse collapse" aria-labelledby="headingOrpho" data-bs-parent="#guide">
-                        <div class="accordion-body">
-                            <span>
-                                Вы можете использовать в запросе орфографию проекта, а также орфографию словаря
-                                Карамшоева. Алгоритм определит орфографию автоматически (вы можете отследить его
-                                выбор в верху страницы с результатами).
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFullWord">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#FullWord" aria-expanded="false" aria-controls="FullWord">
-                            Что такое «Указано слово целиком»?
-                        </button>
-                    </h2>
-                    <div id="FullWord" class="accordion-collapse collapse" aria-labelledby="headingFullWord" data-bs-parent="#guide">
-                        <div class="accordion-body">
-                            <p>
-                                Если вы ищете с этим параметром, то алгоритм подберёт лишь те статьи, в которых
-                                указанный запрос — отдельное слово. Без этого параметра на странице результатов будут
-                                и частичные совпадения запроса и слов из зон поиска.
-                            </p>
-                            <span>
-                                Без этого параметра минимальная длина запроса — три символа.
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingZones">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Reference" aria-expanded="false" aria-controls="Reference">
-                            Как ссылаться на словарь?
-                        </button>
-                    </h2>
-                    <div id="Reference" class="accordion-collapse collapse" aria-labelledby="headingZones" data-bs-parent="#guide">
-                        <div class="accordion-body">
-                            <span>Пожалуйста, для ссылки на словарь используйте <a class="link-primary" href="{{ url_for('about', _anchor='reference') }}">данные</a>, указанные на странице «О проекте».</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </div>-->
     <datalist id="autocomplete"></datalist>
     <script src="/static/js/clipboard.js-master/dist/clipboard.min.js"></script>
     <script>
