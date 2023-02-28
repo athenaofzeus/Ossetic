@@ -7,7 +7,7 @@
 @namespace tei "http://www.tei-c.org/ns/1.0";
 @namespace abv "http://ossetic-studies.org/ns/abaevdict";
 
-tei|*, abv|* {orphans: 2; widows: 3;}
+tei|*, abv|* {orphans: 2; widows: 3; line-height: 1.8;}
 
 oxy|doctype {
     display:block !important;
@@ -41,7 +41,7 @@ tei|q::after {content: "’";}
 
 tei|teiHeader {display: none}
 
-tei|entry {display: block; text-indent: -1.5em; margin-left:1.5em;}
+tei|entry {display: block; text-indent: -1.5em; margin-left:1.5em; margin-right: 1rem;}
 tei|entry[n]:before {content: attr(n); vertical-align: super; font-size: .7em;}
 tei|entry ~ tei|entry {margin-top: 5px}
 

@@ -7,7 +7,7 @@
                 <caption class="caption caption-top">Vocabulary index for the language {{ Languages.query.get(lang_id).lang_en }}</caption>
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <!-- <th scope="col">ID</th> -->
                         <th scope="col">Word</th>
                         <th scope="col">Mentioned in</th>
                     </tr>
@@ -15,7 +15,7 @@
                 <tbody>
                     {% for unit in units %}
                             <tr>
-                                <th scope="row">{{ unit.unit_id }}</th>
+                                <!-- <th scope="row">{{ unit.unit_id }}</th> -->
                                 <td>
                                     {{ Amend.entry(unit.unit_id, new_window=True, en='en') }}
                                 </td>
